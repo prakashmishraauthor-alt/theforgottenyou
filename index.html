@@ -8,7 +8,7 @@
 <style>
 
 /* =========================
-RESET + BASE
+PREMIUM DESIGN SYSTEM
 ========================= */
 
 *{
@@ -18,19 +18,21 @@ box-sizing:border-box;
 }
 
 :root{
---bg:#050814;
---bg2:#0B1026;
+--bg1:#04060F;
+--bg2:#070B1C;
 --card:rgba(255,255,255,.06);
+--card2:rgba(255,255,255,.09);
 --text:#EDEDED;
 --muted:#B8B8B8;
---gold:#E6C36A;
+--gold:#E7C46A;
 --gold2:#C9A24E;
 --accent:#6C63FF;
+--shadow:0 20px 60px rgba(0,0,0,.5);
 }
 
 body{
 font-family:Inter,system-ui,sans-serif;
-background:radial-gradient(circle at top,#0B1026,#050814 60%);
+background:radial-gradient(circle at top,#0B1026,#04060F 60%);
 color:var(--text);
 overflow-x:hidden;
 line-height:1.6;
@@ -44,19 +46,22 @@ h1,h2,h3{
 font-family:"Cormorant Garamond",serif;
 font-weight:600;
 color:var(--gold);
+letter-spacing:.3px;
 }
 
 p{
 color:var(--muted);
 font-size:1.05rem;
+line-height:1.8;
 }
 
 /* =========================
-LAYOUT
+LAYOUT SYSTEM
 ========================= */
 
 section{
-padding:120px 8%;
+padding:130px 8%;
+position:relative;
 }
 
 .container{
@@ -65,7 +70,7 @@ margin:auto;
 }
 
 /* =========================
-NAVIGATION
+NAVIGATION (GLASS PREMIUM)
 ========================= */
 
 nav{
@@ -76,15 +81,16 @@ padding:18px 8%;
 display:flex;
 justify-content:space-between;
 align-items:center;
-background:rgba(5,8,20,.55);
-backdrop-filter:blur(14px);
+background:rgba(4,6,15,.55);
+backdrop-filter:blur(16px);
+border-bottom:1px solid rgba(255,255,255,.06);
 z-index:1000;
-border-bottom:1px solid rgba(255,255,255,.05);
 }
 
 .logo{
 font-size:26px;
-letter-spacing:1px;
+color:var(--gold);
+font-family:"Cormorant Garamond",serif;
 }
 
 .nav-links a{
@@ -99,7 +105,7 @@ color:var(--gold);
 }
 
 /* =========================
-HERO
+HERO (CINEMATIC)
 ========================= */
 
 .hero{
@@ -107,74 +113,75 @@ height:100vh;
 display:flex;
 align-items:center;
 justify-content:center;
+flex-direction:column;
 text-align:center;
 position:relative;
-flex-direction:column;
 padding:0 6%;
 }
 
 .hero h1{
-font-size:4.5rem;
-line-height:1.1;
+font-size:5rem;
+line-height:1.05;
 }
 
 .hero p{
-max-width:700px;
-margin:20px auto;
+max-width:720px;
+margin:25px auto;
 font-size:1.2rem;
 }
 
 .hero-badge{
-padding:10px 20px;
-border:1px solid rgba(230,195,106,.3);
+padding:10px 22px;
 border-radius:50px;
+border:1px solid rgba(231,196,106,.25);
 background:rgba(255,255,255,.03);
-margin-bottom:20px;
 font-size:12px;
 letter-spacing:3px;
 color:var(--gold);
+margin-bottom:20px;
 }
 
 /* =========================
-GLOW ORBS
+GLOW ORBS (SOFT CINEMATIC)
 ========================= */
 
 .orb{
 position:absolute;
 border-radius:50%;
-filter:blur(120px);
-opacity:.6;
+filter:blur(140px);
+opacity:.5;
 }
 
 .orb1{
-width:300px;height:300px;
+width:320px;height:320px;
 background:var(--gold);
-left:-120px;top:20%;
+left:-140px;top:20%;
 }
 
 .orb2{
-width:350px;height:350px;
-background:#4C4BFF;
-right:-150px;bottom:-100px;
+width:380px;height:380px;
+background:#4B5BFF;
+right:-160px;bottom:-120px;
 }
 
 /* =========================
-BUTTONS
+BUTTON SYSTEM (PREMIUM)
 ========================= */
 
 .btn{
 display:inline-block;
-padding:14px 28px;
+padding:15px 32px;
 border-radius:50px;
 text-decoration:none;
 margin:10px;
-transition:.3s;
 font-weight:600;
+transition:.3s;
 }
 
 .primary{
 background:var(--gold);
-color:#0B1026;
+color:#04060F;
+box-shadow:0 10px 30px rgba(231,196,106,.25);
 }
 
 .primary:hover{
@@ -186,57 +193,57 @@ border:1px solid var(--gold);
 color:var(--gold);
 }
 
+.secondary:hover{
+background:rgba(231,196,106,.08);
+}
+
 /* =========================
-SECTIONS
+CARDS (GLASS PREMIUM)
 ========================= */
 
-.forgotten-section{
-background:#070A1A;
-text-align:center;
-}
-
-.mirror-section{
-background:linear-gradient(180deg,#050814,#0B1026);
-text-align:center;
-}
-
-.question-container{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-gap:25px;
-margin-top:50px;
-}
-
+.card,
+.discover-card,
+.testimonial-card,
 .question-card{
 background:var(--card);
-padding:30px;
-border-radius:18px;
-backdrop-filter:blur(12px);
+backdrop-filter:blur(14px);
+border-radius:20px;
+padding:40px;
+transition:.3s;
+border:1px solid rgba(255,255,255,.04);
+}
+
+.card:hover,
+.discover-card:hover,
+.testimonial-card:hover{
+transform:translateY(-8px);
+border:1px solid rgba(231,196,106,.4);
+box-shadow:var(--shadow);
 }
 
 /* =========================
-BOOK SECTION
+BOOK SHOWCASE (3D PREMIUM)
 ========================= */
 
 .book-showcase{
 display:flex;
 justify-content:center;
 align-items:center;
-perspective:1500px;
 padding:120px 20px;
+perspective:1600px;
 }
 
 .book-3d{
-width:300px;
-height:450px;
+width:310px;
+height:460px;
 transform-style:preserve-3d;
-transform:rotateY(-28deg) rotateX(6deg);
+transform:rotateY(-26deg) rotateX(6deg);
 animation:floatBook 6s ease-in-out infinite;
 transition:.4s;
 }
 
 .book-3d:hover{
-transform:rotateY(-15deg) translateY(-10px);
+transform:rotateY(-14deg) translateY(-10px);
 }
 
 .book-front{
@@ -244,8 +251,9 @@ position:absolute;
 width:100%;
 height:100%;
 transform:translateZ(25px);
-border-radius:6px;
+border-radius:8px;
 overflow:hidden;
+box-shadow:0 40px 90px rgba(0,0,0,.55);
 }
 
 .book-front img{
@@ -256,29 +264,29 @@ object-fit:cover;
 
 .book-spine{
 position:absolute;
-left:-24px;
-width:48px;
+left:-26px;
+width:52px;
 height:100%;
-background:linear-gradient(to right,#111,#333,#111);
-transform:rotateY(-90deg) translateZ(24px);
+background:linear-gradient(to right,#111,#2a2a2a,#111);
+transform:rotateY(-90deg) translateZ(26px);
 }
 
 .book-pages{
 position:absolute;
-right:-24px;
-width:48px;
+right:-26px;
+width:52px;
 height:100%;
-background:repeating-linear-gradient(#f5f5f5,#eee 2px);
-transform:rotateY(90deg) translateZ(275px);
+background:repeating-linear-gradient(#f5f5f5,#ececec 2px);
+transform:rotateY(90deg) translateZ(280px);
 }
 
 @keyframes floatBook{
-0%,100%{transform:rotateY(-28deg) translateY(0)}
-50%{transform:rotateY(-28deg) translateY(-15px)}
+0%,100%{transform:rotateY(-26deg) translateY(0)}
+50%{transform:rotateY(-26deg) translateY(-14px)}
 }
 
 /* =========================
-DISCOVER / GRID
+GRID SYSTEMS
 ========================= */
 
 .discover-grid,
@@ -289,56 +297,43 @@ grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
 gap:30px;
 }
 
-.discover-card,
-.testimonial-card{
-background:var(--card);
-padding:40px;
-border-radius:20px;
-transition:.3s;
-backdrop-filter:blur(12px);
-}
-
-.discover-card:hover,
-.testimonial-card:hover{
-transform:translateY(-8px);
-border:1px solid var(--gold);
-}
-
 /* =========================
-FINAL CTA
+FINAL CTA (HIGH IMPACT)
 ========================= */
 
 .final-cta{
 text-align:center;
-padding:160px 8%;
-background:linear-gradient(135deg,#050814,#0B1026);
+padding:170px 8%;
+background:radial-gradient(circle at top,#0B1026,#04060F);
 }
 
 .final-cta h2{
-font-size:4rem;
+font-size:4.5rem;
+line-height:1.1;
 }
 
 .final-cta p{
 max-width:700px;
 margin:auto;
 margin-bottom:40px;
+font-size:1.2rem;
 }
 
 /* =========================
-BOOK BUTTONS
+BUTTON GROUP
 ========================= */
 
 .book-buttons{
 display:flex;
 gap:20px;
-flex-wrap:wrap;
 justify-content:center;
+flex-wrap:wrap;
 }
 
 .gold-btn{
 background:var(--gold);
-color:#0B1026;
-padding:16px 35px;
+color:#04060F;
+padding:16px 38px;
 border-radius:50px;
 text-decoration:none;
 font-weight:600;
@@ -346,13 +341,13 @@ font-weight:600;
 
 .glass-btn{
 border:1px solid rgba(255,255,255,.25);
-padding:16px 35px;
+padding:16px 38px;
 border-radius:50px;
 color:white;
 }
 
 /* =========================
-WHATSAPP
+WHATSAPP FLOAT
 ========================= */
 
 .whatsapp-btn{
@@ -364,17 +359,18 @@ color:white;
 padding:14px 20px;
 border-radius:50px;
 z-index:9999;
+box-shadow:0 10px 30px rgba(37,211,102,.25);
 }
 
 /* =========================
-MOBILE OPTIMIZATION
+MOBILE FIRST OPTIMIZATION
 ========================= */
 
 @media(max-width:768px){
 
 section{padding:80px 6%}
 
-.hero h1{font-size:2.6rem}
+.hero h1{font-size:2.6rem;line-height:1.1}
 
 .hero p{font-size:1rem}
 
@@ -383,8 +379,8 @@ section{padding:80px 6%}
 .final-cta h2{font-size:2.4rem}
 
 .book-3d{
-width:220px;
-height:340px;
+width:230px;
+height:350px;
 }
 
 .book-showcase{
