@@ -252,30 +252,115 @@ margin-top:5px;
 BOOK SECTION (SIMPLIFIED)
 ========================= */
 
-.book-showcase{
-display:flex;
-justify-content:center;
-align-items:center;
-padding:100px 6%;
+/* =========================
+   BOOK SHOWCASE TITLE
+========================= */
+
+.book-showcase {
+    text-align: center;
+    padding: 100px 8%;
+    background: #141414;
 }
 
-.book-3d{
-width:260px;
-height:380px;
-border-radius:8px;
-overflow:hidden;
-box-shadow:var(--shadow);
-transition:.3s;
+.book-showcase h2 {
+    margin-bottom: 60px;
+    font-size: 32px;
 }
 
-.book-3d:hover{
-transform:scale(1.05);
+/* =========================
+   3D BOOK WRAPPER
+========================= */
+
+.book-3d {
+    width: 220px;
+    height: 320px;
+    margin: auto;
+    position: relative;
+    transform-style: preserve-3d;
+    transform: rotateY(-20deg);
+    transition: 0.5s;
 }
 
-.book-3d img{
-width:100%;
-height:100%;
-object-fit:cover;
+.book-3d:hover {
+    transform: rotateY(0deg) scale(1.05);
+}
+
+/* =========================
+   FRONT COVER
+========================= */
+
+.book-front {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: #222;
+    border-radius: 6px;
+    overflow: hidden;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.6);
+    transform: translateZ(15px);
+}
+
+.book-front img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* =========================
+   SPINE (VISIBLE SIDE EDGE)
+========================= */
+
+.book-spine {
+    position: absolute;
+    width: 30px;
+    height: 100%;
+    left: -15px;
+    background: linear-gradient(to right, #111, #333, #111);
+    transform: rotateY(90deg) translateZ(15px);
+    border-radius: 3px;
+}
+
+/* =========================
+   PAGES (IMPORTANT FIX)
+========================= */
+
+.book-pages {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: #f2f2f2;
+    transform: translateZ(0px);
+    border-radius: 6px;
+    box-shadow: inset 0 0 10px rgba(0,0,0,0.2);
+}
+
+/* PAGE EDGE LINES (GIVES REAL BOOK FEEL) */
+.book-pages::before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: repeating-linear-gradient(
+        to bottom,
+        #e6e6e6,
+        #e6e6e6 2px,
+        #f7f7f7 2px,
+        #f7f7f7 6px
+    );
+    opacity: 0.4;
+}
+
+/* =========================
+   BACK COVER (DEPTH)
+========================= */
+
+.book-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: #111;
+    transform: translateZ(-15px);
+    border-radius: 6px;
 }
 
 /* =========================
@@ -383,6 +468,92 @@ font-size:2.2rem;
 
 }
 
+  /* =========================
+   STARTER KIT SECTION
+========================= */
+
+.starter-kit {
+    padding: 100px 8%;
+    text-align: center;
+    background: #0f0f0f;
+}
+
+.starter-kit h2 {
+    font-size: 32px;
+    margin-bottom: 40px;
+}
+
+.kit-box {
+    max-width: 800px;
+    margin: auto;
+    background: linear-gradient(145deg, #1a1a1a, #111);
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+}
+
+.kit-box p {
+    color: #ccc;
+    font-size: 18px;
+    line-height: 1.7;
+}
+
+.kit-btn {
+    margin-top: 25px;
+    padding: 12px 25px;
+    background: #ffcc70;
+    border: none;
+    cursor: pointer;
+    font-weight: bold;
+    border-radius: 6px;
+    transition: 0.3s;
+}
+
+.kit-btn:hover {
+    background: #ffb733;
+}
+
+  /* =========================
+   FOOTER
+========================= */
+
+.footer {
+    background: #000;
+    padding: 60px 8%;
+    text-align: center;
+    border-top: 1px solid #222;
+}
+
+.footer-content h3 {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.footer-content p {
+    color: #aaa;
+    margin-bottom: 20px;
+}
+
+.footer-links {
+    margin-bottom: 20px;
+}
+
+.footer-links a {
+    color: #fff;
+    margin: 0 12px;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.footer-links a:hover {
+    color: #ffcc70;
+}
+
+.copyright {
+    font-size: 13px;
+    color: #666;
+}
+
 </style>
 </head>
 <body>
@@ -444,10 +615,26 @@ font-size:2.2rem;
 </section>
 
 <!-- BOOK SHOWCASE -->
-<section class="book-showcase">
-  <div class="book-3d">
-    <img src="Book cover.png" alt="The Forgotten You">
-  </div>
+<section id="book" class="book-showcase">
+    <h2>Book</h2>
+
+    <div class="book-3d">
+
+        <!-- FRONT COVER -->
+        <div class="book-front">
+            <img src="book cover.png" alt="The Forgotten You">
+        </div>
+
+        <!-- SPINE -->
+        <div class="book-spine"></div>
+
+        <!-- PAGES -->
+        <div class="book-pages"></div>
+
+        <!-- BACK COVER (optional realism) -->
+        <div class="book-back"></div>
+
+    </div>
 </section>
 
 <!-- GUIDE / AUTHOR -->
@@ -550,21 +737,17 @@ font-size:2.2rem;
 </section>
 
 <!-- STARTER KIT -->
-<section class="row-section">
+<section class="starter-kit">
+    <h2>Self-Mastery Starter Kit</h2>
 
-  <h2 class="section-title">Free Starter Kit</h2>
+    <div class="kit-box">
+        <p>
+            A guided system designed to help you break limitations, build clarity,
+            and step into your highest version of self.
+        </p>
 
-  <div class="card">
-    <div class="card-content">
-      <p>Get tools to reconnect with your Original Self.</p>
-
-      <form class="starterkit-form">
-        <input type="email" placeholder="Enter email">
-        <button type="submit">Get Free Kit</button>
-      </form>
+        <button class="kit-btn">Get Starter Kit</button>
     </div>
-  </div>
-
 </section>
 
 <!-- WHATSAPP -->
@@ -572,18 +755,20 @@ font-size:2.2rem;
 
 <!-- FOOTER -->
 <footer class="footer">
-  <div class="footer-logo">THE FORGOTTEN YOU</div>
-  <p>A journey back to your Original Self</p>
+    <div class="footer-content">
+        <h3>The Forgotten You</h3>
+        <p>Not a book you read… but a truth you remember.</p>
 
-  <div class="footer-links">
-    <a href="#">About</a>
-    <a href="#">Contact</a>
-    <a href="#">Privacy</a>
-  </div>
+        <div class="footer-links">
+            <a href="#journey">Journey</a>
+            <a href="#guide">Author</a>
+            <a href="#book">Book</a>
+        </div>
 
-  <div class="copyright">
-    © 2026 The Forgotten You
-  </div>
+        <p class="copyright">
+            © 2026 The Forgotten You. All rights reserved.
+        </p>
+    </div>
 </footer>
 
 </body>
