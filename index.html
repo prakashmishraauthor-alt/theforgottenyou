@@ -601,6 +601,49 @@ footer {
     font-size: 13px;
     color: rgba(255,255,255,0.6);
 }
+
+   /* AUTHOR SECTION BASE */
+.author-section {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 60px;
+
+    padding: 100px 8%;
+}
+
+/* TEXT SIDE */
+.author-content {
+    flex: 1;
+    color: white;
+}
+
+/* IMAGE SIDE */
+.author-image {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* IMAGE FIX */
+.author-image img {
+    width: 100%;
+    max-width: 380px;
+    height: auto;
+
+    border-radius: 18px;
+    object-fit: cover;
+
+    box-shadow: 0 20px 50px rgba(0,0,0,0.6);
+
+    transition: transform 0.3s ease;
+}
+
+/* hover effect (desktop only feel) */
+.author-image img:hover {
+    transform: scale(1.03);
+}
 </style>
 </head>
 <body>
