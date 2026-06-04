@@ -7,8 +7,10 @@
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
 
+<style>
+
 /* =========================
-PREMIUM DESIGN SYSTEM
+NETFLIX-STYLE DESIGN SYSTEM
 ========================= */
 
 *{
@@ -18,50 +20,29 @@ box-sizing:border-box;
 }
 
 :root{
---bg1:#04060F;
---bg2:#070B1C;
---card:rgba(255,255,255,.06);
---card2:rgba(255,255,255,.09);
---text:#EDEDED;
---muted:#B8B8B8;
---gold:#E7C46A;
---gold2:#C9A24E;
---accent:#6C63FF;
---shadow:0 20px 60px rgba(0,0,0,.5);
+--bg:#0B0B0F;
+--bg2:#14141C;
+--card:#1C1C25;
+--text:#FFFFFF;
+--muted:#B5B5B5;
+--accent:#E50914;
+--shadow:0 20px 60px rgba(0,0,0,.6);
 }
 
 body{
-font-family:Inter,system-ui,sans-serif;
-background:radial-gradient(circle at top,#0B1026,#04060F 60%);
+font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif;
+background:var(--bg);
 color:var(--text);
 overflow-x:hidden;
 line-height:1.6;
 }
 
 /* =========================
-TYPOGRAPHY
-========================= */
-
-h1,h2,h3{
-font-family:"Cormorant Garamond",serif;
-font-weight:600;
-color:var(--gold);
-letter-spacing:.3px;
-}
-
-p{
-color:var(--muted);
-font-size:1.05rem;
-line-height:1.8;
-}
-
-/* =========================
-LAYOUT SYSTEM
+LAYOUT
 ========================= */
 
 section{
-padding:130px 8%;
-position:relative;
+padding:90px 6%;
 }
 
 .container{
@@ -70,253 +51,278 @@ margin:auto;
 }
 
 /* =========================
-NAVIGATION (GLASS PREMIUM)
+NAVBAR (NETFLIX STYLE)
 ========================= */
 
 nav{
 position:fixed;
 top:0;
 width:100%;
-padding:18px 8%;
 display:flex;
 justify-content:space-between;
 align-items:center;
-background:rgba(4,6,15,.55);
-backdrop-filter:blur(16px);
-border-bottom:1px solid rgba(255,255,255,.06);
+padding:16px 6%;
+background:linear-gradient(to bottom,rgba(0,0,0,.9),transparent);
 z-index:1000;
 }
 
 .logo{
 font-size:26px;
-color:var(--gold);
-font-family:"Cormorant Garamond",serif;
+font-weight:700;
+color:var(--accent);
+letter-spacing:1px;
 }
 
 .nav-links a{
 color:var(--text);
 text-decoration:none;
-margin-left:25px;
+margin-left:20px;
+opacity:.8;
 transition:.3s;
 }
 
 .nav-links a:hover{
-color:var(--gold);
+opacity:1;
 }
 
 /* =========================
-HERO (CINEMATIC)
+HERO (NETFLIX CINEMATIC)
 ========================= */
 
 .hero{
 height:100vh;
 display:flex;
-align-items:center;
-justify-content:center;
 flex-direction:column;
-text-align:center;
-position:relative;
+justify-content:center;
 padding:0 6%;
+background:
+linear-gradient(to top, #0B0B0F 10%, transparent 60%),
+url('images/hero.jpg');
+background-size:cover;
+background-position:center;
+position:relative;
 }
 
 .hero h1{
-font-size:5rem;
-line-height:1.05;
+font-size:4.2rem;
+font-weight:800;
+line-height:1.1;
+max-width:800px;
 }
 
 .hero p{
-max-width:720px;
-margin:25px auto;
-font-size:1.2rem;
-}
-
-.hero-badge{
-padding:10px 22px;
-border-radius:50px;
-border:1px solid rgba(231,196,106,.25);
-background:rgba(255,255,255,.03);
-font-size:12px;
-letter-spacing:3px;
-color:var(--gold);
-margin-bottom:20px;
+max-width:600px;
+margin-top:20px;
+font-size:1.1rem;
+color:var(--muted);
 }
 
 /* =========================
-GLOW ORBS (SOFT CINEMATIC)
-========================= */
-
-.orb{
-position:absolute;
-border-radius:50%;
-filter:blur(140px);
-opacity:.5;
-}
-
-.orb1{
-width:320px;height:320px;
-background:var(--gold);
-left:-140px;top:20%;
-}
-
-.orb2{
-width:380px;height:380px;
-background:#4B5BFF;
-right:-160px;bottom:-120px;
-}
-
-/* =========================
-BUTTON SYSTEM (PREMIUM)
+BUTTONS (NETFLIX STYLE)
 ========================= */
 
 .btn{
 display:inline-block;
-padding:15px 32px;
-border-radius:50px;
+padding:12px 24px;
+border-radius:4px;
 text-decoration:none;
-margin:10px;
 font-weight:600;
 transition:.3s;
+margin-right:10px;
 }
 
 .primary{
-background:var(--gold);
-color:#04060F;
-box-shadow:0 10px 30px rgba(231,196,106,.25);
+background:var(--accent);
+color:white;
 }
 
 .primary:hover{
-transform:translateY(-3px);
+background:#ff1a25;
+transform:scale(1.03);
 }
 
 .secondary{
-border:1px solid var(--gold);
-color:var(--gold);
-}
-
-.secondary:hover{
-background:rgba(231,196,106,.08);
+background:rgba(255,255,255,.1);
+color:white;
 }
 
 /* =========================
-CARDS (GLASS PREMIUM)
+SECTION TITLES
 ========================= */
 
-.card,
-.discover-card,
-.testimonial-card,
-.question-card{
-background:var(--card);
-backdrop-filter:blur(14px);
-border-radius:20px;
-padding:40px;
-transition:.3s;
-border:1px solid rgba(255,255,255,.04);
+.section-title{
+font-size:1.6rem;
+font-weight:700;
+margin-bottom:20px;
 }
 
-.card:hover,
-.discover-card:hover,
-.testimonial-card:hover{
-transform:translateY(-8px);
-border:1px solid rgba(231,196,106,.4);
+/* =========================
+CONTENT ROWS (NETFLIX GRID)
+========================= */
+
+.row{
+display:flex;
+gap:16px;
+overflow-x:auto;
+padding-bottom:10px;
+scroll-snap-type:x mandatory;
+}
+
+.row::-webkit-scrollbar{
+display:none;
+}
+
+/* CARD */
+.card{
+min-width:220px;
+background:var(--card);
+border-radius:10px;
+overflow:hidden;
+transition:.3s;
+scroll-snap-align:start;
 box-shadow:var(--shadow);
 }
 
+.card:hover{
+transform:scale(1.05);
+}
+
+.card img{
+width:100%;
+height:300px;
+object-fit:cover;
+}
+
+.card-content{
+padding:12px;
+}
+
 /* =========================
-BOOK SHOWCASE (3D PREMIUM)
+FEATURED COUNTDOWN (FIXED UI)
+========================= */
+
+.launch-section{
+padding:100px 6%;
+text-align:center;
+background:linear-gradient(180deg,#0B0B0F,#14141C);
+}
+
+.launch-tag{
+color:var(--accent);
+letter-spacing:3px;
+font-size:12px;
+margin-bottom:10px;
+}
+
+.launch-section h2{
+font-size:3rem;
+font-weight:800;
+margin-bottom:30px;
+}
+
+/* countdown redesigned */
+.countdown{
+display:flex;
+justify-content:center;
+gap:12px;
+flex-wrap:wrap;
+}
+
+.time-box{
+background:var(--card);
+padding:18px;
+min-width:90px;
+border-radius:10px;
+box-shadow:var(--shadow);
+}
+
+.time-box span{
+font-size:2rem;
+font-weight:800;
+color:var(--accent);
+}
+
+.time-box p{
+font-size:12px;
+color:var(--muted);
+margin-top:5px;
+}
+
+/* =========================
+BOOK SECTION (SIMPLIFIED)
 ========================= */
 
 .book-showcase{
 display:flex;
 justify-content:center;
 align-items:center;
-padding:120px 20px;
-perspective:1600px;
+padding:100px 6%;
 }
 
 .book-3d{
-width:310px;
-height:460px;
-transform-style:preserve-3d;
-transform:rotateY(-26deg) rotateX(6deg);
-animation:floatBook 6s ease-in-out infinite;
-transition:.4s;
+width:260px;
+height:380px;
+border-radius:8px;
+overflow:hidden;
+box-shadow:var(--shadow);
+transition:.3s;
 }
 
 .book-3d:hover{
-transform:rotateY(-14deg) translateY(-10px);
+transform:scale(1.05);
 }
 
-.book-front{
-position:absolute;
-width:100%;
-height:100%;
-transform:translateZ(25px);
-border-radius:8px;
-overflow:hidden;
-box-shadow:0 40px 90px rgba(0,0,0,.55);
-}
-
-.book-front img{
+.book-3d img{
 width:100%;
 height:100%;
 object-fit:cover;
 }
 
-.book-spine{
-position:absolute;
-left:-26px;
-width:52px;
-height:100%;
-background:linear-gradient(to right,#111,#2a2a2a,#111);
-transform:rotateY(-90deg) translateZ(26px);
-}
-
-.book-pages{
-position:absolute;
-right:-26px;
-width:52px;
-height:100%;
-background:repeating-linear-gradient(#f5f5f5,#ececec 2px);
-transform:rotateY(90deg) translateZ(280px);
-}
-
-@keyframes floatBook{
-0%,100%{transform:rotateY(-26deg) translateY(0)}
-50%{transform:rotateY(-26deg) translateY(-14px)}
-}
-
 /* =========================
-GRID SYSTEMS
+GRID SECTIONS
 ========================= */
 
 .discover-grid,
 .testimonial-grid,
 .question-container{
 display:grid;
-grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
-gap:30px;
+grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+gap:20px;
+}
+
+.discover-card,
+.testimonial-card,
+.question-card{
+background:var(--card);
+padding:20px;
+border-radius:10px;
+transition:.3s;
+}
+
+.discover-card:hover,
+.testimonial-card:hover{
+transform:translateY(-6px);
 }
 
 /* =========================
-FINAL CTA (HIGH IMPACT)
+FINAL CTA
 ========================= */
 
 .final-cta{
 text-align:center;
-padding:170px 8%;
-background:radial-gradient(circle at top,#0B1026,#04060F);
+padding:120px 6%;
+background:linear-gradient(180deg,#0B0B0F,#14141C);
 }
 
 .final-cta h2{
-font-size:4.5rem;
-line-height:1.1;
+font-size:3rem;
+font-weight:900;
 }
 
 .final-cta p{
-max-width:700px;
-margin:auto;
-margin-bottom:40px;
-font-size:1.2rem;
+max-width:600px;
+margin:20px auto 40px;
+color:var(--muted);
 }
 
 /* =========================
@@ -325,25 +331,9 @@ BUTTON GROUP
 
 .book-buttons{
 display:flex;
-gap:20px;
+gap:12px;
 justify-content:center;
 flex-wrap:wrap;
-}
-
-.gold-btn{
-background:var(--gold);
-color:#04060F;
-padding:16px 38px;
-border-radius:50px;
-text-decoration:none;
-font-weight:600;
-}
-
-.glass-btn{
-border:1px solid rgba(255,255,255,.25);
-padding:16px 38px;
-border-radius:50px;
-color:white;
 }
 
 /* =========================
@@ -352,49 +342,43 @@ WHATSAPP FLOAT
 
 .whatsapp-btn{
 position:fixed;
-bottom:25px;
-right:25px;
-background:#25D366;
+bottom:20px;
+right:20px;
+background:var(--accent);
 color:white;
-padding:14px 20px;
+padding:12px 16px;
 border-radius:50px;
 z-index:9999;
-box-shadow:0 10px 30px rgba(37,211,102,.25);
 }
 
 /* =========================
-MOBILE FIRST OPTIMIZATION
+MOBILE
 ========================= */
 
 @media(max-width:768px){
 
-section{padding:80px 6%}
-
-.hero h1{font-size:2.6rem;line-height:1.1}
-
-.hero p{font-size:1rem}
-
-.nav-links{display:none}
-
-.final-cta h2{font-size:2.4rem}
-
-.book-3d{
-width:230px;
-height:350px;
+.hero h1{
+font-size:2.4rem;
 }
 
-.book-showcase{
-padding:60px 10px;
+.launch-section h2{
+font-size:2rem;
 }
 
-.book-buttons{
-flex-direction:column;
-align-items:center;
+.row{
+gap:10px;
 }
 
-.btn,.gold-btn,.glass-btn{
-width:100%;
-max-width:320px;
+.card{
+min-width:160px;
+}
+
+.card img{
+height:220px;
+}
+
+.final-cta h2{
+font-size:2.2rem;
 }
 
 }
@@ -403,464 +387,206 @@ max-width:320px;
 </head>
 <body>
 
+<body>
+
+<!-- NAV -->
 <nav>
-<div class="logo">THE FORGOTTEN YOU</div>
-<div class="nav-links">
-<a href="#journey">Journey</a>
-<a href="#guide">Author</a>
-</div>
+  <div class="logo">THE FORGOTTEN YOU</div>
+  <div class="nav-links">
+    <a href="#journey">Journey</a>
+    <a href="#guide">Author</a>
+    <a href="#discover">Discover</a>
+  </div>
 </nav>
 
+<!-- HERO (NETFLIX FEATURED BANNER) -->
 <section class="hero">
-<div class="orb orb1"></div>
-<div class="orb orb2"></div>
-<div>
+
+  <div>
     <div class="hero-badge">
-
-INTERNATIONALLY ACCLAIMED AUTHOR
-
-<span>
-PRAKASH MISHRA
-</span>
-
-</div>
-<h1>Have You Forgotten <span class="gold">Who You Really Are?</span></h1>
-<p>A transformational journey back to your Original Self.</p>
-<div class="hero-buttons">
-
-    <a href="early-access.html" class="btn primary">
-        Get Early Access
-    </a>
-<a href="reader.html" class="btn secondary">
-Read First Chapter
-</a>
-```
-
-
-</div>
-</div>
-</section>
-
-<section class="forgotten-section">
-<div class="line">You have achievements...</div>
-<div class="line">Yet something still feels missing.</div>
-<div class="line">You have gained knowledge...</div>
-<div class="line">Yet lost touch with your deeper wisdom.</div>
-<div class="line gold">But have you become YOU?</div>
-</section>
-
-<section class="mirror-section">
-<h2>THE MIRROR</h2>
-<p>Before you discover the answers, ask yourself the questions.</p>
-<div class="question-container">
-<div class="question-card">Who were you before the world told you who to be?</div>
-<div class="question-card">What dream have you silently abandoned?</div>
-<div class="question-card">What truth have you been avoiding?</div>
-<div class="question-card">What would life look like without fear?</div>
-</div>
-</section>
-
-<div class="scene">
-
-    <div class="book" id="book">
-
-        <div class="book-spine"></div>
-
-        <div class="book-cover">
-            <img src="Book cover.png" alt="The Forgotten You">
-        </div>
-
-        <div class="book-pages">
-            <div class="page page1"></div>
-            <div class="page page2"></div>
-            <div class="page page3"></div>
-            <div class="page page4"></div>
-        </div>
-
-        <div class="book-back"></div>
-
+      INTERNATIONALLY ACCLAIMED AUTHOR
+      <span>PRAKASH MISHRA</span>
     </div>
 
-</div>
+    <h1>Have You Forgotten <span class="gold">Who You Really Are?</span></h1>
 
-</section>
-</div>
-<section id="guide" class="guide-section">
-<div class="guide-container">
-<div class="guide-image">
-<img src="prakash.jpg" alt="Prakash Mishra">
-</div>
-</section>
-    <p class="reveal-text">
-      For years I searched for happiness, purpose, clarity, and inner peace in the outside world. 
-      Like many people, I discovered achievements, knowledge, and success. Yet something still felt incomplete. 
-      The deeper journey began when I turned inward.
-    </p>
+    <p>A transformational journey back to your Original Self.</p>
 
-    <p class="reveal-text">
-      What I found was not a new version of myself, but the forgotten truth of who I had always been.
-    </p>
-
-    <div class="reveal-highlight">
-      The Forgotten You was born from that realization.
+    <div class="hero-buttons">
+      <a href="early-access.html" class="btn primary">Get Early Access</a>
+      <a href="reader.html" class="btn secondary">Read First Chapter</a>
     </div>
-
-    <p class="reveal-text small">
-      Helping people remember who they truly are.
-    </p>
-
-    <p class="reveal-final">
-      An invitation to rediscover your Original Self and awaken the wisdom already present within you.
-    </p>
-
-</div>
-
-    
-  </div>
-
-</div>
-      <a href="#" class="btn">Get Early Access</a>
-    </div>
-
   </div>
 
 </section>
 
-</div>>
-<a href="#" class="btn primary">Get The Book</a>
-</div>
+<!-- SCROLL ROW: REFLECTION -->
+<section class="row-section">
+  <h2 class="section-title">You Already Know This Feeling</h2>
+
+  <div class="row">
+    <div class="card"><div class="card-content">You have achievements… yet something feels missing.</div></div>
+    <div class="card"><div class="card-content">You gained knowledge… but lost inner clarity.</div></div>
+    <div class="card"><div class="card-content">You built success… but forgot yourself.</div></div>
+  </div>
 </section>
 
-<section id="journey" class="journey-section">
-<div class="journey-header" style="text-align:center;margin-bottom:50px">
-<h2>Your Path Back To Yourself</h2>
-</div>
-<div class="timeline">
-<div class="step"><div class="circle">1</div><h3>FORGETTING</h3></div>
-<div class="step"><div class="circle">2</div><h3>CONDITIONING</h3></div>
-<div class="step"><div class="circle">3</div><h3>AWAKENING</h3></div>
-<div class="step"><div class="circle">4</div><h3>SELF‑MASTERY</h3></div>
-<div class="step"><div class="circle">5</div><h3>FREEDOM</h3></div>
-</div>
+<!-- MIRROR -->
+<section class="row-section">
+  <h2 class="section-title">The Mirror</h2>
+
+  <div class="row">
+    <div class="card"><div class="card-content">Who were you before the world defined you?</div></div>
+    <div class="card"><div class="card-content">What truth are you avoiding?</div></div>
+    <div class="card"><div class="card-content">What would you become without fear?</div></div>
+    <div class="card"><div class="card-content">What dream did you abandon?</div></div>
+  </div>
 </section>
 
-<section class="testimonial-section">
-
-<div class="testimonial-header">
-
-<span>
-READER VOICES
-</span>
-
-<h2>
-What Readers Are Saying
-</h2>
-
-</div>
-
-<div class="testimonial-grid">
-
-<div class="testimonial-card">
-
-<p>
-"The Forgotten You helped me reconnect with myself in ways I never imagined."
-</p>
-
-<h4>
-— Early Reader
-</h4>
-
-</div>
-
-<div class="testimonial-card">
-
-<p>
-"A deeply transformative journey disguised as a book."
-</p>
-
-<h4>
-— Beta Reader
-</h4>
-
-</div>
-
-<div class="testimonial-card">
-
-<p>
-"Every chapter felt like a mirror reflecting my true self."
-</p>
-
-<h4>
-— Launch Team Member
-</h4>
-
-</div>
-
-</div>
-
+<!-- BOOK SHOWCASE -->
+<section class="book-showcase">
+  <div class="book-3d">
+    <img src="Book cover.png" alt="The Forgotten You">
+  </div>
 </section>
 
+<!-- GUIDE / AUTHOR -->
+<section id="guide" class="row-section">
+  <h2 class="section-title">Author Journey</h2>
 
+  <div class="card">
+    <div class="card-content">
+      <img src="prakash.jpg" style="width:100%;border-radius:10px;margin-bottom:15px;">
+      For years I searched outside… until I turned inward.
+    </div>
+  </div>
+</section>
 
+<!-- DISCOVER (NETFLIX ROW) -->
+<section id="discover" class="row-section">
+  <h2 class="section-title">What You Will Discover</h2>
 
+  <div class="row">
+    <div class="card"><div class="card-content">✨ Original Self</div></div>
+    <div class="card"><div class="card-content">🧠 Mind Freedom</div></div>
+    <div class="card"><div class="card-content">🔥 Inner Power</div></div>
+    <div class="card"><div class="card-content">💎 Confidence</div></div>
+    <div class="card"><div class="card-content">🌿 Purpose</div></div>
+  </div>
+</section>
+
+<!-- TRANSFORMATION -->
+<section class="row-section">
+  <h2 class="section-title">Transformation</h2>
+
+  <div class="row">
+    <div class="card">
+      <div class="card-content">
+        Before: Confused, Overthinking, Fearful
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-content">
+        After: Clear, Confident, Awake
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="row-section">
+  <h2 class="section-title">Reader Reactions</h2>
+
+  <div class="row">
+    <div class="card"><div class="card-content">“Deeply transformative experience.”</div></div>
+    <div class="card"><div class="card-content">“It felt like a mirror to my soul.”</div></div>
+    <div class="card"><div class="card-content">“Changed how I see myself.”</div></div>
+  </div>
+</section>
+
+<!-- LAUNCH COUNTDOWN -->
 <section class="launch-section">
 
-<div class="launch-content">
+  <span class="launch-tag">BOOK LAUNCH COUNTDOWN</span>
 
-<span class="launch-tag">
-BOOK LAUNCH COUNTDOWN
-</span>
+  <h2>The Forgotten You Arrives In</h2>
 
-<h2>
-The Forgotten You Arrives In
-</h2>
+  <div class="countdown">
 
-<div class="countdown">
-
-<div class="time-box">
-<span id="days">00</span>
-<p>Days</p>
-</div>
-
-<div class="time-box">
-<span id="hours">00</span>
-<p>Hours</p>
-</div>
-
-<div class="time-box">
-<span id="minutes">00</span>
-<p>Minutes</p>
-</div>
-
-<div class="time-box">
-<span id="seconds">00</span>
-<p>Seconds</p>
-</div>
-
-</div>
-
-<p class="launch-text">
-Join the movement of readers ready to rediscover
-their Original Self.
-</p>
-
-</div>
-
-</section>
-<section class="discover-section">
-
-<div class="section-header">
-
-<span>INSIDE THE BOOK</span>
-
-<h2>
-What You'll Discover
-</h2>
-
-</div>
-
-<div class="discover-grid">
-
-<div class="discover-card">
-✨ Discover Your Original Self
-</div>
-
-<div class="discover-card">
-🧠 Break Free From Conditioning
-</div>
-
-<div class="discover-card">
-🔥 Master Your Mind
-</div>
-
-<div class="discover-card">
-💎 Build Inner Confidence
-</div>
-
-<div class="discover-card">
-🌿 Find Purpose & Direction
-</div>
-
-<div class="discover-card">
-🦅 Live With Freedom
-</div>
-
-</div>
-
-</section>
-
-
-            <a href="early-access.html" class="wishlist-btn">
-                ❤️ Join Wishlist
-            </a>
-
-        </div>
-
+    <div class="time-box">
+      <span id="days">00</span>
+      <p>Days</p>
     </div>
 
-</section>
-```
+    <div class="time-box">
+      <span id="hours">00</span>
+      <p>Hours</p>
+    </div>
 
+    <div class="time-box">
+      <span id="minutes">00</span>
+      <p>Minutes</p>
+    </div>
 
-<section class="transform-section">
+    <div class="time-box">
+      <span id="seconds">00</span>
+      <p>Seconds</p>
+    </div>
 
-<h2>
-Your Transformation
-</h2>
-
-<div class="transform-grid">
-
-<div class="before">
-
-<h3>Before</h3>
-
-<ul>
-
-<li>Confused</li>
-
-<li>Overthinking</li>
-
-<li>Fearful</li>
-
-<li>Directionless</li>
-
-<li>Disconnected</li>
-
-</ul>
-
-</div>
-
-<div class="after">
-
-<h3>After</h3>
-
-<ul>
-
-<li>Clear</li>
-
-<li>Confident</li>
-
-<li>Empowered</li>
-
-<li>Purpose Driven</li>
-
-<li>Awakened</li>
-
-</ul>
-
-</div>
-
-</div>
+  </div>
 
 </section>
 
+<!-- FINAL CTA -->
 <section class="final-cta">
 
-<h2>
-The Forgotten You
-</h2>
+  <h2>The Forgotten You</h2>
 
-<p>
+  <p>This is not a book you read. It is a self you remember.</p>
 
-This is not a book you read.
-
-It is a person you remember.
-
-</p>
-
-<a href="#" class="cta-button">
-
-GET THE BOOK
-
-</a>
+  <a href="early-access.html" class="btn primary">Get Early Access</a>
 
 </section>
 
-<section class="starterkit-section">
+<!-- STARTER KIT -->
+<section class="row-section">
 
-<div class="starterkit-content">
+  <h2 class="section-title">Free Starter Kit</h2>
 
-<span>
-FREE GIFT
-</span>
+  <div class="card">
+    <div class="card-content">
+      <p>Get tools to reconnect with your Original Self.</p>
 
-<h2>
-Get The Self-Mastery Starter Kit
-</h2>
-
-<p>
-
-Start your journey today.
-
-Receive a free Self-Mastery Starter Kit packed with
-powerful exercises, insights, and practices to help
-you reconnect with your Original Self.
-
-</p>
-
-<form class="starterkit-form">
-
-<input
-type="email"
-placeholder="Enter your email address"
-required>
-
-<button type="submit">
-
-GET MY FREE KIT
-
-</button>
-
-</form>
-
-</div>
+      <form class="starterkit-form">
+        <input type="email" placeholder="Enter email">
+        <button type="submit">Get Free Kit</button>
+      </form>
+    </div>
+  </div>
 
 </section>
-<a href="https://wa.me/919876543210?text=Hello%20Prakash,%20I%20am%20interested%20in%20The%20Forgotten%20You." 
-   class="whatsapp-btn" 
-   target="_blank">
-   
-   <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-        fill="currentColor" viewBox="0 0 16 16">
-      <path d="M13.601 2.326A7.854 7.854 0 0 0 8.004 0C3.58 0-.013 3.592-.013 8.018c0 1.413.369 2.793 1.07 4.013L0 16l4.084-1.07a8.015 8.015 0 0 0 3.92 1.003h.003c4.425 0 8.018-3.593 8.018-8.018a7.96 7.96 0 0 0-2.424-5.589z"/>
-   </svg>
 
-   Chat on WhatsApp
+<!-- WHATSAPP -->
+<a href="https://wa.me/919876543210" class="whatsapp-btn">Chat</a>
 
-</a>
-
+<!-- FOOTER -->
 <footer class="footer">
+  <div class="footer-logo">THE FORGOTTEN YOU</div>
+  <p>A journey back to your Original Self</p>
 
-<div class="footer-logo">
+  <div class="footer-links">
+    <a href="#">About</a>
+    <a href="#">Contact</a>
+    <a href="#">Privacy</a>
+  </div>
 
-THE FORGOTTEN YOU
+  <div class="copyright">
+    © 2026 The Forgotten You
+  </div>
+</footer>
 
-</div>
-
-<p>
-
-A transformational journey back to your Original Self.
-
-</p>
-
-<div class="footer-links">
-
-<a href="#">About The Book</a>
-
-<a href="#">About Prakash</a>
-
-<a href="#">Contact</a>
-
-<a href="#">Privacy Policy</a>
-
-</div>
-
-<div class="copyright">
-
-© 2026 The Forgotten You. All Rights Reserved.
-
-</div>
-
+</body>
 </footer>
 <script>
 
