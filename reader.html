@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Premium PDF Reader</title>
+
+<style>
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg, #0f172a, #1e293b);
+    color: white;
+}
+
+/* LOCK SCREEN */
+.lock-screen {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.85);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    z-index: 10;
+}
+
+.lock-box {
+    background: rgba(255,255,255,0.08);
+    padding: 30px;
+    border-radius: 15px;
+    backdrop-filter: blur(10px);
+    text-align: center;
+    width: 300px;
+}
+
+.lock-box input {
+    width: 90%;
+    padding: 10px;
+    margin-top: 15px;
+    border-radius: 8px;
+    border: none;
+    outline: none;
+}
+
+.lock-box button {
+    margin-top: 15px;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 8px;
+    background: gold;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+/* HEADER */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px;
+    background: rgba(255,255,255,0.05);
+    backdrop-filter: blur(10px);
+}
+
+.btn {
+    background: gold;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+/* PDF VIEWER */
+.viewer {
+    width: 100%;
+    height: 90vh;
+}
+
+iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+
+.action-bar{
+    display:flex;
+    justify-content:center;
+    gap:15px;
+    padding:20px;
+    background: rgba(255,255,255,0.03);
+    backdrop-filter: blur(10px);
+}
+
+.action-bar .btn{
+    background: linear-gradient(135deg, gold, orange);
+    color:black;
+    font-weight:bold;
+    transition:0.3s;
+}
+
+.action-bar .btn:hover{
+    transform: scale(1.05);
+}
+.footer {
+    margin-top: 60px;
+    padding: 50px 20px;
+    background: radial-gradient(circle at top, rgba(255,255,255,0.06), rgba(0,0,0,0.9));
+    border-top: 1px solid rgba(255, 215, 0, 0.15);
+    text-align: center;
+    color: rgba(255, 255, 255, 0.75);
+}
+
+/* TITLE */
+.footer h2 {
+    font-size: 34px;
+    letter-spacing: 2px;
+    color: #facc15;
+    margin-bottom: 10px;
+    font-weight: 600;
+}
+
+/* TAGLINE */
+.footer p {
+    margin: 8px 0;
+    font-size: 14px;
+    opacity: 0.8;
+}
+
+/* NAV LINKS ROW */
+.footer-links {
+    margin: 20px 0;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.footer-links a {
+    color: rgba(255,255,255,0.8);
+    text-decoration: none;
+    font-size: 14px;
+    transition: 0.3s;
+    position: relative;
+}
+
+.footer-links a:hover {
+    color: #facc15;
+}
+
+/* underline animation */
+.footer-links a::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -4px;
+    width: 0%;
+    height: 1px;
+    background: #facc15;
+    transition: 0.3s;
+}
+
+.footer-links a:hover::after {
+    width: 100%;
+}
+
+/* COPYRIGHT */
+.footer small {
+    display: block;
+    margin-top: 25px;
+    opacity: 0.6;
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- LOCK SCREEN -->
+<div class="lock-screen" id="lockScreen">
+    <div class="lock-box">
+        <h2>🔒 Premium Access</h2>
+        <p>Enter access code to unlock</p>
+        <input type="password" id="code" placeholder="Enter code">
+        <button onclick="unlock()">Unlock</button>
+        <p id="msg" style="color:red;"></p>
+    </div>
+</div>
+
+<!-- HEADER -->
+<div class="header">
+    <h3>📘 Premium Reader</h3>
+    <div>
+        <button class="btn" onclick="toggleFull()">Fullscreen</button>
+        <button class="btn" onclick="downloadPDF()">Download</button>
+    </div>
+</div>
+
+<!-- PDF VIEWER -->
+<div class="viewer">
+   
+    <iframe id="pdfFrame" src="chapter-one.pdf"></iframe>
+</div>
+
+<!-- ACTION BUTTONS -->
+<div class="action-bar">
+    <button class="btn" onclick="addWishlist()">❤️ Wishlist</button>
+    <button class="btn" onclick="goHome()">🏠 Return Home</button>
+</div>
+
+</a>
+
+
+<div class="footer">
+    <h2>THE FORGOTTEN YOU</h2>
+
+    <p>A transformational journey back to your Original Self.</p>
+
+    <div class="footer-links">
+        <a href="#">About The Book</a>
+        <a href="#">About Prakash</a>
+        <a href="#">Contact</a>
+        <a href="#">Privacy Policy</a>
+    </div>
+
+    <small>© 2026 The Forgotten You. All Rights Reserved.</small>
+</div>
+
+</footer>
+<script>
+
+
+const PASSWORD = "1234"; // change your premium code
+
+function unlock(){
+    let input = document.getElementById("code").value;
+    if(input === PASSWORD){
+        document.getElementById("lockScreen").style.display = "none";
+    } else {
+        document.getElementById("msg").innerText = "Wrong code!";
+    }
+}
+
+function toggleFull(){
+    let elem = document.documentElement;
+    if (!document.fullscreenElement) {
+        elem.requestFullscreen();
+    } else {
+        document.exitFullscreen();
+    }
+}
+
+function downloadPDF(){
+    let link = document.createElement("a");
+    link.href = "chapter-one.pdf"; // your PDF file
+    link.download = "YourBook.pdf";
+    link.click();
+}
+
+function addWishlist(){
+    let book = "Chapter One PDF";
+
+    let list = JSON.parse(localStorage.getItem("wishlist")) || [];
+
+    if(!list.includes(book)){
+        list.push(book);
+        localStorage.setItem("wishlist", JSON.stringify(list));
+        alert("Added to Wishlist ❤️");
+    } else {
+        alert("Already in Wishlist");
+    }
+}
+
+function goHome(){
+    window.location.href = "index.html"; // change if your home page is different
+}
+
+</script>
+
+
+</body>
+</html>
