@@ -629,6 +629,76 @@ color:#ccc;
 
 }
 
+   .journey-grid{
+
+display:grid;
+
+grid-template-columns:1fr 500px;
+
+gap:80px;
+
+align-items:center;
+
+}
+
+.journey-image{
+
+display:flex;
+
+justify-content:center;
+
+align-items:center;
+
+}
+
+.journey-book{
+
+width:100%;
+
+max-width:450px;
+
+height:auto;
+
+display:block;
+
+filter:
+drop-shadow(0 0 25px rgba(212,175,55,.25))
+drop-shadow(0 0 60px rgba(212,175,55,.15));
+
+animation:floatBook 5s ease-in-out infinite;
+
+}
+
+@keyframes floatBook{
+
+0%,100%{
+transform:translateY(0px);
+}
+
+50%{
+transform:translateY(-12px);
+}
+
+}
+
+@media(max-width:992px){
+
+.journey-grid{
+
+grid-template-columns:1fr;
+
+text-align:center;
+
+}
+
+.journey-image{
+
+margin-top:40px;
+
+}
+
+}
+
 /* =========================
    MOBILE
 ========================= */
@@ -1995,30 +2065,51 @@ class="journey-section">
 
 YOUR JOURNEY
 
-</h2>
+<section id="journey" class="journey-section">
 
-<div class="journey-steps">
+    <div class="container journey-grid">
 
-<div class="step">
-<span>01</span>
-<h3>Remember</h3>
-<p>Recognize what has been forgotten.</p>
-</div>
+        <div class="journey-content">
 
-<div class="step">
-<span>02</span>
-<h3>Awaken</h3>
-<p>Reconnect with your inner power.</p>
-</div>
+            <h2>THE JOURNEY OF REMEMBRANCE</h2>
 
-<div class="step">
-<span>03</span>
-<h3>Transform</h3>
-<p>Become who you were always meant to be.</p>
-</div>
+            <p>
+                The Forgotten You is more than a book.
+                It is a path back to yourself.
+            </p>
 
-</div>
+            <p>
+                Through reflection, awakening and action,
+                you will rediscover the truth that has always
+                lived within you.
+            </p>
 
+            <p>
+                Every chapter is a step toward clarity,
+                purpose and transformation.
+            </p>
+
+            <a href="early-access.html"
+               class="cta-button">
+
+                BEGIN THE JOURNEY
+
+            </a>
+
+        </div>
+
+        <div class="journey-image">
+
+            <img
+                src="images/book mockup.png"
+                alt="The Forgotten You Book Mockup"
+                class="journey-book">
+
+        </div>
+
+    </div>
+
+</section>
 </div>
 
 </section>
