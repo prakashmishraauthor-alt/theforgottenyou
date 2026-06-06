@@ -1086,6 +1086,209 @@ max-width:350px;
 }
 
    /* ==========================================
+   QUOTES SECTION
+========================================== */
+
+.quotes-section{
+
+padding:140px 0;
+
+background:
+linear-gradient(
+180deg,
+#050505,
+#0a0a0a
+);
+
+position:relative;
+
+}
+
+.section-header{
+
+text-align:center;
+
+margin-bottom:80px;
+
+}
+
+.section-header h2{
+
+font-family:'Cinzel',serif;
+
+font-size:3.5rem;
+
+color:#d4af37;
+
+margin-bottom:15px;
+
+letter-spacing:3px;
+
+text-shadow:
+0 0 20px rgba(212,175,55,.25);
+
+}
+
+.section-header p{
+
+color:#b9b9b9;
+
+font-size:1.15rem;
+
+max-width:650px;
+
+margin:auto;
+
+line-height:1.8;
+
+}
+
+/* GRID */
+
+.quotes-grid{
+
+display:grid;
+
+grid-template-columns:
+repeat(auto-fit,minmax(320px,1fr));
+
+gap:30px;
+
+}
+
+/* CARD */
+
+.quote-card{
+
+background:
+rgba(255,255,255,.02);
+
+border:
+1px solid rgba(212,175,55,.15);
+
+padding:35px;
+
+border-radius:18px;
+
+backdrop-filter:blur(5px);
+
+transition:.35s;
+
+position:relative;
+
+overflow:hidden;
+
+}
+
+.quote-card:hover{
+
+transform:translateY(-8px);
+
+border-color:#d4af37;
+
+box-shadow:
+0 0 35px rgba(212,175,55,.12);
+
+}
+
+/* FEATURED CARD */
+
+.quote-featured{
+
+grid-column:span 2;
+
+background:
+linear-gradient(
+135deg,
+rgba(212,175,55,.08),
+rgba(255,255,255,.02)
+);
+
+}
+
+/* QUOTE MARK */
+
+.quote-mark{
+
+font-size:3rem;
+
+color:#d4af37;
+
+display:block;
+
+margin-bottom:15px;
+
+}
+
+/* TEXT */
+
+.quote-card p{
+
+font-size:1.08rem;
+
+line-height:1.9;
+
+color:#f1f1f1;
+
+}
+
+/* CLOSING */
+
+.quote-closing{
+
+text-align:center;
+
+margin-top:80px;
+
+font-size:1.3rem;
+
+color:#b8b8b8;
+
+line-height:2;
+
+}
+
+.quote-closing span{
+
+display:block;
+
+margin-top:10px;
+
+font-family:'Cinzel',serif;
+
+font-size:2rem;
+
+color:#d4af37;
+
+letter-spacing:2px;
+
+}
+
+/* MOBILE */
+
+@media(max-width:768px){
+
+.section-header h2{
+
+font-size:2.3rem;
+
+}
+
+.quote-featured{
+
+grid-column:span 1;
+
+}
+
+.quote-closing span{
+
+font-size:1.5rem;
+
+}
+
+}
+
+   /* ==========================================
    AUTHOR SECTION
 ========================================== */
 
@@ -2185,6 +2388,112 @@ Walk alongside others who are remembering.
 </div>
 
 </div>
+
+</section>
+
+<!-- ==========================================
+     EXCLUSIVE QUOTES SECTION
+========================================== -->
+
+<section class="quotes-section">
+
+    <div class="container">
+
+        <div class="section-header">
+
+            <h2>WORDS OF REMEMBRANCE</h2>
+
+            <p>
+                A glimpse into the wisdom waiting within
+                The Forgotten You.
+            </p>
+
+        </div>
+
+        <div class="quotes-grid">
+
+            <div class="quote-card">
+
+                <span class="quote-mark">❝</span>
+
+                <p>
+                    When work takes away your stillness,
+                    it is no longer work.
+                    It is spiritual theft.
+                </p>
+
+            </div>
+
+            <div class="quote-card">
+
+                <span class="quote-mark">❝</span>
+
+                <p>
+                    Your potential feels trapped in a glass jar.
+                    Despite your loyalty, hard work and dreams —
+                    you feel unseen.
+                    Undervalued.
+                    Unfulfilled.
+                </p>
+
+            </div>
+
+            <div class="quote-card">
+
+                <span class="quote-mark">❝</span>
+
+                <p>
+                    It is not your name.
+                    Not your job.
+                    Not your past or your hopes.
+
+                    It is not your thoughts,
+                    nor the feelings that rise and fall within.
+
+                    The Self is the silent witness behind it all.
+                </p>
+
+            </div>
+
+            <div class="quote-card">
+
+                <span class="quote-mark">❝</span>
+
+                <p>
+                    The Self is not something to become.
+                    It is something to remember.
+
+                    It is your original face before the world
+                    told you who you should be.
+                </p>
+
+            </div>
+
+            <div class="quote-card quote-featured">
+
+                <span class="quote-mark">❝</span>
+
+                <p>
+                    The one who knows the Self
+                    plays the song of life
+                    with effortless grace.
+                </p>
+
+            </div>
+
+        </div>
+
+        <div class="quote-closing">
+
+            These are not merely ideas to understand.
+
+            <span>
+                They are truths to remember.
+            </span>
+
+        </div>
+
+    </div>
 
 </section>
 <section class="author-section">
