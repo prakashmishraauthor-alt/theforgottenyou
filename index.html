@@ -2076,8 +2076,100 @@ text-align:center;
 }
 
 }
+
+   /* ==========================================
+   SOCIAL ICONS
+========================================== */
+
+.social-section{
+
+text-align:center;
+
+margin:50px 0;
+
+}
+
+.social-section h3{
+
+font-family:'Cinzel',serif;
+
+color:#d4af37;
+
+letter-spacing:2px;
+
+margin-bottom:25px;
+
+}
+
+.social-icons{
+
+display:flex;
+
+justify-content:center;
+
+gap:25px;
+
+flex-wrap:wrap;
+
+}
+
+.social-icons a{
+
+width:65px;
+
+height:65px;
+
+display:flex;
+
+justify-content:center;
+
+align-items:center;
+
+text-decoration:none;
+
+font-size:1.5rem;
+
+color:#d4af37;
+
+border:1px solid rgba(212,175,55,.25);
+
+border-radius:50%;
+
+background:
+rgba(255,255,255,.02);
+
+transition:.4s ease;
+
+box-shadow:
+0 0 10px rgba(212,175,55,.08);
+
+}
+
+.social-icons a:hover{
+
+transform:
+translateY(-6px)
+scale(1.08);
+
+color:#fff;
+
+border-color:#d4af37;
+
+box-shadow:
+0 0 15px rgba(212,175,55,.4),
+0 0 35px rgba(212,175,55,.25);
+
+background:
+linear-gradient(
+135deg,
+rgba(212,175,55,.2),
+rgba(212,175,55,.05)
+);
+
+}
 </style>
 </head>
+
 <body>
 
 <body>
@@ -2085,7 +2177,8 @@ text-align:center;
 <html lang="en">
 
 <head>
-
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -2810,7 +2903,31 @@ JOIN
         </div>
 
     </div>
+<div class="social-section">
 
+    <h3>Follow the Journey</h3>
+
+    <div class="social-icons">
+
+        <a href="#" target="_blank">
+            <i class="fab fa-instagram"></i>
+        </a>
+
+        <a href="#" target="_blank">
+            <i class="fab fa-facebook-f"></i>
+        </a>
+
+        <a href="#" target="_blank">
+            <i class="fab fa-youtube"></i>
+        </a>
+
+        <a href="#" target="_blank">
+            <i class="fab fa-x-twitter"></i>
+        </a>
+
+    </div>
+
+</div>
 </footer>
 
 <script src="script.js"></script>
