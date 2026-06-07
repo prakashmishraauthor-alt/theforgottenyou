@@ -11,276 +11,252 @@
 
 <style>
 
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-}
-
 body{
-font-family:'Inter',sans-serif;
-background:#07111f;
+
+background:#000;
 color:#fff;
-overflow-x:hidden;
-min-height:100vh;
+
 }
 
-.container{
-width:90%;
-max-width:1100px;
-margin:auto;
-}
+.early-access-card{
 
-.hero{
-min-height:100vh;
-display:flex;
-justify-content:center;
-align-items:center;
-padding:80px 0;
-position:relative;
-}
+background:#050505;
 
-.orb{
-position:absolute;
-border-radius:50%;
-filter:blur(80px);
-opacity:.18;
-}
+border:1px solid rgba(212,175,55,.15);
 
-.orb1{
-width:300px;
-height:300px;
-background:#d4af37;
-top:10%;
-left:10%;
-}
+border-radius:24px;
 
-.orb2{
-width:250px;
-height:250px;
-background:#4d8eff;
-bottom:10%;
-right:10%;
-}
-
-.card{
-position:relative;
-z-index:2;
-
-max-width:850px;
-width:100%;
-
-padding:60px;
-
-background:rgba(255,255,255,.05);
-
-backdrop-filter:blur(20px);
-
-border:1px solid rgba(255,255,255,.08);
-
-border-radius:30px;
-
-text-align:center;
+padding:70px;
 
 box-shadow:
-0 20px 60px rgba(0,0,0,.35);
-}
+0 0 40px rgba(212,175,55,.08);
 
-.badge{
-display:inline-block;
-padding:10px 18px;
-border-radius:50px;
-background:rgba(212,175,55,.15);
-border:1px solid rgba(212,175,55,.2);
-color:#d4af37;
-font-size:.85rem;
-letter-spacing:2px;
-margin-bottom:25px;
 }
 
 h1{
-font-family:'Cormorant Garamond',serif;
+
+font-family:'Cinzel',serif;
+
 font-size:4rem;
-line-height:1.1;
-margin-bottom:20px;
-}
 
-.gold{
 color:#d4af37;
+
+text-shadow:
+0 0 20px rgba(212,175,55,.4);
+
 }
 
-.subtitle{
-font-size:1.15rem;
-line-height:1.8;
+.hero-subtitle span{
+
+color:#d4af37;
+
+}
+
+.quote-box{
+
 max-width:700px;
-margin:0 auto 40px;
-opacity:.9;
+
+margin:40px auto;
+
+padding:30px;
+
+font-style:italic;
+
+font-size:1.2rem;
+
+border-left:3px solid #d4af37;
+
+background:
+rgba(212,175,55,.05);
+
 }
 
-.benefits{
-margin:50px 0;
-text-align:left;
-max-width:650px;
-margin-left:auto;
-margin-right:auto;
-}
-
-.benefit{
-padding:15px 0;
-font-size:1.05rem;
-border-bottom:1px solid rgba(255,255,255,.08);
-}
-
-.form-box{
-margin-top:40px;
-}
-
-input{
-width:100%;
-padding:18px;
-margin-bottom:15px;
-
-background:rgba(255,255,255,.08);
-
-border:none;
-border-radius:12px;
-
-color:white;
-font-size:1rem;
-}
-
-input::placeholder{
-color:rgba(255,255,255,.6);
-}
-
-.btn{
-display:inline-block;
+.gold-btn{
 
 padding:18px 40px;
 
-background:#d4af37;
-color:#07111f;
+background:
+linear-gradient(
+180deg,
+#d4af37,
+#9f7720
+);
 
-text-decoration:none;
-font-weight:700;
+color:#000;
 
-border-radius:12px;
+border:none;
 
-transition:.3s;
+border-radius:10px;
+
+font-family:'Cinzel',serif;
+
+cursor:pointer;
+
 }
 
-.btn:hover{
-transform:translateY(-4px);
-}
+.red-btn{
 
-.note{
-margin-top:25px;
-font-size:.9rem;
-opacity:.7;
-}
-
-.back-link{
 display:inline-block;
-margin-top:30px;
-color:#d4af37;
+
+margin-top:25px;
+
+padding:18px 40px;
+
+background:
+linear-gradient(
+180deg,
+#d30000,
+#7b0000
+);
+
+border:2px solid #ff4444;
+
+color:white;
+
 text-decoration:none;
-}
 
-@media(max-width:768px){
+border-radius:10px;
 
-.card{
-padding:40px 25px;
-}
-
-h1{
-font-size:2.8rem;
-}
+font-family:'Cinzel',serif;
 
 }
-
 </style>
 </head>
 
 <body>
 
-<section class="hero">
+<section class="early-access-hero">
 
-<div class="orb orb1"></div>
-<div class="orb orb2"></div>
+    <div class="container">
 
-<div class="container">
+        <div class="early-access-card">
 
-<div class="card">
+            <span class="early-badge">
+                EXCLUSIVE EARLY ACCESS
+            </span>
 
-<div class="badge">
-EARLY ACCESS INVITATION
-</div>
+            <img
+                src="Book cover.png"
+                alt="The Forgotten You"
+                class="early-book-cover">
 
-<h1>
-Join the Journey Back to
-<span class="gold">Your Original Self</span>
-</h1>
+            <h1>
+                JOIN THE AWAKENING
+            </h1>
 
-<p class="subtitle">
-Become one of the first readers of
-<strong>The Forgotten You</strong>
-and receive exclusive benefits before the official launch.
-</p>
+            <p class="hero-subtitle">
+                Become one of the first readers to experience
+                <span>The Forgotten You</span>
+                and receive exclusive bonuses before the official launch.
+            </p>
 
-<div class="benefits">
+            <div class="quote-box">
 
-<div class="benefit">
-✅ Launch updates and release announcements
-</div>
+                “When work takes away your stillness,
+                it is no longer work.
+                It is spiritual theft.”
 
-<div class="benefit">
-✅ Exclusive bonus content and reflections
-</div>
+            </div>
 
-<div class="benefit">
-✅ Early purchase notification
-</div>
+            <div class="benefits">
 
-<div class="benefit">
-✅ Special launch-day offers and reader bonuses
-</div>
+                <div class="benefit">
+                    ✦ Early release announcements
+                </div>
 
-<div class="benefit">
-✅ Behind-the-scenes insights from the author
-</div>
+                <div class="benefit">
+                    ✦ Exclusive reader bonuses
+                </div>
 
-</div>
+                <div class="benefit">
+                    ✦ Launch day special offers
+                </div>
 
-<div class="form-box">
+                <div class="benefit">
+                    ✦ Author insights & reflections
+                </div>
 
-<form>
+                <div class="benefit">
+                    ✦ Private updates on future books
+                </div>
 
-<input type="text"
-placeholder="Your Name">
+            </div>
 
-<input type="email"
-placeholder="Your Email Address">
+            <form class="access-form">
 
-<button class="btn" type="submit">
-Join Early Access
-</button>
+                <input
+                    type="text"
+                    placeholder="Your Name">
 
-</form>
+                <input
+                    type="email"
+                    placeholder="Your Email">
 
-</div>
+                <button
+                    type="submit"
+                    class="gold-btn">
 
-<p class="note">
-Your information will only be used for updates related to
-The Forgotten You.
-</p>
+                    JOIN EARLY ACCESS
 
-<a href="index.html" class="back-link">
-← Return to Homepage
-</a>
+                </button>
 
-</div>
+            </form>
 
-</div>
+            <div class="divider">
+
+                OR
+
+            </div>
+
+            <a
+                href="#"
+                class="red-btn">
+
+                GET THE BOOK
+
+            </a>
+
+            <p class="trust-text">
+
+                No spam. No distractions.
+                Only meaningful updates related to
+                The Forgotten You.
+
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+<section class="author-mini">
+
+    <div class="container">
+
+        <img
+            src="author-book.png"
+            alt="Prakash Mishra">
+
+        <h2>
+            PRAKASH MISHRA
+        </h2>
+
+        <p>
+            Author • Seeker • Rememberer
+        </p>
+
+        <p class="author-message">
+
+            I wrote this book not as an expert,
+            but as a fellow traveler.
+
+            My hope is that these words become
+            a mirror through which you remember
+            who you truly are.
+
+        </p>
+
+    </div>
 
 </section>
 
