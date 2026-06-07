@@ -3015,12 +3015,11 @@ JOIN
             </p>
 
         </div>
-<a href="#"
+<a href="javascript:void(0)"
    class="share-btn"
    onclick="sharePage()">
 
    <i class="fas fa-share-alt"></i>
-
    SHARE THIS JOURNEY
 
 </a>
@@ -3288,6 +3287,35 @@ heroContent.style.transform =
 
 }
 );
+
+   <script>
+
+function sharePage() {
+
+    const shareData = {
+        title: 'The Forgotten You',
+        text: 'A Journey Back To Your Original Self',
+        url: window.location.href
+    };
+
+    if (navigator.share) {
+
+        navigator.share(shareData)
+            .catch(err => console.log(err));
+
+    } else {
+
+        navigator.clipboard.writeText(window.location.href);
+
+        alert(
+            'Page link copied to clipboard. You can now paste and share it.'
+        );
+
+    }
+
+}
+
+</script>
 
 </script>
 </body>
