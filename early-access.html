@@ -120,11 +120,521 @@ border-radius:10px;
 font-family:'Cinzel',serif;
 
 }
+
+/* ==========================
+   EARLY ACCESS SECTION
+========================== */
+
+.early-access-hero{
+
+padding:120px 0;
+
+background:#000;
+
+}
+
+.early-access-card{
+
+max-width:900px;
+
+margin:auto;
+
+text-align:center;
+
+}
+
+/* Badge */
+
+.early-badge{
+
+display:inline-block;
+
+padding:10px 20px;
+
+margin-bottom:30px;
+
+border:1px solid rgba(212,175,55,.25);
+
+border-radius:50px;
+
+color:#d4af37;
+
+font-size:.8rem;
+
+letter-spacing:2px;
+
+background:rgba(212,175,55,.06);
+
+}
+
+/* Book Cover */
+
+.early-book-cover{
+
+width:280px;
+
+max-width:100%;
+
+margin-bottom:40px;
+
+filter:
+drop-shadow(0 0 25px rgba(212,175,55,.25));
+
+}
+
+/* Reader Count */
+
+.reader-count{
+
+margin:20px auto 40px;
+
+max-width:600px;
+
+font-size:1.1rem;
+
+color:#cfcfcf;
+
+line-height:1.8;
+
+}
+
+/* Benefits */
+
+.benefits{
+
+max-width:650px;
+
+margin:50px auto;
+
+text-align:left;
+
+}
+
+.benefit{
+
+padding:18px 0;
+
+border-bottom:
+1px solid rgba(212,175,55,.08);
+
+font-size:1.05rem;
+
+color:#f2f2f2;
+
+}
+
+/* Form */
+
+.access-form{
+
+max-width:550px;
+
+margin:50px auto;
+
+}
+
+.access-form input{
+
+width:100%;
+
+padding:18px;
+
+margin-bottom:15px;
+
+background:#111;
+
+border:
+1px solid rgba(212,175,55,.15);
+
+border-radius:10px;
+
+color:white;
+
+font-size:1rem;
+
+}
+
+.access-form input:focus{
+
+outline:none;
+
+border-color:#d4af37;
+
+}
+
+/* Divider */
+
+.divider{
+
+margin:35px 0;
+
+font-family:'Cinzel',serif;
+
+color:#d4af37;
+
+letter-spacing:2px;
+
+position:relative;
+
+}
+
+.divider::before,
+.divider::after{
+
+content:"";
+
+position:absolute;
+
+top:50%;
+
+width:35%;
+
+height:1px;
+
+background:
+rgba(212,175,55,.2);
+
+}
+
+.divider::before{
+
+left:0;
+
+}
+
+.divider::after{
+
+right:0;
+
+}
+
+/* Trust Text */
+
+.trust-text{
+
+margin-top:25px;
+
+font-size:.95rem;
+
+color:#999;
+
+line-height:1.8;
+
+}
+
+/* ==========================
+   AUTHOR SECTION
+========================== */
+
+.author-mini{
+
+padding:120px 0;
+
+text-align:center;
+
+background:
+linear-gradient(
+to bottom,
+#000,
+#050505
+);
+
+}
+
+.author-mini img{
+
+width:220px;
+
+height:auto;
+
+border-radius:20px;
+
+margin-bottom:30px;
+
+box-shadow:
+0 0 30px rgba(212,175,55,.15);
+
+}
+
+.author-mini h2{
+
+font-family:'Cinzel',serif;
+
+font-size:2.5rem;
+
+color:#d4af37;
+
+margin-bottom:15px;
+
+}
+
+.author-mini p{
+
+max-width:700px;
+
+margin:auto;
+
+line-height:1.9;
+
+color:#ddd;
+
+}
+
+.author-message{
+
+margin-top:30px;
+
+font-size:1.1rem;
+
+}
+
+/* ==========================
+   MOBILE
+========================== */
+
+@media(max-width:768px){
+
+.early-access-card{
+
+padding:40px 25px;
+
+}
+
+h1{
+
+font-size:2.6rem;
+
+}
+
+.early-book-cover{
+
+width:220px;
+
+}
+
+.author-mini h2{
+
+font-size:2rem;
+
+}
+
+}
+
+    /* ==========================
+   NAVBAR
+========================== */
+
+.site-header{
+
+position:fixed;
+
+top:0;
+left:0;
+
+width:100%;
+
+z-index:1000;
+
+background:
+rgba(0,0,0,.92);
+
+backdrop-filter:blur(12px);
+
+border-bottom:
+1px solid rgba(212,175,55,.08);
+
+}
+
+.nav-container{
+
+display:flex;
+
+justify-content:space-between;
+
+align-items:center;
+
+min-height:90px;
+
+}
+
+.logo{
+
+font-family:'Cinzel',serif;
+
+font-size:1.2rem;
+
+font-weight:700;
+
+letter-spacing:2px;
+
+color:#d4af37;
+
+text-decoration:none;
+
+}
+
+.nav-menu{
+
+display:flex;
+
+gap:35px;
+
+align-items:center;
+
+}
+
+.nav-menu a{
+
+color:#ddd;
+
+text-decoration:none;
+
+font-size:.95rem;
+
+letter-spacing:1px;
+
+transition:.3s;
+
+}
+
+.nav-menu a:hover{
+
+color:#d4af37;
+
+}
+
+.nav-cta{
+
+display:inline-block;
+
+padding:12px 26px;
+
+background:
+linear-gradient(
+180deg,
+#d30000,
+#7b0000
+);
+
+border:2px solid #ff3737;
+
+border-radius:10px;
+
+color:white;
+
+text-decoration:none;
+
+font-family:'Cinzel',serif;
+
+font-size:.9rem;
+
+letter-spacing:1px;
+
+transition:.3s;
+
+}
+
+.nav-cta:hover{
+
+transform:translateY(-3px);
+
+box-shadow:
+0 0 25px rgba(255,0,0,.4);
+
+}
+
+/* Push content below fixed navbar */
+
+body{
+
+padding-top:90px;
+
+}
+
+/* ==========================
+   MOBILE
+========================== */
+
+@media(max-width:768px){
+
+.nav-container{
+
+flex-direction:column;
+
+padding:15px 0;
+
+gap:15px;
+
+}
+
+.nav-menu{
+
+flex-wrap:wrap;
+
+justify-content:center;
+
+gap:18px;
+
+}
+
+.logo{
+
+font-size:1rem;
+
+text-align:center;
+
+}
+
+.nav-cta{
+
+padding:10px 20px;
+
+font-size:.8rem;
+
+}
+
+body{
+
+padding-top:150px;
+
+}
+
+}
 </style>
 </head>
 
 <body>
+<header class="site-header">
 
+    <div class="container nav-container">
+
+        <a href="index.html" class="logo">
+
+            THE FORGOTTEN YOU
+
+        </a>
+
+        <nav class="nav-menu">
+
+            <a href="index.html#story">Story</a>
+
+            <a href="index.html#features">Discover</a>
+
+            <a href="index.html#journey">Journey</a>
+
+            <a href="index.html#faq">FAQ</a>
+
+        </nav>
+
+        <a href="#book" class="nav-cta">
+
+            GET THE BOOK
+
+        </a>
+
+    </div>
+
+</header>
 <section class="early-access-hero">
 
     <div class="container">
