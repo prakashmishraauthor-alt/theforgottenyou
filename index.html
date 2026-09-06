@@ -1,3446 +1,794 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>The Forgotten You</title>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
-<style>
-
-<style>
-
-/* =========================
-   GLOBAL RESET
-========================= */
-
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-}
-
-html{
-scroll-behavior:smooth;
-}
-
-:root{
-
---gold:#d4af37;
---gold-light:#f7d77a;
---gold-dark:#8c6a13;
-
---red:#9f0000;
---red-light:#cf0000;
-
---bg:#060606;
---card:#111111;
-
---text:#f5f5f5;
---muted:#b8b8b8;
-
---shadow-gold:
-0 0 10px rgba(212,175,55,.4),
-0 0 20px rgba(212,175,55,.3),
-0 0 40px rgba(212,175,55,.2);
-
-}
-
-body{
-
-background:var(--bg);
-color:var(--text);
-
-font-family:'Cormorant Garamond',serif;
-
-overflow-x:hidden;
-
-line-height:1.7;
-
-}
-
-/* =========================
-   CONTAINER
-========================= */
-
-.container{
-
-width:90%;
-max-width:1300px;
-
-margin:auto;
-
-}
-
-/* =========================
-   NAVBAR
-========================= */
-
-.navbar{
-
-position:fixed;
-
-top:0;
-left:0;
-
-width:100%;
-
-z-index:999;
-
-background:
-linear-gradient(
-to bottom,
-rgba(0,0,0,.92),
-rgba(0,0,0,.65)
-);
-
-backdrop-filter:blur(12px);
-
-border-bottom:
-1px solid rgba(212,175,55,.15);
-
-}
-
-.nav-container{
-
-display:flex;
-
-align-items:center;
-
-justify-content:space-between;
-
-padding:18px 0;
-
-}
-
-.logo{
-
-font-family:'Cinzel',serif;
-
-font-size:.65rem;
-
-font-weight:500;
-
-color:var(--gold);
-
-line-height:1.1;
-
-letter-spacing:2px;
-
-text-shadow:var(--shadow-gold);
-
-}
-
-.nav-links{
-
-display:flex;
-
-gap:40px;
-
-}
-
-.nav-links a{
-
-text-decoration:none;
-
-color:var(--gold-light);
-
-font-family:'Cinzel',serif;
-
-font-size:.95rem;
-
-transition:.3s;
-
-}
-
-.nav-links a:hover{
-
-color:white;
-
-}
-
-.nav-btn{
-
-padding:14px 24px;
-
-background:
-linear-gradient(
-180deg,
-#c20000,
-#7d0000
-);
-
-border:1px solid #ff2e2e;
-
-border-radius:10px;
-
-text-decoration:none;
-
-color:white;
-
-font-family:'Cinzel',serif;
-
-font-size:.85rem;
-
-letter-spacing:1px;
-
-box-shadow:
-0 0 15px rgba(255,0,0,.4);
-
-transition:.3s;
-
-}
-
-.nav-btn:hover{
-
-transform:translateY(-2px);
-
-box-shadow:
-0 0 30px rgba(255,0,0,.7);
-
-}
-
-.mobile-toggle{
-
-display:none;
-
-font-size:2rem;
-
-cursor:pointer;
-
-color:var(--gold);
-
-}
-
-/* =========================
-   HERO
-========================= */
-
-.hero{
-
-min-height:100vh;
-
-position:relative;
-
-display:flex;
-
-align-items:center;
-
-justify-content:center;
-
-text-align:center;
-
-overflow:hidden;
-
-padding:120px 20px;
-
-background:
-linear-gradient(
-rgba(0,0,0,.72),
-rgba(0,0,0,.82)
-),
-url("images/hero-bg.jpg");
-
-background-size:cover;
-
-background-position:center;
-
-}
-
-.hero::before{
-
-content:"";
-
-position:absolute;
-
-width:700px;
-height:700px;
-
-border-radius:50%;
-
-background:
-radial-gradient(
-circle,
-rgba(212,175,55,.25),
-transparent 70%
-);
-
-filter:blur(30px);
-
-}
-
-.hero-overlay{
-
-position:absolute;
-
-inset:0;
-
-background:
-radial-gradient(
-circle at center,
-rgba(212,175,55,.06),
-transparent 60%
-);
-
-}
-
-.hero-content{
-
-position:relative;
-
-z-index:2;
-
-max-width:1000px;
-
-}
-
-.hero-title{
-
-font-family:'Cinzel',serif;
-
-font-weight:900;
-
-line-height:.9;
-
-font-size:
-clamp(2rem,7vw,5rem);
-
-letter-spacing:4px;
-
-color:var(--gold-light);
-
-text-shadow:
-0 0 8px rgba(255,223,100,.6),
-0 0 20px rgba(255,223,100,.5),
-0 0 40px rgba(255,223,100,.4),
-0 0 80px rgba(255,223,100,.2);
-
-margin-bottom:30px;
-
-}
-
-.hero-title span{
-
-display:inline-block;
-
-opacity:0;
-
-transform:
-translateY(60px)
-scale(.4);
-
-animation:
-reveal .7s forwards;
-
-}
-
-/* delays */
-
-.hero-title span:nth-child(1){animation-delay:.1s;}
-.hero-title span:nth-child(2){animation-delay:.2s;}
-.hero-title span:nth-child(3){animation-delay:.3s;}
-.hero-title span:nth-child(4){animation-delay:.4s;}
-.hero-title span:nth-child(5){animation-delay:.5s;}
-.hero-title span:nth-child(6){animation-delay:.6s;}
-.hero-title span:nth-child(7){animation-delay:.7s;}
-.hero-title span:nth-child(8){animation-delay:.8s;}
-.hero-title span:nth-child(9){animation-delay:.9s;}
-.hero-title span:nth-child(10){animation-delay:1s;}
-.hero-title span:nth-child(11){animation-delay:1.1s;}
-.hero-title span:nth-child(12){animation-delay:1.2s;}
-.hero-title span:nth-child(13){animation-delay:1.3s;}
-.hero-title span:nth-child(14){animation-delay:1.4s;}
-.hero-title span:nth-child(15){animation-delay:1.5s;}
-
-@keyframes reveal{
-
-to{
-
-opacity:1;
-
-transform:
-translateY(0)
-scale(1);
-
-}
-
-}
-
-.hero-subtitle{
-
-font-size:
-clamp(1rem,2vw,1.5rem);
-
-letter-spacing:4px;
-
-color:#ddd2a3;
-
-margin-bottom:40px;
-
-}
-
-.hero-button{
-
-display:inline-block;
-
-padding:18px 50px;
-
-border-radius:12px;
-
-background:
-linear-gradient(
-180deg,
-#cf0000,
-#770000
-);
-
-border:2px solid #ff3434;
-
-color:white;
-
-font-family:'Cinzel',serif;
-
-text-decoration:none;
-
-letter-spacing:2px;
-
-box-shadow:
-0 0 25px rgba(255,0,0,.5);
-
-transition:.3s;
-
-}
-
-.hero-button:hover{
-
-transform:translateY(-4px);
-
-box-shadow:
-0 0 45px rgba(255,0,0,.8);
-
-}
-
-/* =========================
-   STORY
-========================= */
-
-.story-section{
-
-padding:140px 0;
-
-}
-
-.story-grid{
-
-display:grid;
-
-grid-template-columns:
-1fr 1fr;
-
-gap:80px;
-
-align-items:center;
-
-}
-
-.portal-circle{
-
-width:350px;
-height:350px;
-
-border-radius:50%;
-
-margin:auto;
-
-display:flex;
-
-align-items:center;
-justify-content:center;
-
-font-size:5rem;
-
-color:white;
-
-background:
-radial-gradient(
-circle,
-#ffd77a,
-#7a4b00
-);
-
-box-shadow:
-0 0 30px #d4af37,
-0 0 80px #d4af37,
-0 0 150px rgba(212,175,55,.4);
-
-animation:
-pulse 4s infinite ease-in-out;
-
-}
-
-@keyframes pulse{
-
-50%{
-
-transform:scale(1.05);
-
-}
-
-}
-
-.story-content h2{
-
-font-family:'Cinzel',serif;
-
-font-size:3rem;
-
-color:var(--gold);
-
-margin-bottom:25px;
-
-}
-
-.story-content p{
-
-font-size:1.35rem;
-
-margin-bottom:18px;
-
-color:#ddd;
-
-}
-
-.gold-text{
-
-color:var(--gold-light);
-
-font-weight:700;
-
-font-size:1.6rem;
-
-}
-
-   .book-cover{
-
-max-width:350px;
-
-width:100%;
-
-height:auto;
-
-display:block;
-
-margin:auto;
-
-}
-
-/* =========================
-   SECTION TITLES
-========================= */
-
-.section-title{
-
-text-align:center;
-
-font-family:'Cinzel',serif;
-
-font-size:3rem;
-
-margin-bottom:70px;
-
-color:var(--gold);
-
-text-shadow:var(--shadow-gold);
-
-}
-
-/* =========================
-   FEATURES
-========================= */
-
-.features-section{
-
-padding:120px 0;
-
-background:#0c0c0c;
-
-}
-
-.features-grid{
-
-display:grid;
-
-grid-template-columns:
-repeat(4,1fr);
-
-gap:30px;
-
-}
-
-.feature-card{
-
-background:var(--card);
-
-padding:40px 25px;
-
-border:
-1px solid rgba(212,175,55,.15);
-
-border-radius:20px;
-
-text-align:center;
-
-transition:.4s;
-
-}
-
-.feature-card:hover{
-
-transform:
-translateY(-8px);
-
-border-color:
-rgba(212,175,55,.5);
-
-}
-
-.feature-icon{
-
-font-size:3rem;
-
-margin-bottom:20px;
-
-color:var(--gold);
-
-}
-
-.feature-card h3{
-
-font-family:'Cinzel',serif;
-
-margin-bottom:15px;
-
-color:var(--gold-light);
-
-}
-
-.feature-card p{
-
-color:#ccc;
-
-}
-
-  /* ==========================================
-   JOURNEY SECTION
-========================================== */
-
-.journey-grid{
-
-display:grid;
-
-grid-template-columns: 1fr 400px;
-
-gap:60px;
-
-align-items:center;
-
-max-width:1100px;
-
-margin:0 auto;
-
-}
-
-.journey-content{
-
-max-width:600px;
-
-}
-
-.journey-content h2{
-
-margin-bottom:20px;
-
-}
-
-.journey-content p{
-
-font-size:1.1rem;
-
-line-height:1.8;
-
-margin-bottom:18px;
-
-}
-
-.journey-image{
-
-display:flex;
-
-justify-content:center;
-
-align-items:center;
-
-}
-
-.journey-book{
-
-max-width:280px;
-
-width:100%;
-
-height:auto;
-
-display:block;
-
-filter:
-drop-shadow(0 0 20px rgba(212,175,55,.25))
-drop-shadow(0 0 40px rgba(212,175,55,.15));
-
-animation:floatBook 5s ease-in-out infinite;
-
-}
-
-@keyframes floatBook{
-
-0%,100%{
-transform:translateY(0);
-}
-
-50%{
-transform:translateY(-12px);
-}
-
-}
-
-@media(max-width:992px){
-
-.journey-grid{
-
-grid-template-columns:1fr;
-
-text-align:center;
-
-}
-
-.journey-content{
-
-max-width:700px;
-
-margin:0 auto;
-
-}
-
-.journey-image{
-
-margin-top:40px;
-
-}
-
-.journey-book{
-
-max-width:240px;
-
-}
-
-}
-
-/* =========================
-   MOBILE
-========================= */
-
-@media(max-width:992px){
-
-.story-grid{
-grid-template-columns:1fr;
-text-align:center;
-}
-
-.features-grid{
-grid-template-columns:
-repeat(2,1fr);
-}
-
-.nav-links{
-display:none;
-}
-
-.mobile-toggle{
-display:block;
-}
-
-}
-
-@media(max-width:768px){
-
-.hero-title{
-font-size:4rem;
-}
-
-.hero-subtitle{
-letter-spacing:2px;
-}
-
-.portal-circle{
-width:240px;
-height:240px;
-}
-
-.story-content h2{
-font-size:2rem;
-}
-
-.features-grid{
-grid-template-columns:1fr;
-}
-
-.section-title{
-font-size:2rem;
-}
-
-.nav-btn{
-display:none;
-}
-
-}
-
-@media(max-width:480px){
-
-.hero{
-padding-top:140px;
-}
-
-.hero-title{
-font-size:3rem;
-}
-
-.hero-button{
-width:100%;
-max-width:320px;
-}
-
-.story-content p{
-font-size:1.1rem;
-}
-
-}
-
-   /* =========================
-   MOBILE MENU
-========================= */
-
-.nav-links.active{
-
-display:flex;
-
-flex-direction:column;
-
-position:absolute;
-
-top:100%;
-
-left:0;
-
-width:100%;
-
-padding:30px;
-
-background:#090909;
-
-border-top:
-1px solid rgba(212,175,55,.15);
-
-}
-
-.navbar-scrolled{
-
-background:
-rgba(0,0,0,.95);
-
-box-shadow:
-0 10px 30px rgba(0,0,0,.4);
-
-}
-
-/* =========================
-   SCROLL REVEAL
-========================= */
-
-.hidden{
-
-opacity:0;
-
-transform:
-translateY(80px);
-
-transition:
-all .8s ease;
-
-}
-
-.show{
-
-opacity:1;
-
-transform:
-translateY(0);
-
-}
-
-/* =========================
-   TESTIMONIALS
-========================= */
-
-.testimonial-section{
-
-padding:120px 0;
-
-background:#0a0a0a;
-
-}
-
-.testimonial-grid{
-
-display:grid;
-
-grid-template-columns:
-repeat(3,1fr);
-
-gap:30px;
-
-}
-
-.testimonial-card{
-
-background:#111;
-
-padding:35px;
-
-border-radius:20px;
-
-border:
-1px solid rgba(212,175,55,.12);
-
-}
-
-.testimonial-card p{
-
-font-size:1.2rem;
-
-margin-bottom:20px;
-
-}
-
-.testimonial-card h4{
-
-color:var(--gold);
-
-}
-
-/* =========================
-   FAQ
-========================= */
-
-.faq-section{
-
-padding:120px 0;
-
-}
-
-.faq-item{
-
-max-width:900px;
-
-margin:0 auto 30px;
-
-padding:30px;
-
-background:#111;
-
-border-radius:18px;
-
-border:
-1px solid rgba(212,175,55,.12);
-
-}
-
-.faq-item h3{
-
-color:var(--gold);
-
-margin-bottom:10px;
-
-font-family:'Cinzel',serif;
-
-}
-
-/* =========================
-   NEWSLETTER
-========================= */
-
-.newsletter-section{
-
-padding:140px 0;
-
-text-align:center;
-
-background:
-linear-gradient(
-180deg,
-#0a0a0a,
-#050505
-);
-
-}
-
-.newsletter-section h2{
-
-font-size:3rem;
-
-font-family:'Cinzel',serif;
-
-color:var(--gold);
-
-margin-bottom:15px;
-
-}
-
-.newsletter-form{
-
-margin-top:30px;
-
-display:flex;
-
-justify-content:center;
-
-gap:10px;
-
-flex-wrap:wrap;
-
-}
-
-.newsletter-form input{
-
-padding:18px 20px;
-
-width:320px;
-
-border:none;
-
-border-radius:10px;
-
-outline:none;
-
-}
-
-.newsletter-form button{
-
-padding:18px 30px;
-
-border:none;
-
-cursor:pointer;
-
-border-radius:10px;
-
-background:
-linear-gradient(
-180deg,
-#cf0000,
-#770000
-);
-
-color:white;
-
-font-family:'Cinzel',serif;
-
-}
-
-
-/* =========================
-   MOBILE FIXES
-========================= */
-
-@media(max-width:768px){
-
-.testimonial-grid{
-
-grid-template-columns:1fr;
-
-}
-
-.newsletter-form{
-
-flex-direction:column;
-
-align-items:center;
-
-}
-
-.newsletter-form input{
-
-width:100%;
-
-max-width:350px;
-
-}
-
-}
-
-   /* ==========================================
-   QUOTES SECTION
-========================================== */
-
-.quotes-section{
-
-padding:140px 0;
-
-background:
-linear-gradient(
-180deg,
-#050505,
-#0a0a0a
-);
-
-position:relative;
-
-}
-
-.section-header{
-
-text-align:center;
-
-margin-bottom:80px;
-
-}
-
-.section-header h2{
-
-font-family:'Cinzel',serif;
-
-font-size:3.5rem;
-
-color:#d4af37;
-
-margin-bottom:15px;
-
-letter-spacing:3px;
-
-text-shadow:
-0 0 20px rgba(212,175,55,.25);
-
-}
-
-.section-header p{
-
-color:#b9b9b9;
-
-font-size:1.15rem;
-
-max-width:650px;
-
-margin:auto;
-
-line-height:1.8;
-
-}
-
-/* GRID */
-
-.quotes-grid{
-
-display:grid;
-
-grid-template-columns:
-repeat(auto-fit,minmax(320px,1fr));
-
-gap:30px;
-
-}
-
-/* CARD */
-
-.quote-card{
-
-background:
-rgba(255,255,255,.02);
-
-border:
-1px solid rgba(212,175,55,.15);
-
-padding:35px;
-
-border-radius:18px;
-
-backdrop-filter:blur(5px);
-
-transition:.35s;
-
-position:relative;
-
-overflow:hidden;
-
-}
-
-.quote-card:hover{
-
-transform:translateY(-8px);
-
-border-color:#d4af37;
-
-box-shadow:
-0 0 35px rgba(212,175,55,.12);
-
-}
-
-/* FEATURED CARD */
-
-.quote-featured{
-
-grid-column:span 2;
-
-background:
-linear-gradient(
-135deg,
-rgba(212,175,55,.08),
-rgba(255,255,255,.02)
-);
-
-}
-
-/* QUOTE MARK */
-
-.quote-mark{
-
-font-size:3rem;
-
-color:#d4af37;
-
-display:block;
-
-margin-bottom:15px;
-
-}
-
-/* TEXT */
-
-.quote-card p{
-
-font-size:1.08rem;
-
-line-height:1.9;
-
-color:#f1f1f1;
-
-}
-
-/* CLOSING */
-
-.quote-closing{
-
-text-align:center;
-
-margin-top:80px;
-
-font-size:1.3rem;
-
-color:#b8b8b8;
-
-line-height:2;
-
-}
-
-.quote-closing span{
-
-display:block;
-
-margin-top:10px;
-
-font-family:'Cinzel',serif;
-
-font-size:2rem;
-
-color:#d4af37;
-
-letter-spacing:2px;
-
-}
-
-/* MOBILE */
-
-@media(max-width:768px){
-
-.section-header h2{
-
-font-size:2.3rem;
-
-}
-
-.quote-featured{
-
-grid-column:span 1;
-
-}
-
-.quote-closing span{
-
-font-size:1.5rem;
-
-}
-
-}
-
-   /* ==========================================
-   AUTHOR SECTION
-========================================== */
-
-.author-section{
-
-padding:140px 0;
-
-background:
-linear-gradient(
-180deg,
-#050505,
-#0b0b0b
-);
-
-position:relative;
-
-}
-
-.author-grid{
-
-display:grid;
-
-grid-template-columns:
-450px 1fr;
-
-gap:80px;
-
-align-items:center;
-
-}
-
-.author-image{
-
-width:100%;
-
-border-radius:24px;
-
-border:2px solid rgba(212,175,55,.2);
-
-box-shadow:
-0 0 30px rgba(212,175,55,.15),
-0 0 80px rgba(212,175,55,.08);
-
-display:block;
-
-}
-
-.section-divider{
-
-width:120px;
-height:2px;
-
-background:var(--gold);
-
-margin-bottom:25px;
-
-}
-
-.gold-heading{
-
-font-family:'Cinzel',serif;
-
-font-size:3rem;
-
-color:var(--gold);
-
-text-shadow:
-0 0 10px rgba(212,175,55,.3);
-
-margin-bottom:30px;
-
-}
-
-.author-quote{
-
-font-size:1.35rem;
-
-line-height:1.9;
-
-color:#ddd;
-
-}
-
-.author-quote p{
-
-margin-bottom:20px;
-
-}
-
-.signature{
-
-font-family:'Cinzel',serif;
-
-font-size:2rem;
-
-color:var(--gold-light);
-
-margin-top:35px;
-
-}
-
-.author-role{
-
-margin-top:10px;
-
-letter-spacing:3px;
-
-color:#aaa;
-
-font-size:.9rem;
-
-}
-
-   .journey-btn{
-
-display:inline-block;
-
-padding:12px 24px;
-
-font-size:0.95rem;
-
-letter-spacing:1px;
-
-text-decoration:none;
-
-border-radius:8px;
-
-}
-
-/* ==========================================
-   REVIEWS
-========================================== */
-
-.reviews-section{
-
-padding:140px 0;
-
-background:#090909;
-
-}
-
-.center{
-
-text-align:center;
-
-}
-
-.reviews-grid{
-
-display:grid;
-
-grid-template-columns:
-repeat(2,1fr);
-
-gap:35px;
-
-margin-top:70px;
-
-}
-
-.review-card{
-
-background:#121212;
-
-padding:40px;
-
-border-radius:22px;
-
-border:
-1px solid rgba(212,175,55,.15);
-
-transition:.4s;
-
-}
-
-.review-card:hover{
-
-transform:translateY(-8px);
-
-border-color:
-rgba(212,175,55,.45);
-
-}
-
-.stars{
-
-font-size:1.4rem;
-
-color:#ffd95a;
-
-margin-bottom:20px;
-
-letter-spacing:4px;
-
-}
-
-.review-card p{
-
-font-size:1.25rem;
-
-line-height:1.8;
-
-color:#e6e6e6;
-
-margin-bottom:20px;
-
-}
-
-.review-card span{
-
-color:var(--gold);
-
-font-size:.9rem;
-
-letter-spacing:2px;
-
-}
-
-/* ==========================================
-   STARTER KIT
-========================================== */
-
-.starter-kit-section{
-
-padding:150px 0;
-
-background:
-linear-gradient(
-180deg,
-#0b0b0b,
-#050505
-);
-
-}
-
-.starter-grid{
-
-display:grid;
-
-grid-template-columns:
-500px 1fr;
-
-gap:90px;
-
-align-items:center;
-
-}
-
-.starter-book img{
-
-width:100%;
-
-display:block;
-
-filter:
-drop-shadow(
-0 0 30px rgba(212,175,55,.25)
-);
-
-}
-
-.starter-intro{
-
-font-size:1.35rem;
-
-line-height:1.8;
-
-color:#d5d5d5;
-
-margin-bottom:50px;
-
-}
-
-.kit-grid{
-
-display:grid;
-
-grid-template-columns:
-repeat(3,1fr);
-
-gap:25px;
-
-margin-bottom:50px;
-
-}
-
-.kit-item{
-
-background:#111;
-
-padding:30px;
-
-border-radius:20px;
-
-border:
-1px solid rgba(212,175,55,.12);
-
-text-align:center;
-
-}
-
-.kit-icon{
-
-font-size:2.5rem;
-
-color:var(--gold);
-
-margin-bottom:15px;
-
-}
-
-.kit-item h3{
-
-font-family:'Cinzel',serif;
-
-font-size:1.1rem;
-
-margin-bottom:10px;
-
-color:var(--gold-light);
-
-}
-
-.kit-item p{
-
-font-size:1rem;
-
-line-height:1.6;
-
-color:#cfcfcf;
-
-}
-
-/* ==========================================
-   CTA BUTTON
-========================================== */
-
-.cta-button{
-
-display:inline-block;
-
-padding:18px 40px;
-
-border-radius:12px;
-
-text-decoration:none;
-
-font-family:'Cinzel',serif;
-
-letter-spacing:2px;
-
-color:white;
-
-background:
-linear-gradient(
-180deg,
-#d30000,
-#7b0000
-);
-
-border:2px solid #ff3737;
-
-box-shadow:
-0 0 20px rgba(255,0,0,.4);
-
-transition:.35s;
-
-}
-
-.cta-button:hover{
-
-transform:
-translateY(-4px);
-
-box-shadow:
-0 0 35px rgba(255,0,0,.8);
-
-}
-
-/* ==========================================
-   FINAL CTA
-========================================== */
-
-.final-cta-section{
-
-padding:180px 0;
-
-text-align:center;
-
-position:relative;
-
-background:
-linear-gradient(
-rgba(0,0,0,.75),
-rgba(0,0,0,.85)
-),
-url("images/final-cta-bg.jpg");
-
-background-size:cover;
-
-background-position:center;
-
-}
-
-.final-cta-section h2{
-
-font-family:'Cinzel',serif;
-
-font-size:4rem;
-
-color:var(--gold-light);
-
-margin-bottom:25px;
-
-text-shadow:
-0 0 15px rgba(212,175,55,.4);
-
-}
-
-.final-cta-section p{
-
-max-width:700px;
-
-margin:0 auto 40px;
-
-font-size:1.4rem;
-
-line-height:1.8;
-
-color:#ddd;
-
-}
-
-/* ==========================================
-   FOOTER
-========================================== */
-
-.site-footer{
-
-padding:100px 0 50px;
-
-background:#050505;
-
-border-top:
-1px solid rgba(212,175,55,.1);
-
-}
-
-.footer-top{
-
-display:flex;
-
-justify-content:space-between;
-
-align-items:flex-start;
-
-margin-bottom:50px;
-
-}
-
-.footer-logo{
-
-font-family:'Cinzel',serif;
-
-font-size:1.8rem;
-
-line-height:1.1;
-
-color:var(--gold);
-
-}
-
-.footer-nav{
-
-display:flex;
-
-gap:30px;
-
-flex-wrap:wrap;
-
-}
-
-.footer-nav a{
-
-text-decoration:none;
-
-color:#cfcfcf;
-
-transition:.3s;
-
-}
-
-.footer-nav a:hover{
-
-color:var(--gold);
-
-}
-
-.footer-social{
-
-display:flex;
-
-justify-content:center;
-
-gap:30px;
-
-margin-bottom:40px;
-
-}
-
-.footer-social a{
-
-text-decoration:none;
-
-color:#aaa;
-
-}
-
-.footer-social a:hover{
-
-color:var(--gold);
-
-}
-
-.footer-divider{
-
-height:1px;
-
-background:
-rgba(212,175,55,.1);
-
-margin-bottom:25px;
-
-}
-
-.copyright{
-
-text-align:center;
-
-color:#777;
-
-}
-
-/* ==========================================
-   RESPONSIVE
-========================================== */
-
-@media(max-width:992px){
-
-.author-grid,
-.starter-grid{
-
-grid-template-columns:1fr;
-
-text-align:center;
-
-}
-
-.section-divider{
-
-margin:0 auto 25px;
-
-}
-
-.reviews-grid{
-
-grid-template-columns:1fr;
-
-}
-
-.kit-grid{
-
-grid-template-columns:1fr;
-
-}
-
-.footer-top{
-
-flex-direction:column;
-
-gap:30px;
-
-align-items:center;
-
-}
-
-}
-
-@media(max-width:768px){
-
-.gold-heading{
-
-font-size:2rem;
-
-}
-
-.final-cta-section h2{
-
-font-size:2.5rem;
-
-}
-
-.author-quote{
-
-font-size:1.15rem;
-
-}
-
-.review-card p{
-
-font-size:1.05rem;
-
-}
-
-.starter-intro{
-
-font-size:1.1rem;
-
-}
-
-.footer-social{
-
-flex-wrap:wrap;
-
-}
-
-}
-
-   .journey-btn{
-    display:inline-block !important;
-    width:auto !important;
-    padding:12px 24px !important;
-    font-size:1rem !important;
-    line-height:1.2 !important;
-}
-
-   /* ==========================
-   GET THE BOOK BUTTON
-========================== */
-
-.get-book-btn{
-
-display:inline-block;
-
-margin-top:25px;
-
-padding:18px 42px;
-
-background:
-linear-gradient(
-180deg,
-#d30000,
-#7b0000
-);
-
-border:2px solid #ff3737;
-
-border-radius:12px;
-
-color:#fff;
-
-text-decoration:none;
-
-font-family:'Cinzel',serif;
-
-font-size:1rem;
-
-letter-spacing:2px;
-
-text-transform:uppercase;
-
-box-shadow:
-0 0 20px rgba(255,0,0,.25);
-
-transition:.35s;
-
-}
-
-.get-book-btn:hover{
-
-transform:translateY(-4px);
-
-box-shadow:
-0 0 35px rgba(255,0,0,.5);
-
-}
-
-.get-book-btn:active{
-
-transform:translateY(-1px);
-
-}
-
-/* ==========================================
-   FOOTER
-========================================== */
-
-.site-footer{
-
-background:#050505;
-
-padding:80px 0 40px;
-
-border-top:1px solid rgba(212,175,55,.12);
-
-}
-
-.footer-top{
-
-display:grid;
-
-grid-template-columns:2fr 1fr 1fr 1fr;
-
-gap:50px;
-
-}
-
-.footer-brand h2{
-
-font-family:'Cinzel',serif;
-
-font-size:2rem;
-
-color:#d4af37;
-
-margin-bottom:15px;
-
-}
-
-.footer-brand p{
-
-color:#999;
-
-line-height:1.8;
-
-}
-
-.footer-links h3{
-
-font-family:'Cinzel',serif;
-
-color:#d4af37;
-
-margin-bottom:20px;
-
-}
-
-.footer-links a{
-
-display:block;
-
-margin-bottom:12px;
-
-text-decoration:none;
-
-color:#cfcfcf;
-
-transition:.3s;
-
-}
-
-.footer-links a:hover{
-
-color:#d4af37;
-
-}
-
-.footer-divider{
-
-height:1px;
-
-background:rgba(212,175,55,.12);
-
-margin:40px 0;
-
-}
-
-.footer-bottom{
-
-display:flex;
-
-justify-content:space-between;
-
-align-items:center;
-
-gap:20px;
-
-}
-
-.footer-bottom p{
-
-color:#777;
-
-}
-
-.footer-cta{
-
-display:inline-block;
-
-padding:12px 24px;
-
-text-decoration:none;
-
-border-radius:10px;
-
-background:linear-gradient(
-180deg,
-#c90000,
-#760000
-);
-
-color:#fff;
-
-border:1px solid #ff4040;
-
-font-family:'Cinzel',serif;
-
-}
-
-.footer-cta:hover{
-
-transform:translateY(-2px);
-
-}
-
-@media(max-width:768px){
-
-.footer-top{
-
-grid-template-columns:1fr;
-
-text-align:center;
-
-}
-
-.footer-bottom{
-
-flex-direction:column;
-
-text-align:center;
-
-}
-
-}
-
-   /* ==========================================
-   SOCIAL ICONS
-========================================== */
-
-.social-section{
-
-text-align:center;
-
-margin:50px 0;
-
-}
-
-.social-section h3{
-
-font-family:'Cinzel',serif;
-
-color:#d4af37;
-
-letter-spacing:2px;
-
-margin-bottom:25px;
-
-}
-
-.social-icons{
-
-display:flex;
-
-justify-content:center;
-
-gap:25px;
-
-flex-wrap:wrap;
-
-}
-
-.social-icons a{
-
-width:65px;
-
-height:65px;
-
-display:flex;
-
-justify-content:center;
-
-align-items:center;
-
-text-decoration:none;
-
-font-size:1.5rem;
-
-color:#d4af37;
-
-border:1px solid rgba(212,175,55,.25);
-
-border-radius:50%;
-
-background:
-rgba(255,255,255,.02);
-
-transition:.4s ease;
-
-box-shadow:
-0 0 10px rgba(212,175,55,.08);
-
-}
-
-.social-icons a:hover{
-
-transform:
-translateY(-6px)
-scale(1.08);
-
-color:#fff;
-
-border-color:#d4af37;
-
-box-shadow:
-0 0 15px rgba(212,175,55,.4),
-0 0 35px rgba(212,175,55,.25);
-
-background:
-linear-gradient(
-135deg,
-rgba(212,175,55,.2),
-rgba(212,175,55,.05)
-);
-
-}
-
-   @media (max-width:768px){
-
-.hero-title{
-
-font-size:clamp(2.8rem,12vw,4.5rem);
-
-line-height:1.05;
-
-letter-spacing:1px;
-
-}
-
-}
-
-@media(max-width:768px){
-
-.get-book-btn{
-
-padding:15px 30px;
-
-font-size:.9rem;
-
-width:100%;
-
-max-width:320px;
-
-}
-
-}
-
-/* ==========================
-   SHARE BUTTON
-========================== */
-
-.share-btn{
-
-display:inline-flex;
-
-align-items:center;
-
-justify-content:center;
-
-gap:10px;
-
-margin-top:20px;
-
-padding:16px 36px;
-
-background:
-transparent;
-
-border:2px solid #d4af37;
-
-border-radius:12px;
-
-color:#d4af37;
-
-text-decoration:none;
-
-font-family:'Cinzel',serif;
-
-font-size:.95rem;
-
-letter-spacing:2px;
-
-transition:.35s;
-
-}
-
-.share-btn:hover{
-
-background:
-rgba(212,175,55,.08);
-
-transform:translateY(-3px);
-
-box-shadow:
-0 0 20px rgba(212,175,55,.2);
-
-}
-
-   /* ==========================
-   SHARE ICONS
-========================== */
-
-.share-icons{
-
-display:flex;
-
-justify-content:center;
-
-gap:18px;
-
-margin-top:30px;
-
-}
-
-.share-icons a{
-
-width:55px;
-
-height:55px;
-
-display:flex;
-
-align-items:center;
-
-justify-content:center;
-
-border-radius:50%;
-
-text-decoration:none;
-
-color:#d4af37;
-
-border:1px solid rgba(212,175,55,.3);
-
-background:rgba(212,175,55,.05);
-
-font-size:1.3rem;
-
-transition:.3s;
-
-}
-
-.share-icons a:hover{
-
-transform:translateY(-5px);
-
-color:#fff;
-
-background:#d4af37;
-
-box-shadow:
-0 0 20px rgba(212,175,55,.35);
-
-}
-
-   .share-icons{
-
-display:flex;
-
-justify-content:center;
-
-gap:15px;
-
-margin-top:30px;
-
-}
-
-.share-icons a{
-
-width:50px;
-
-height:50px;
-
-display:flex;
-
-align-items:center;
-
-justify-content:center;
-
-border-radius:50%;
-
-border:1px solid #d4af37;
-
-color:#d4af37;
-
-text-decoration:none;
-
-font-size:22px;
-
-}
-
-.share-icons a:hover{
-
-background:#d4af37;
-
-color:#000;
-
-}
-</style>
-</head>
-
-<body>
-
-<body>
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-<link rel="stylesheet"
-href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>The Forgotten You | Remember Who You Are</title>
-
-<meta name="description"
-content="The Forgotten You is a transformative journey of remembrance, awakening, truth, power and purpose.">
-
-<meta name="keywords"
-content="The Forgotten You, spiritual book, awakening, self discovery, transformation, purpose">
-
-<meta name="author" content="Your Name">
-
-<link rel="canonical"
-href="https://www.theforgottenyou.com">
-
-<meta property="og:title"
-content="The Forgotten You">
-
-<meta property="og:description"
-content="You were never meant to stay forgotten.">
-
-<meta property="og:type"
-content="website">
-
-<meta property="og:image"
-content="images/social-cover.jpg">
-
-<meta property="og:url"
-content="https://www.theforgottenyou.com">
-
-<meta name="twitter:card"
-content="summary_large_image">
-
-<meta name="twitter:title"
-content="The Forgotten You">
-
-<meta name="twitter:description"
-content="Remember who you are.">
-
-<meta name="twitter:image"
-content="images/social-cover.jpg">
-
-<link rel="preconnect"
-href="https://fonts.googleapis.com">
-
-<link rel="preconnect"
-href="https://fonts.gstatic.com"
-crossorigin>
-
-<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700;800;900&family=Cormorant+Garamond:wght@300;400;500;600;700&display=swap"
-rel="stylesheet">
-
-<link rel="stylesheet"
-href="style.css">
-
-<script type="application/ld+json">
-{
-"@context":"https://schema.org",
-"@type":"Book",
-"name":"The Forgotten You",
-"description":"A journey of remembrance, awakening and purpose.",
-"inLanguage":"en",
-"genre":"Personal Transformation"
-}
-</script>
-
-</head>
-
-<body>
-
-<header class="navbar">
-
-<div class="container nav-container">
-
-<div class="logo">
-
-THE<br>
-FORGOTTEN<br>
-YOU
-
-</div>
-
-<nav class="nav-links">
-
-<a href="#story">Story</a>
-
-<a href="#features">Features</a>
-
-<a href="#journey">Journey</a>
-
-<a href="#faq">FAQ</a>
-
-</nav>
-
-<a href="early-access.html"
-class="hero-button">
-
-BEGIN YOUR AWAKENING
-
-</a>
-
-<div class="mobile-toggle">
-
-☰
-
-</div>
-
-</div>
-
-</header>
-
-<section class="hero">
-
-<div class="hero-overlay"></div>
-
-<div class="hero-content">
-
-<h1 class="hero-title">
-
-<span>T</span>
-<span>H</span>
-<span>E</span>
-
-<br>
-
-<span>F</span>
-<span>O</span>
-<span>R</span>
-<span>G</span>
-<span>O</span>
-<span>T</span>
-<span>T</span>
-<span>E</span>
-<span>N</span>
-
-<br>
-
-<span>Y</span>
-<span>O</span>
-<span>U</span>
-
-</h1>
-
-<p class="hero-subtitle">
-
-YOU WERE NEVER MEANT TO STAY FORGOTTEN.
-<br>
-REMEMBER WHO YOU ARE.
-
-</p>
-
-<a href="early-access.html"
-class="hero-button">
-
-BEGIN YOUR AWAKENING
-
-</a>
-</div>
-
-</section>
-
-<section id="story"
-class="story-section">
-
-<div class="container story-grid">
-
-<div class="story-image">
-   <img
-        src="Book cover.png"
-        alt="The Forgotten You"
-        class="book-cover">
-
-</div>
-
-</div>
-
-<div class="story-content">
-
-<h2>
-A STORY OF REMEMBRANCE
-</h2>
-
-<p>
-Once, you knew who you were.
-</p>
-
-<p>
-Then life happened.
-</p>
-
-<p>
-Expectations, fear, noise and doubt slowly buried the truth beneath layers of forgetting.
-</p>
-
-<p>
-But something inside you still remembers.
-</p>
-
-<p>
-The Forgotten You is not merely a book.
-It is a return.
-</p>
-
-<p class="gold-text">
-The remembering has begun.
-</p>
-
-</div>
-
-</div>
-
-</section>
-
-<section id="features"
-class="features-section">
-
-<div class="container">
-
-<h2 class="section-title">
-
-WHAT YOU WILL DISCOVER
-
-</h2>
-
-<div class="features-grid">
-
-<div class="feature-card">
-
-<div class="feature-icon">
-
-✦
-
-</div>
-
-<h3>
-UNCOVER YOUR TRUTH
-</h3>
-
-<p>
-Remove the layers hiding your authentic self.
-</p>
-
-</div>
-
-<div class="feature-card">
-
-<div class="feature-icon">
-
-🔥
-
-</div>
-
-<h3>
-AWAKEN YOUR POWER
-</h3>
-
-<p>
-Reconnect with the strength already within you.
-</p>
-
-</div>
-
-<div class="feature-card">
-
-<div class="feature-icon">
-
-☉
-
-</div>
-
-<h3>
-FIND YOUR PURPOSE
-</h3>
-
-<p>
-Move toward the path that was always yours.
-</p>
-
-</div>
-
-<div class="feature-card">
-
-<div class="feature-icon">
-
-⛩
-
-</div>
-
-<h3>
-JOIN THE JOURNEY
-</h3>
-
-<p>
-Walk alongside others who are remembering.
-</p>
-
-</div>
-
-</div>
-
-</div>
-
-</section>
-
-<!-- ==========================================
-     EXCLUSIVE QUOTES SECTION
-========================================== -->
-
-<section class="quotes-section">
-
-    <div class="container">
-
-        <div class="section-header">
-
-            <h2>WORDS OF REMEMBRANCE</h2>
-
-            <p>
-                A glimpse into the wisdom waiting within
-                The Forgotten You.
-            </p>
-
-        </div>
-
-        <div class="quotes-grid">
-
-            <div class="quote-card">
-
-                <span class="quote-mark">❝</span>
-
-                <p>
-                    When work takes away your stillness,
-                    it is no longer work.
-                    It is spiritual theft.
-                </p>
-
-            </div>
-
-            <div class="quote-card">
-
-                <span class="quote-mark">❝</span>
-
-                <p>
-                    Your potential feels trapped in a glass jar.
-                    Despite your loyalty, hard work and dreams —
-                    you feel unseen.
-                    Undervalued.
-                    Unfulfilled.
-                </p>
-
-            </div>
-
-            <div class="quote-card">
-
-                <span class="quote-mark">❝</span>
-
-                <p>
-                    It is not your name.
-                    Not your job.
-                    Not your past or your hopes.
-
-                    It is not your thoughts,
-                    nor the feelings that rise and fall within.
-
-                    The Self is the silent witness behind it all.
-                </p>
-
-            </div>
-
-            <div class="quote-card">
-
-                <span class="quote-mark">❝</span>
-
-                <p>
-                    The Self is not something to become.
-                    It is something to remember.
-
-                    It is your original face before the world
-                    told you who you should be.
-                </p>
-
-            </div>
-
-            <div class="quote-card quote-featured">
-
-                <span class="quote-mark">❝</span>
-
-                <p>
-                    The one who knows the Self
-                    plays the song of life
-                    with effortless grace.
-                </p>
-
-            </div>
-
-        </div>
-
-        <div class="quote-closing">
-
-            These are not merely ideas to understand.
-
-            <span>
-                They are truths to remember.
-            </span>
-
-        </div>
-
-    </div>
-<div class="social-section">
-
-    <h3>Follow the Journey</h3>
-
-       <div class="social-icons">
-
-    <a href="https://www.instagram.com/yourusername" target="_blank">
-        <i class="fab fa-instagram"></i>
-    </a>
-
-    <a href="https://www.facebook.com/yourusername" target="_blank">
-        <i class="fab fa-facebook-f"></i>
-    </a>
-
-    <a href="https://www.youtube.com/@yourchannel" target="_blank">
-        <i class="fab fa-youtube"></i>
-    </a>
-
-    <a href="https://x.com/yourusername" target="_blank">
-        <i class="fab fa-x-twitter"></i>
-    </a>
-
-    <a href="https://www.linkedin.com/company/the-forgotten-you" target="_blank">
-        <i class="fab fa-linkedin-in"></i>
-    </a>
-
-</div>
-
-</section>
-<section class="author-section">
-
-    <div class="container">
-
-        <div class="author-grid">
-
-            <div class="author-left">
-
-                <img
-                    src="author.png"
-                    alt="Author Portrait"
-                    class="author-image">
-
-            </div>
-
-            <div class="author-right">
-
-                <div class="section-divider"></div>
-
-                <h2 class="gold-heading">
-                    ABOUT THE AUTHOR
-                </h2>
-
-                <div class="author-quote">
-
-                    <p>
-                        I wrote this book not as an expert,
-                        but as a fellow traveler.
-                    </p>
-
-                    <p>
-                        I have walked through the darkness
-                        of forgetting and emerged into the light
-                        of remembrance.
-                    </p>
-
-                    <p>
-                        My hope is that these words become
-                        a mirror for you to remember
-                        who you truly are.
-                    </p>
-
-                </div>
-
-                <div class="signature">
-                   Prakash Mishra
-                </div>
-
-                <p class="author-role">
-                    AUTHOR · SEEKER · REMEMBERER
-                </p>
-
-            </div>
-
-        </div>
-
-    </div>
-
-</section>
-<section id="journey"
-class="journey-section">
-
-<div class="container">
-
-<h2 class="section-title">
-
-YOUR JOURNEY
-
-<section id="journey" class="journey-section">
-
-    <div class="container journey-grid">
-
-        <div class="journey-content">
-
-            <h2>THE JOURNEY OF REMEMBRANCE</h2>
-
-            <p>
-                The Forgotten You is more than a book.
-                It is a path back to yourself.
-            </p>
-
-
-            <p>
-                Every chapter is a step toward clarity,
-                purpose and transformation.
-            </p>
-
-            </a>
-
-        </div>
-
-        <div class="journey-image">
-
-            <img
-                src="mock-up.png"
-                alt="The Forgotten You Book Mockup"
-                class="journey-book">
-
-        </div>
-
-</section>
-
-</section>
-
-<section class="testimonial-section">
-
-<div class="container">
-
-<h2 class="section-title">
-
-EARLY READERS SAY
-
-</h2>
-
-<div class="testimonial-grid">
-
-<div class="testimonial-card">
-
-<p>
-"This book felt like a conversation with my soul."
-</p>
-
-<h4>
-— Early Reader
-</h4>
-
-</div>
-
-<div class="testimonial-card">
-
-<p>
-"I couldn't stop reading. Every page felt personal."
-</p>
-
-<h4>
-— Early Reader
-</h4>
-
-</div>
-
-<div class="testimonial-card">
-
-<p>
-"A beautiful reminder of who we truly are."
-</p>
-
-<h4>
-— Early Reader
-</h4>
-
-</div>
-
-</div>
-
-</div>
-
-</section>
-
-<section id="faq"
-class="faq-section">
-
-<div class="container">
-
-<h2 class="section-title">
-
-FREQUENTLY ASKED QUESTIONS
-
-</h2>
-
-<div class="faq-item">
-
-<h3>
-Who is this book for?
-</h3>
-
-<p>
-Anyone seeking purpose, clarity and self-discovery.
-</p>
-
-</div>
-
-<div class="faq-item">
-
-<h3>
-Is this a spiritual book?
-</h3>
-
-<p>
-It explores transformation and remembrance in an accessible way.
-</p>
-
-</div>
-
-<div class="faq-item">
-
-<h3>
-When will it be available?
-</h3>
-
-<p>
-Join the newsletter to receive updates.
-</p>
-
-</div>
-
-</div>
-
-</section>
-
-<section id="newsletter"
-class="newsletter-section">
-
-<div class="container">
-
-<h2>
-
-JOIN THE AWAKENING
-
-</h2>
-
-<p>
-
-Receive updates, insights and launch announcements.
-
-</p>
-
-<form class="newsletter-form">
-
-<input
-type="email"
-placeholder="Enter your email"
-required>
-
-<button type="submit">
-
-JOIN
-
-</button>
-
-</form>
-
-</div>
-
-</section>
-    </div>
-
-          <a href="#"
-   class="get-book-btn">
-
-   GET THE BOOK
-
-</a>
-            <p class="trust-text">
-
-                No spam. No distractions.
-                Only meaningful updates related to
-                The Forgotten You.
-
-            </p>
-
-        </div>
-<div class="share-icons">
-
-<a href="https://www.facebook.com/sharer/sharer.php?u=https://prakashmishraauthor-alt.github.io/theforgottenyou/"
-target="_blank">
-
-<i class="fab fa-facebook-f"></i>
-
-</a>
-
-<a href="https://twitter.com/intent/tweet?url=https://prakashmishraauthor-alt.github.io/theforgottenyou/&text=The%20Forgotten%20You"
-target="_blank">
-
-<i class="fab fa-x-twitter"></i>
-
-</a>
-
-<a href="https://www.linkedin.com/sharing/share-offsite/?url=https://prakashmishraauthor-alt.github.io/theforgottenyou/"
-target="_blank">
-
-<i class="fab fa-linkedin-in"></i>
-
-</a>
-
-<a href="https://wa.me/?text=https://prakashmishraauthor-alt.github.io/theforgottenyou/"
-target="_blank">
-
-<i class="fab fa-whatsapp"></i>
-
-</a>
-
-</div>
-
-<footer class="site-footer">
-
-    <div class="container">
-
-        <div class="footer-top">
-
-            <div class="footer-brand">
-
-                <h2>THE FORGOTTEN YOU</h2>
-
-                <p>
-                    A journey of remembrance,
-                    awakening and purpose.
-                </p>
-
-            </div>
-
-            <div class="footer-links">
-
-                <h3>Explore</h3>
-
-                <a href="#story">Story</a>
-                <a href="#features">Features</a>
-                <a href="#journey">Journey</a>
-                <a href="#faq">FAQ</a>
-
-            </div>
-
-            <div class="footer-links">
-
-                <h3>Resources</h3>
-
-                <a href="early-access.html">Early Access</a>
-                <a href="#">Privacy Policy</a>
-                <a href="#">Terms of Service</a>
-
-            </div>
-
-            <div class="footer-links">
-
-                <h3>Connect</h3>
-
-                <a href="#">Instagram</a>
-                <a href="#">Facebook</a>
-                <a href="#">YouTube</a>
-
-            </div>
-
-        </div>
-
-        <div class="footer-divider"></div>
-
-        <div class="footer-bottom">
-
-            <p>
-                © 2026 The Forgotten You.
-                All Rights Reserved.
-            </p>
-
-            <a href="early-access.html"
-               class="footer-cta">
-
-                JOIN THE AWAKENING
-
-            </a>
-
-        </div>
-
-    </div>
-<div class="social-section">
-
-    <h3>Follow the Journey</h3>
-
-    <div class="social-icons">
-
-      <div class="social-icons">
-
-    <a href="https://www.instagram.com/yourusername" target="_blank">
-        <i class="fab fa-instagram"></i>
-    </a>
-
-    <a href="https://www.facebook.com/yourusername" target="_blank">
-        <i class="fab fa-facebook-f"></i>
-    </a>
-
-    <a href="https://www.youtube.com/@yourchannel" target="_blank">
-        <i class="fab fa-youtube"></i>
-    </a>
-
-    <a href="https://x.com/yourusername" target="_blank">
-        <i class="fab fa-x-twitter"></i>
-    </a>
-
-    <a href="https://www.linkedin.com/company/the-forgotten-you" target="_blank">
-        <i class="fab fa-linkedin-in"></i>
-    </a>
-
-</div>
-</div>
-</footer>
-
-<script src="script.js"></script>
-
-</body>
-
-</html>
-
-
-</body>
-</footer>
-<script>
-// ===============================
-// MOBILE MENU
-// ===============================
-
-const mobileToggle =
-document.querySelector(".mobile-toggle");
-
-const navLinks =
-document.querySelector(".nav-links");
-
-mobileToggle.addEventListener("click", () => {
-
-    navLinks.classList.toggle("active");
-
-});
-
-// ===============================
-// NAVBAR SCROLL EFFECT
-// ===============================
-
-const navbar =
-document.querySelector(".navbar");
-
-window.addEventListener("scroll", () => {
-
-    if(window.scrollY > 50){
-
-        navbar.classList.add("navbar-scrolled");
-
-    }else{
-
-        navbar.classList.remove("navbar-scrolled");
-
-    }
-
-});
-
-// ===============================
-// SCROLL REVEAL ANIMATION
-// ===============================
-
-const revealElements =
-document.querySelectorAll(
-".feature-card, .story-content, .step, .testimonial-card, .faq-item"
-);
-
-const revealObserver =
-new IntersectionObserver(
-
-(entries) => {
-
-entries.forEach(entry => {
-
-if(entry.isIntersecting){
-
-entry.target.classList.add("show");
-
-}
-
-});
-
-},
-
-{
-threshold:0.15
-}
-
-);
-
-revealElements.forEach(el => {
-
-el.classList.add("hidden");
-
-revealObserver.observe(el);
-
-});
-
-// ===============================
-// SMOOTH BUTTON GLOW
-// ===============================
-
-const buttons =
-document.querySelectorAll(
-".hero-button, .nav-btn"
-);
-
-buttons.forEach(button => {
-
-button.addEventListener("mouseenter", () => {
-
-button.style.transform =
-"translateY(-4px) scale(1.03)";
-
-});
-
-button.addEventListener("mouseleave", () => {
-
-button.style.transform =
-"translateY(0px) scale(1)";
-
-});
-
-});
-
-// ===============================
-// NEWSLETTER DEMO
-// ===============================
-
-const newsletter =
-document.querySelector(
-".newsletter-form"
-);
-
-if(newsletter){
-
-newsletter.addEventListener(
-"submit",
-(e)=>{
-
-e.preventDefault();
-
-alert(
-"Thank you for joining the awakening."
-);
-
-newsletter.reset();
-
-});
-}
-
-// ===============================
-// HERO FLOATING EFFECT
-// ===============================
-
-const heroContent =
-document.querySelector(".hero-content");
-
-window.addEventListener(
-"mousemove",
-(e)=>{
-
-const x =
-(e.clientX / window.innerWidth - 0.5) * 10;
-
-const y =
-(e.clientY / window.innerHeight - 0.5) * 10;
-
-heroContent.style.transform =
-`translate(${x}px, ${y}px)`;
-
-}
-);
-
-   <script>
-
-function sharePage() {
-
-    const shareData = {
-        title: 'The Forgotten You',
-        text: 'A Journey Back To Your Original Self',
-        url: window.location.href
+import React, { useState, useEffect } from 'react';
+import { 
+  Sparkles, 
+  BookOpen, 
+  CheckCircle2, 
+  ArrowRight, 
+  Star, 
+  Download, 
+  Compass, 
+  Feather, 
+  Heart, 
+  ShieldCheck, 
+  Award, 
+  Users, 
+  Send, 
+  ChevronRight, 
+  Lock, 
+  Quote, 
+  Menu, 
+  X, 
+  Gift, 
+  Zap, 
+  HelpCircle,
+  Eye
+} from 'lucide-react';
+
+export default function App() {
+  // Form lead capture state
+  const [formData, setFormData] = useState({ name: '', email: '' });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [isSubmitted, setIsSubmitted] = useState(false);
+
+  // Floating Bar visibility
+  const [showStickyBar, setShowStickyBar] = useState(false);
+
+  // Mini Quiz / Assessment state
+  const [quizAnswers, setQuizAnswers] = useState({ q1: null, q2: null, q3: null });
+  const [quizStep, setQuizStep] = useState(0);
+  const [quizResult, setQuizResult] = useState(null);
+
+  // Tab State for "Peek Inside"
+  const [activePreviewTab, setActivePreviewTab] = useState('chapter1');
+
+  // Sticky header scroll watcher
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 400) {
+        setShowStickyBar(true);
+      } else {
+        setShowStickyBar(false);
+      }
     };
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
-    if (navigator.share) {
+  const handleLeadSubmit = (e) => {
+    e.preventDefault();
+    if (!formData.email) return;
+    setIsSubmitting(true);
+    
+    // Simulate API call
+    setTimeout(() => {
+      setIsSubmitting(false);
+      setIsSubmitted(true);
+    }, 1200);
+  };
 
-        navigator.share(shareData)
-            .catch(err => console.log(err));
-
-    } else {
-
-        navigator.clipboard.writeText(window.location.href);
-
-        alert(
-            'Page link copied to clipboard. You can now paste and share it.'
-        );
-
+  const quizQuestions = [
+    {
+      id: 'q1',
+      question: "When facing major life decisions, what do you usually rely on?",
+      options: [
+        { label: "Expectations of family & society", score: "conditioning" },
+        { label: "Logic & fear of taking risks", score: "fear" },
+        { label: "My inner quiet intuition & values", score: "authentic" }
+      ]
+    },
+    {
+      id: 'q2',
+      question: "How often do you feel a persistent inner whisper that 'there is more to who I am'?",
+      options: [
+        { label: "Almost every day, but I ignore it", score: "high" },
+        { label: "Occasionally during quiet moments", score: "medium" },
+        { label: "Rarely, I stay absorbed in daily busywork", score: "low" }
+      ]
+    },
+    {
+      id: 'q3',
+      question: "What is your biggest barrier to feeling deeply peaceful and grounded?",
+      options: [
+        { label: "Self-doubt and comparing myself to others", score: "doubt" },
+        { label: "Constant overthinking and busy lifestyle", score: "mind" },
+        { label: "Lack of a clear overarching purpose", score: "purpose" }
+      ]
     }
+  ];
 
+  const handleQuizAnswer = (qId, optionScore) => {
+    const newAnswers = { ...quizAnswers, [qId]: optionScore };
+    setQuizAnswers(newAnswers);
+    if (quizStep < quizQuestions.length - 1) {
+      setQuizStep(quizStep + 1);
+    } else {
+      setQuizStep(3); // Result step
+      calculateQuizResult(newAnswers);
+    }
+  };
+
+  const calculateQuizResult = (answers) => {
+    setQuizResult({
+      archetype: "The Awakening Seeker",
+      summary: "You possess a powerful intuitive spark, but daily noise, subtle conditioning, and perfectionism have obscured your true internal compass.",
+      prescription: "Chapter 3 of 'The Forgotten You' specifically addresses dismantling these layers of mental noise so you can tune directly back into your core values."
+    });
+  };
+
+  return (
+    <div className="min-h-screen bg-[#0E1D2A] text-slate-100 font-sans antialiased selection:bg-[#E85A2A] selection:text-white overflow-x-hidden">
+      {/* Dynamic Background Glows */}
+      <div className="fixed top-0 left-1/4 w-96 h-96 bg-[#E85A2A]/15 rounded-full blur-3xl pointer-events-none" />
+      <div className="fixed bottom-0 right-1/4 w-96 h-96 bg-[#D97706]/10 rounded-full blur-3xl pointer-events-none" />
+
+      {}
+      <header className="sticky top-0 z-40 bg-[#0E1D2A]/80 backdrop-blur-md border-b border-amber-900/20 px-4 lg:px-8 py-4 transition-all">
+        <div className="max-w-6xl mx-auto flex items-center justify-between">
+          <div className="flex items-center space-x-3">
+            <div className="w-10 h-10 rounded-xl bg-gradient-to-tr from-[#E85A2A] to-[#F59E0B] p-[1px] flex items-center justify-center shadow-lg shadow-amber-900/20">
+              <div className="w-full h-full bg-[#0E1D2A] rounded-[11px] flex items-center justify-center">
+                <Sparkles className="w-5 h-5 text-[#E85A2A]" />
+              </div>
+            </div>
+            <div>
+              <span className="text-lg font-serif font-bold tracking-tight text-amber-50">The Forgotten You</span>
+              <span className="block text-xs text-amber-200/60 font-light">by Prakash Mishra</span>
+            </div>
+          </div>
+
+          <nav className="hidden md:flex items-center space-x-8 text-sm font-medium text-slate-300">
+            <a href="#about" className="hover:text-[#E85A2A] transition-colors">Core Pillars</a>
+            <a href="#quiz" className="hover:text-[#E85A2A] transition-colors">Self Assessment</a>
+            <a href="#preview" className="hover:text-[#E85A2A] transition-colors">Read Preview</a>
+            <a href="#author" className="hover:text-[#E85A2A] transition-colors">About Author</a>
+          </nav>
+
+          <a 
+            href="#get-free-chapter" 
+            className="hidden sm:inline-flex items-center space-x-2 bg-gradient-to-r from-[#E85A2A] to-[#D94E1F] text-white text-sm font-semibold px-5 py-2.5 rounded-full shadow-lg shadow-[#E85A2A]/25 hover:shadow-[#E85A2A]/40 hover:scale-105 active:scale-95 transition-all"
+          >
+            <span>Get Free Chapter</span>
+            <ArrowRight className="w-4 h-4" />
+          </a>
+        </div>
+      </header>
+
+      {}
+      <section id="get-free-chapter" className="relative pt-12 lg:pt-20 pb-20 px-4 lg:px-8">
+        <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
+          
+          {/* Left Column: Headline & Form */}
+          <div className="lg:col-span-7 space-y-6 text-center lg:text-left">
+            <div className="inline-flex items-center space-x-2 px-3.5 py-1.5 rounded-full bg-amber-500/10 border border-amber-500/20 text-amber-300 text-xs font-medium uppercase tracking-widest backdrop-blur-sm">
+              <Sparkles className="w-3.5 h-3.5 text-[#E85A2A]" />
+              <span>Transformative Spiritual & Self-Mastery Guide</span>
+            </div>
+
+            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-serif font-normal text-white leading-[1.15] tracking-tight">
+              Return to the <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#E85A2A] via-amber-300 to-[#F59E0B] font-semibold">Authentic Self</span> You Were Born To Be.
+            </h1>
+
+            <p className="text-slate-300 text-base sm:text-lg leading-relaxed max-w-2xl mx-auto lg:mx-0 font-light">
+              Beneath layers of social conditioning, daily rush, fear, and quiet self-doubt lies a peaceful, unshakeable center. Discover the timeless wisdom and practical framework to unearth it.
+            </p>
+
+            {/* Lead Capture Box */}
+            <div className="bg-gradient-to-b from-[#182C3D] to-[#122332] p-6 sm:p-8 rounded-3xl border border-amber-500/20 shadow-2xl shadow-black/50 relative overflow-hidden mt-8">
+              <div className="absolute top-0 right-0 w-32 h-32 bg-[#E85A2A]/10 rounded-full blur-2xl pointer-events-none" />
+              
+              {!isSubmitted ? (
+                <div>
+                  <div className="flex items-center space-x-2 text-amber-400 text-xs font-semibold uppercase tracking-wider mb-2">
+                    <Gift className="w-4 h-4" />
+                    <span>Free Download Package</span>
+                  </div>
+                  <h3 className="text-xl sm:text-2xl font-serif text-white mb-2">
+                    Get Chapter 1 + The Authentic Self Assessment Blueprint
+                  </h3>
+                  <p className="text-slate-400 text-xs sm:text-sm mb-6">
+                    Join 12,000+ readers unearthing inner clarity, purpose, and lasting peace. Delivered instantly to your inbox.
+                  </p>
+
+                  <form onSubmit={handleLeadSubmit} className="space-y-4">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                      <div>
+                        <input
+                          type="text"
+                          placeholder="Your First Name"
+                          required
+                          value={formData.name}
+                          onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                          className="w-full bg-[#0E1D2A] border border-amber-900/40 rounded-xl px-4 py-3.5 text-sm text-white placeholder-slate-500 focus:outline-none focus:border-[#E85A2A] focus:ring-1 focus:ring-[#E85A2A] transition-all"
+                        />
+                      </div>
+                      <div>
+                        <input
+                          type="email"
+                          placeholder="Your Email Address"
+                          required
+                          value={formData.email}
+                          onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                          className="w-full bg-[#0E1D2A] border border-amber-900/40 rounded-xl px-4 py-3.5 text-sm text-white placeholder-slate-500 focus:outline-none focus:border-[#E85A2A] focus:ring-1 focus:ring-[#E85A2A] transition-all"
+                        />
+                      </div>
+                    </div>
+
+                    <button
+                      type="submit"
+                      disabled={isSubmitting}
+                      className="w-full bg-gradient-to-r from-[#E85A2A] via-[#ED6C3B] to-[#D94E1F] text-white font-semibold py-4 px-6 rounded-xl shadow-lg shadow-[#E85A2A]/30 hover:shadow-[#E85A2A]/50 hover:scale-[1.01] active:scale-[0.99] transition-all flex items-center justify-center space-x-2 group"
+                    >
+                      {isSubmitting ? (
+                        <div className="w-5 h-5 border-2 border-white/30 border-t-white rounded-full animate-spin" />
+                      ) : (
+                        <>
+                          <Download className="w-5 h-5 group-hover:-translate-y-0.5 transition-transform" />
+                          <span>Send Me My Free Chapter & Blueprint</span>
+                          <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                        </>
+                      )}
+                    </button>
+                  </form>
+
+                  <div className="mt-4 flex flex-wrap items-center justify-between text-xs text-slate-400 border-t border-slate-800/80 pt-4">
+                    <span className="flex items-center space-x-1">
+                      <Lock className="w-3.5 h-3.5 text-emerald-400" />
+                      <span>100% Privacy. Zero Spam.</span>
+                    </span>
+                    <span className="flex items-center space-x-1 text-amber-200/80">
+                      <Star className="w-3.5 h-3.5 text-amber-400 fill-amber-400" />
+                      <span>4.9/5 Rating from Early Readers</span>
+                    </span>
+                  </div>
+                </div>
+              ) : (
+                <div className="text-center py-6 space-y-4">
+                  <div className="w-16 h-16 bg-emerald-500/20 text-emerald-400 rounded-full flex items-center justify-center mx-auto border border-emerald-500/30">
+                    <CheckCircle2 className="w-8 h-8" />
+                  </div>
+                  <h3 className="text-2xl font-serif text-white">Check Your Inbox!</h3>
+                  <p className="text-slate-300 text-sm max-w-md mx-auto">
+                    Thank you <span className="text-amber-300 font-semibold">{formData.name || 'Friend'}</span>! We've sent <span className="underline decoration-amber-500 font-medium">Chapter 1 & The Authentic Self Blueprint</span> directly to <span className="text-amber-300 font-semibold">{formData.email}</span>.
+                  </p>
+                  <div className="pt-2">
+                    <a 
+                      href="#quiz" 
+                      className="inline-flex items-center space-x-2 bg-amber-500/10 text-amber-300 border border-amber-500/30 px-5 py-2.5 rounded-xl text-sm font-medium hover:bg-amber-500/20 transition-all"
+                    >
+                      <span>Take the Self-Discovery Quiz Below</span>
+                      <ChevronRight className="w-4 h-4" />
+                    </a>
+                  </div>
+                </div>
+              )}
+            </div>
+          </div>
+
+          {}
+          <div className="lg:col-span-5 flex justify-center items-center py-6">
+            <div className="relative group perspective-1000">
+              
+              {/* Soft Ambient Shadow & Glow under book */}
+              <div className="absolute -bottom-8 left-1/2 -translate-x-1/2 w-4/5 h-12 bg-[#E85A2A]/30 rounded-full blur-2xl group-hover:bg-[#E85A2A]/50 transition-all duration-500" />
+
+              {/* 3D Realistic Book Graphic */}
+              <div className="w-[280px] sm:w-[320px] aspect-[1/1.6] bg-gradient-to-br from-[#E85A2A] via-[#D94E1F] to-[#9A2D0C] rounded-r-2xl shadow-2xl shadow-black/80 p-6 flex flex-col justify-between relative border-y border-r border-amber-300/30 transform hover:-rotate-2 hover:scale-[1.02] transition-transform duration-500 cursor-pointer overflow-hidden select-none">
+                
+                {/* Book Spine Simulation Effect */}
+                <div className="absolute top-0 left-0 bottom-0 w-5 bg-gradient-to-r from-black/60 via-black/20 to-transparent border-r border-amber-900/40" />
+
+                {/* Cover Subtle Background Artwork Pattern */}
+                <div className="absolute inset-0 opacity-20 pointer-events-none bg-[radial-gradient(#fff_1px,transparent_1px)] [background-size:16px_16px]" />
+
+                {/* Header Title on Cover */}
+                <div className="relative z-10 text-center pt-4">
+                  <span className="block text-[10px] tracking-[0.3em] uppercase text-amber-200/80 font-semibold mb-1">A Transformative Guide</span>
+                  <h2 className="text-3xl sm:text-4xl font-serif font-black tracking-tight text-white leading-tight drop-shadow-md">
+                    THE
+                  </h2>
+                  <h2 className="text-3xl sm:text-4xl font-serif font-black tracking-tight text-amber-100 leading-none drop-shadow-md">
+                    FORGOTTEN
+                  </h2>
+                  <h2 className="text-3xl sm:text-4xl font-serif font-black tracking-tight text-amber-300 leading-tight drop-shadow-md">
+                    YOU
+                  </h2>
+                  <div className="w-12 h-[2px] bg-amber-300/60 mx-auto my-3" />
+                  <p className="text-[11px] font-sans font-medium italic text-amber-100/90 tracking-wide px-2">
+                    A Journey Back to Your Authentic Self
+                  </p>
+                </div>
+
+                {/* Central Emblem - Glowing Figure Silhouette */}
+                <div className="relative z-10 flex items-center justify-center my-4">
+                  <div className="relative w-28 h-28 flex items-center justify-center">
+                    <div className="absolute inset-0 bg-amber-300/30 rounded-full blur-xl animate-pulse" />
+                    <div className="w-20 h-20 rounded-full border border-amber-200/40 flex items-center justify-center bg-gradient-to-b from-amber-400/20 to-transparent">
+                      <div className="w-12 h-12 rounded-full border border-amber-300/60 flex items-center justify-center">
+                        <Sparkles className="w-6 h-6 text-amber-200" />
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Author Name on Cover */}
+                <div className="relative z-10 text-center pb-2">
+                  <span className="text-[10px] uppercase tracking-[0.25em] text-amber-200/70 block mb-0.5">Written By</span>
+                  <span className="text-base sm:text-lg font-serif font-bold text-white tracking-wider uppercase">
+                    Prakash Mishra
+                  </span>
+                </div>
+              </div>
+
+              {/* Floating Badge on Book */}
+              <div className="absolute -top-4 -right-4 bg-gradient-to-r from-amber-400 to-[#E85A2A] text-slate-950 font-bold text-xs uppercase tracking-wider px-3.5 py-1.5 rounded-full shadow-xl flex items-center space-x-1.5 border border-white/20">
+                <Star className="w-3.5 h-3.5 fill-slate-950" />
+                <span>Bestselling Vision</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      {}
+      <section id="quiz" className="py-16 px-4 lg:px-8 bg-[#09141D] border-y border-amber-900/20 relative">
+        <div className="max-w-4xl mx-auto">
+          
+          <div className="text-center space-y-3 mb-10">
+            <span className="text-xs uppercase tracking-widest text-[#E85A2A] font-semibold">Interactive Self-Discovery</span>
+            <h2 className="text-3xl sm:text-4xl font-serif text-white">Where Are You on Your Journey?</h2>
+            <p className="text-slate-400 text-sm sm:text-base max-w-xl mx-auto">
+              Answer 3 brief questions to receive an instant reflection on what is currently veiling your authentic self.
+            </p>
+          </div>
+
+          <div className="bg-[#122332] border border-amber-500/20 rounded-3xl p-6 sm:p-10 shadow-xl relative">
+            
+            {/* Progress Bar */}
+            <div className="mb-8">
+              <div className="flex justify-between text-xs text-amber-200/70 font-medium mb-2">
+                <span>{quizStep < 3 ? `Question ${quizStep + 1} of 3` : 'Assessment Complete'}</span>
+                <span>{quizStep === 3 ? '100%' : `${Math.round((quizStep / 3) * 100)}%`}</span>
+              </div>
+              <div className="w-full h-2 bg-[#0E1D2A] rounded-full overflow-hidden">
+                <div 
+                  className="h-full bg-gradient-to-r from-[#E85A2A] to-amber-400 transition-all duration-500" 
+                  style={{ width: `${((quizStep + 1) / 3) * 100}%` }}
+                />
+              </div>
+            </div>
+
+            {/* Quiz Body */}
+            {quizStep < 3 ? (
+              <div className="space-y-6">
+                <h3 className="text-xl sm:text-2xl font-serif text-white">
+                  {quizQuestions[quizStep].question}
+                </h3>
+
+                <div className="space-y-3">
+                  {quizQuestions[quizStep].options.map((opt, idx) => (
+                    <button
+                      key={idx}
+                      onClick={() => handleQuizAnswer(quizQuestions[quizStep].id, opt.score)}
+                      className="w-full text-left bg-[#0E1D2A] hover:bg-amber-500/10 border border-slate-800 hover:border-amber-500/40 p-4 sm:p-5 rounded-xl text-sm sm:text-base text-slate-200 hover:text-white transition-all flex items-center justify-between group"
+                    >
+                      <span className="pr-4">{opt.label}</span>
+                      <ChevronRight className="w-5 h-5 text-slate-500 group-hover:text-amber-400 group-hover:translate-x-1 transition-transform flex-shrink-0" />
+                    </button>
+                  ))}
+                </div>
+              </div>
+            ) : (
+              /* Quiz Result */
+              <div className="space-y-6 py-2 animate-fade-in">
+                <div className="inline-flex items-center space-x-2 bg-amber-500/10 text-amber-300 border border-amber-500/30 px-3 py-1 rounded-full text-xs font-semibold uppercase">
+                  <Compass className="w-3.5 h-3.5" />
+                  <span>Your Discovery Archetype</span>
+                </div>
+
+                <h3 className="text-2xl sm:text-3xl font-serif text-white">
+                  {quizResult?.archetype}
+                </h3>
+
+                <p className="text-slate-300 text-sm sm:text-base leading-relaxed bg-[#0E1D2A] p-5 rounded-2xl border border-slate-800">
+                  {quizResult?.summary}
+                </p>
+
+                <div className="p-5 rounded-2xl bg-gradient-to-r from-[#E85A2A]/15 to-amber-500/15 border border-[#E85A2A]/30">
+                  <h4 className="text-sm font-semibold text-amber-300 uppercase tracking-wider mb-1 flex items-center space-x-2">
+                    <Sparkles className="w-4 h-4 text-[#E85A2A]" />
+                    <span>Personalized Insight</span>
+                  </h4>
+                  <p className="text-xs sm:text-sm text-slate-200">
+                    {quizResult?.prescription}
+                  </p>
+                </div>
+
+                <div className="pt-2 flex flex-col sm:flex-row items-center justify-between gap-4">
+                  <button
+                    onClick={() => { setQuizStep(0); setQuizAnswers({ q1: null, q2: null, q3: null }); }}
+                    className="text-xs text-slate-400 hover:text-white underline transition-colors"
+                  >
+                    Retake Mini Assessment
+                  </button>
+
+                  <a
+                    href="#get-free-chapter"
+                    className="w-full sm:w-auto inline-flex items-center justify-center space-x-2 bg-gradient-to-r from-[#E85A2A] to-[#D94E1F] text-white px-6 py-3 rounded-xl text-sm font-semibold shadow-lg shadow-[#E85A2A]/25 hover:shadow-[#E85A2A]/40 transition-all"
+                  >
+                    <span>Download Free Chapter 1 to Begin</span>
+                    <ArrowRight className="w-4 h-4" />
+                  </a>
+                </div>
+              </div>
+            )}
+
+          </div>
+        </div>
+      </section>
+
+      {}
+      <section id="about" className="py-20 px-4 lg:px-8 max-w-6xl mx-auto">
+        <div className="text-center space-y-3 mb-16">
+          <span className="text-xs uppercase tracking-widest text-[#E85A2A] font-semibold">The Core Pillars</span>
+          <h2 className="text-3xl sm:text-5xl font-serif text-white">What You Will Uncover Inside</h2>
+          <p className="text-slate-400 text-sm sm:text-base max-w-2xl mx-auto">
+            "The Forgotten You" is structured as a gentle, non-dogmatic roadmap through four pivotal transformations.
+          </p>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
+          
+          {/* Pillar 1 */}
+          <div className="bg-[#122332]/60 border border-amber-900/30 rounded-3xl p-8 hover:border-[#E85A2A]/50 hover:bg-[#122332] transition-all duration-300 group">
+            <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-[#E85A2A] to-amber-500 flex items-center justify-center text-slate-950 mb-6 group-hover:scale-110 transition-transform shadow-lg shadow-[#E85A2A]/20">
+              <Compass className="w-6 h-6" />
+            </div>
+            <h3 className="text-2xl font-serif text-white mb-3">1. Uncover Inner Clarity</h3>
+            <p className="text-slate-300 text-sm leading-relaxed mb-4">
+              Strip away noise, inherited expectations, and mental clutter. Learn to distinguish between the superficial chatter of fear and the deep, steady voice of your intuition.
+            </p>
+            <ul className="space-y-2 text-xs text-slate-400">
+              <li className="flex items-center space-x-2">
+                <CheckCircle2 className="w-4 h-4 text-amber-400" />
+                <span>De-condition inherited societal narratives</span>
+              </li>
+              <li className="flex items-center space-x-2">
+                <CheckCircle2 className="w-4 h-4 text-amber-400" />
+                <span>Master mental quietude in daily routine</span>
+              </li>
+            </ul>
+          </div>
+
+          {/* Pillar 2 */}
+          <div className="bg-[#122332]/60 border border-amber-900/30 rounded-3xl p-8 hover:border-[#E85A2A]/50 hover:bg-[#122332] transition-all duration-300 group">
+            <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-[#E85A2A] to-amber-500 flex items-center justify-center text-slate-950 mb-6 group-hover:scale-110 transition-transform shadow-lg shadow-[#E85A2A]/20">
+              <Zap className="w-6 h-6" />
+            </div>
+            <h3 className="text-2xl font-serif text-white mb-3">2. Rediscover Purpose</h3>
+            <p className="text-slate-300 text-sm leading-relaxed mb-4">
+              Purpose isn't something you chase out in the world; it is something you unlock from within. Align your daily choices with your authentic passion and core spirit.
+            </p>
+            <ul className="space-y-2 text-xs text-slate-400">
+              <li className="flex items-center space-x-2">
+                <CheckCircle2 className="w-4 h-4 text-amber-400" />
+                <span>Shift from externally driven to internally inspired</span>
+              </li>
+              <li className="flex items-center space-x-2">
+                <CheckCircle2 className="w-4 h-4 text-amber-400" />
+                <span>Unearth innate gifts and long-ignored creative drives</span>
+              </li>
+            </ul>
+          </div>
+
+          {/* Pillar 3 */}
+          <div className="bg-[#122332]/60 border border-amber-900/30 rounded-3xl p-8 hover:border-[#E85A2A]/50 hover:bg-[#122332] transition-all duration-300 group">
+            <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-[#E85A2A] to-amber-500 flex items-center justify-center text-slate-950 mb-6 group-hover:scale-110 transition-transform shadow-lg shadow-[#E85A2A]/20">
+              <ShieldCheck className="w-6 h-6" />
+            </div>
+            <h3 className="text-2xl font-serif text-white mb-3">3. Build Unshakeable Confidence</h3>
+            <p className="text-slate-300 text-sm leading-relaxed mb-4">
+              True confidence isn't aggressive ego or bravado. It is the relaxed, quiet knowing that you are complete regardless of external validation or criticism.
+            </p>
+            <ul className="space-y-2 text-xs text-slate-400">
+              <li className="flex items-center space-x-2">
+                <CheckCircle2 className="w-4 h-4 text-amber-400" />
+                <span>Overcome imposter syndrome and self-sabotage</span>
+              </li>
+              <li className="flex items-center space-x-2">
+                <CheckCircle2 className="w-4 h-4 text-amber-400" />
+                <span>Cultivate unyielding self-trust and resilience</span>
+              </li>
+            </ul>
+          </div>
+
+          {/* Pillar 4 */}
+          <div className="bg-[#122332]/60 border border-amber-900/30 rounded-3xl p-8 hover:border-[#E85A2A]/50 hover:bg-[#122332] transition-all duration-300 group">
+            <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-[#E85A2A] to-amber-500 flex items-center justify-center text-slate-950 mb-6 group-hover:scale-110 transition-transform shadow-lg shadow-[#E85A2A]/20">
+              <Heart className="w-6 h-6" />
+            </div>
+            <h3 className="text-2xl font-serif text-white mb-3">4. Attain Lasting Peace</h3>
+            <p className="text-slate-300 text-sm leading-relaxed mb-4">
+              Anchor yourself in serene presence. Discover practical spiritual practices that safeguard your internal peace even amidst worldly turbulence.
+            </p>
+            <ul className="space-y-2 text-xs text-slate-400">
+              <li className="flex items-center space-x-2">
+                <CheckCircle2 className="w-4 h-4 text-amber-400" />
+                <span>Release anxiety and compulsive future-projection</span>
+              </li>
+              <li className="flex items-center space-x-2">
+                <CheckCircle2 className="w-4 h-4 text-amber-400" />
+                <span>Embrace deep stillness and emotional freedom</span>
+              </li>
+            </ul>
+          </div>
+
+        </div>
+      </section>
+
+      {}
+      <section id="preview" className="py-16 px-4 lg:px-8 bg-[#09141D] border-t border-amber-900/20">
+        <div className="max-w-4xl mx-auto">
+          
+          <div className="text-center space-y-3 mb-10">
+            <span className="text-xs uppercase tracking-widest text-[#E85A2A] font-semibold">Interactive Book Preview</span>
+            <h2 className="text-3xl sm:text-4xl font-serif text-white">Peek Inside the Pages</h2>
+            <p className="text-slate-400 text-sm sm:text-base">
+              Explore key excerpts and core teachings before you download your free copy.
+            </p>
+          </div>
+
+          {/* Tab Selection */}
+          <div className="flex justify-center border-b border-slate-800 mb-8 space-x-2 sm:space-x-8 text-xs sm:text-sm">
+            <button
+              onClick={() => setActivePreviewTab('chapter1')}
+              className={`pb-3 px-3 font-medium transition-all relative ${
+                activePreviewTab === 'chapter1'
+                  ? 'text-amber-300 border-b-2 border-[#E85A2A]'
+                  : 'text-slate-400 hover:text-slate-200'
+              }`}
+            >
+              Chapter 1 Excerpt
+            </button>
+            <button
+              onClick={() => setActivePreviewTab('quotes')}
+              className={`pb-3 px-3 font-medium transition-all relative ${
+                activePreviewTab === 'quotes'
+                  ? 'text-amber-300 border-b-2 border-[#E85A2A]'
+                  : 'text-slate-400 hover:text-slate-200'
+              }`}
+            >
+              Key Wisdom Quotes
+            </button>
+            <button
+              onClick={() => setActivePreviewTab('toc')}
+              className={`pb-3 px-3 font-medium transition-all relative ${
+                activePreviewTab === 'toc'
+                  ? 'text-amber-300 border-b-2 border-[#E85A2A]'
+                  : 'text-slate-400 hover:text-slate-200'
+              }`}
+            >
+              Table of Contents
+            </button>
+          </div>
+
+          {/* Tab Content Box */}
+          <div className="bg-[#122332] border border-amber-500/20 rounded-3xl p-6 sm:p-10 shadow-2xl relative min-h-[300px]">
+            {activePreviewTab === 'chapter1' && (
+              <div className="space-y-4 animate-fade-in">
+                <span className="text-xs uppercase tracking-wider text-amber-400 font-semibold block">Opening Excerpt — Chapter 1: The Mask We Forget We Wear</span>
+                <p className="text-slate-300 text-sm sm:text-base leading-relaxed italic font-serif border-l-2 border-[#E85A2A] pl-4 py-1">
+                  "Most human beings do not live their own lives. They live the accumulated echoes of what their parents wished for, what their teachers approved of, and what society deemed safe..."
+                </p>
+                <p className="text-slate-300 text-sm sm:text-base leading-relaxed">
+                  You were born with a raw, radiant presence—a pure spark of effortless knowing. But as years accrued, you subtly learned that to be loved and secure, you had to perform. You adopted a persona, a armor of habits and pleasing behaviors. Slowly, the mask fused to the face, and you forgot the authentic self breathing underneath.
+                </p>
+                <div className="pt-4 flex justify-end">
+                  <a href="#get-free-chapter" className="inline-flex items-center space-x-1.5 text-xs text-[#E85A2A] font-semibold hover:underline">
+                    <span>Read full Chapter 1 in free download</span>
+                    <ArrowRight className="w-3.5 h-3.5" />
+                  </a>
+                </div>
+              </div>
+            )}
+
+            {activePreviewTab === 'quotes' && (
+              <div className="space-y-6 animate-fade-in">
+                <div className="p-4 bg-[#0E1D2A] rounded-2xl border border-slate-800 space-y-2">
+                  <Quote className="w-5 h-5 text-amber-400 opacity-60" />
+                  <p className="text-slate-200 text-sm font-serif italic">
+                    "Self-doubt is not a flaw in your nature; it is merely an illusion created by taking external judgments more seriously than your own quiet truth."
+                  </p>
+                </div>
+                <div className="p-4 bg-[#0E1D2A] rounded-2xl border border-slate-800 space-y-2">
+                  <Quote className="w-5 h-5 text-amber-400 opacity-60" />
+                  <p className="text-slate-200 text-sm font-serif italic">
+                    "Peace is not the absence of life's storm, but the unshakeable awareness that you are the sky, not the passing clouds."
+                  </p>
+                </div>
+              </div>
+            )}
+
+            {activePreviewTab === 'toc' && (
+              <div className="space-y-3 animate-fade-in text-sm text-slate-300">
+                <div className="flex items-center justify-between p-3 rounded-xl bg-[#0E1D2A] border border-slate-800">
+                  <span className="font-serif font-medium text-amber-200">Part I: The Awakening</span>
+                  <span className="text-xs text-slate-500">Chapters 1 – 4</span>
+                </div>
+                <div className="flex items-center justify-between p-3 rounded-xl bg-[#0E1D2A] border border-slate-800">
+                  <span className="font-serif font-medium text-amber-200">Part II: Dismantling the Shadow of Fear</span>
+                  <span className="text-xs text-slate-500">Chapters 5 – 8</span>
+                </div>
+                <div className="flex items-center justify-between p-3 rounded-xl bg-[#0E1D2A] border border-slate-800">
+                  <span className="font-serif font-medium text-amber-200">Part III: The Core Alignment & Purpose</span>
+                  <span className="text-xs text-slate-500">Chapters 9 – 12</span>
+                </div>
+                <div className="flex items-center justify-between p-3 rounded-xl bg-[#0E1D2A] border border-slate-800">
+                  <span className="font-serif font-medium text-amber-200">Part IV: Living in Unshakeable Presence</span>
+                  <span className="text-xs text-slate-500">Chapters 13 – 16</span>
+                </div>
+              </div>
+            )}
+          </div>
+        </div>
+      </section>
+
+      {}
+      <section id="author" className="py-20 px-4 lg:px-8 max-w-5xl mx-auto">
+        <div className="bg-gradient-to-br from-[#122332] to-[#0A1622] rounded-3xl p-8 sm:p-12 border border-amber-900/30 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center shadow-2xl">
+          
+          <div className="lg:col-span-4 flex flex-col items-center text-center">
+            <div className="w-36 h-36 sm:w-44 sm:h-44 rounded-full bg-gradient-to-tr from-[#E85A2A] to-amber-400 p-1 shadow-xl mb-4">
+              <div className="w-full h-full rounded-full bg-[#0E1D2A] flex items-center justify-center overflow-hidden relative">
+                {/* Visual Avatar Placeholder */}
+                <div className="absolute inset-0 bg-gradient-to-t from-amber-950/80 to-transparent z-10" />
+                <span className="text-4xl font-serif font-bold text-amber-200 z-20">PM</span>
+              </div>
+            </div>
+            <h3 className="text-2xl font-serif text-white font-bold">Prakash Mishra</h3>
+            <span className="text-xs text-[#E85A2A] font-medium uppercase tracking-widest mt-1">Author & Spiritual Guide</span>
+          </div>
+
+          <div className="lg:col-span-8 space-y-4 text-slate-300 text-sm sm:text-base leading-relaxed">
+            <span className="text-xs uppercase tracking-widest text-amber-400 font-semibold block">About the Author</span>
+            <h4 className="text-2xl font-serif text-white">A Note From Prakash</h4>
+            
+            <p className="font-serif italic text-amber-100/90 border-l-2 border-[#E85A2A] pl-4 py-1">
+              "My mission with 'The Forgotten You' isn't to give you new theories to memorize, but to guide you in unlearning everything that conceals your innate brilliance."
+            </p>
+
+            <p className="text-slate-400 font-light text-xs sm:text-sm">
+              Prakash Mishra has spent over two decades researching ancient self-mastery traditions, modern behavioral psychology, and practical mindfulness. He works with individuals, executives, and seekers worldwide, helping them strip away existential anxiety and align with their authentic life's calling.
+            </p>
+
+            <div className="pt-2 flex items-center space-x-6 text-xs text-amber-200/80 font-medium">
+              <span className="flex items-center space-x-1.5">
+                <Award className="w-4 h-4 text-[#E85A2A]" />
+                <span>20+ Years Mentorship</span>
+              </span>
+              <span className="flex items-center space-x-1.5">
+                <Users className="w-4 h-4 text-[#E85A2A]" />
+                <span>50,000+ Readers Global</span>
+              </span>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      {}
+      <section className="py-16 px-4 lg:px-8 bg-[#09141D] border-t border-amber-900/20">
+        <div className="max-w-6xl mx-auto">
+          <div className="text-center space-y-2 mb-12">
+            <span className="text-xs uppercase tracking-widest text-[#E85A2A] font-semibold">Early Praise</span>
+            <h2 className="text-3xl sm:text-4xl font-serif text-white">What Readers Are Saying</h2>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            
+            <div className="bg-[#122332] p-6 rounded-2xl border border-slate-800 space-y-4">
+              <div className="flex text-amber-400 space-x-1">
+                {[...Array(5)].map((_, i) => (
+                  <Star key={i} className="w-4 h-4 fill-amber-400" />
+                ))}
+              </div>
+              <p className="text-slate-300 text-xs sm:text-sm italic leading-relaxed">
+                "Reading Chapter 1 felt like a deep exhale I had been holding for ten years. Prakash has a profound gift for cutting through spiritual jargon directly to the heart."
+              </p>
+              <div className="pt-2 border-t border-slate-800">
+                <span className="block text-xs font-semibold text-white">Dr. Ananya Sharma</span>
+                <span className="text-[11px] text-slate-500">Holistic Wellness Physician</span>
+              </div>
+            </div>
+
+            <div className="bg-[#122332] p-6 rounded-2xl border border-slate-800 space-y-4">
+              <div className="flex text-amber-400 space-x-1">
+                {[...Array(5)].map((_, i) => (
+                  <Star key={i} className="w-4 h-4 fill-amber-400" />
+                ))}
+              </div>
+              <p className="text-slate-300 text-xs sm:text-sm italic leading-relaxed">
+                "This isn't just another self-help book. It's an experiential mirror. The Authentic Self Blueprint gave me immediate practical clarity on my career path."
+              </p>
+              <div className="pt-2 border-t border-slate-800">
+                <span className="block text-xs font-semibold text-white">David K. Miller</span>
+                <span className="text-[11px] text-slate-500">Creative Director</span>
+              </div>
+            </div>
+
+            <div className="bg-[#122332] p-6 rounded-2xl border border-slate-800 space-y-4">
+              <div className="flex text-amber-400 space-x-1">
+                {[...Array(5)].map((_, i) => (
+                  <Star key={i} className="w-4 h-4 fill-amber-400" />
+                ))}
+              </div>
+              <p className="text-slate-300 text-xs sm:text-sm italic leading-relaxed">
+                "Timeless wisdom wrapped in modern, accessible language. Prakash Mishra guides you gently back to who you were before the world told you who to be."
+              </p>
+              <div className="pt-2 border-t border-slate-800">
+                <span className="block text-xs font-semibold text-white">Meera Roy</span>
+                <span className="text-[11px] text-slate-500">Mindfulness Educator</span>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+      {}
+      <section className="py-20 px-4 lg:px-8 relative overflow-hidden">
+        <div className="max-w-4xl mx-auto bg-gradient-to-r from-[#E85A2A] via-[#D94E1F] to-[#802206] rounded-3xl p-8 sm:p-14 text-center text-white relative shadow-2xl">
+          <div className="relative z-10 space-y-6">
+            <h2 className="text-3xl sm:text-5xl font-serif font-normal">
+              Begin Your Journey Back to Yourself
+            </h2>
+            <p className="text-amber-100/90 text-sm sm:text-base max-w-xl mx-auto font-light">
+              Don't leave your true potential buried under another year of routine. Claim your free chapter and assessment blueprint right now.
+            </p>
+            <div className="pt-2">
+              <a
+                href="#get-free-chapter"
+                className="inline-flex items-center space-x-2 bg-slate-950 text-amber-300 font-semibold px-8 py-4 rounded-xl shadow-xl hover:bg-slate-900 transition-all text-sm sm:text-base"
+              >
+                <Download className="w-5 h-5 text-[#E85A2A]" />
+                <span>Claim Your Free Chapter & Blueprint</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {}
+      <footer className="border-t border-amber-900/20 py-10 px-4 lg:px-8 text-center text-xs text-slate-500 space-y-3">
+        <p>© 2026 Prakash Mishra. All Rights Reserved.</p>
+        <p className="text-[11px] text-slate-600">
+          "The Forgotten You: A Journey Back to Your Authentic Self" is a trademark publication.
+        </p>
+      </footer>
+
+      {}
+      {showStickyBar && (
+        <div className="fixed bottom-0 left-0 right-0 z-50 bg-[#0E1D2A]/95 border-t border-amber-500/30 p-3 sm:p-4 backdrop-blur-md shadow-2xl transition-all duration-300 animate-slide-up">
+          <div className="max-w-5xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-3">
+            <div className="flex items-center space-x-3 text-center sm:text-left">
+              <BookOpen className="w-5 h-5 text-[#E85A2A] hidden sm:block flex-shrink-0" />
+              <div>
+                <span className="block text-xs font-serif font-bold text-white">The Forgotten You — Free Preview</span>
+                <span className="text-[11px] text-slate-400">Download Chapter 1 + Authentic Self Assessment</span>
+              </div>
+            </div>
+
+            <a
+              href="#get-free-chapter"
+              className="w-full sm:w-auto bg-gradient-to-r from-[#E85A2A] to-[#D94E1F] text-white text-xs sm:text-sm font-semibold px-5 py-2.5 rounded-xl shadow-md flex items-center justify-center space-x-1.5 hover:scale-105 transition-all"
+            >
+              <span>Get Free Download</span>
+              <ArrowRight className="w-4 h-4" />
+            </a>
+          </div>
+        </div>
+      )}
+
+    </div>
+  );
 }
-
-</script>
-
-</script>
-</body>
-</html>
