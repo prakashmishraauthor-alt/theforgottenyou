@@ -1,220 +1,1086 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>The Forgotten You — Prakash Mishra</title>
-<style>
-*{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth}
-body{font-family:Arial,Helvetica,sans-serif;background:#09141d;color:#eef3f7;line-height:1.6}
-:root{--bg:#0e1d2a;--panel:#122332;--dark:#09141d;--orange:#e85a2a;--gold:#f59e0b;--muted:#9aa8b5}
-.container{width:min(1120px,92%);margin:auto}
-header{position:sticky;top:0;z-index:20;background:rgba(14,29,42,.94);backdrop-filter:blur(14px);border-bottom:1px solid rgba(245,158,11,.18)}
-.nav{height:74px;display:flex;align-items:center;justify-content:space-between}
-.brand{display:flex;align-items:center;gap:12px}
-.logo{width:42px;height:42px;border-radius:12px;border:1px solid rgba(255,255,255,.25);display:grid;place-items:center;background:linear-gradient(135deg,var(--orange),var(--gold));color:#101820;font-weight:900}
-.brand b{display:block;font-family:Georgia,serif;font-size:19px;color:#fff}
-.brand small{color:#d8b978}
-nav a{color:#b8c2cc;text-decoration:none;margin-left:25px;font-size:14px}
-nav a:hover{color:#ffb34b}
-.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;background:linear-gradient(90deg,var(--orange),#d94e1f);color:white;text-decoration:none;border:0;border-radius:12px;padding:14px 22px;font-weight:700;cursor:pointer;transition:.25s}
-.btn:hover{transform:translateY(-2px);box-shadow:0 10px 30px rgba(232,90,42,.25)}
-.hero{padding:80px 0 90px;background:radial-gradient(circle at 75% 25%,rgba(232,90,42,.12),transparent 28%),var(--bg)}
-.hero-grid{display:grid;grid-template-columns:1.25fr .75fr;gap:70px;align-items:center}
-.badge{display:inline-block;padding:7px 13px;border:1px solid rgba(245,158,11,.25);background:rgba(245,158,11,.08);border-radius:30px;color:#f8c66a;font-size:11px;text-transform:uppercase;letter-spacing:2px}
-h1{font:normal clamp(42px,6vw,68px)/1.08 Georgia,serif;margin:22px 0}
-.highlight{background:linear-gradient(90deg,var(--orange),#ffd36a,var(--gold));-webkit-background-clip:text;color:transparent;font-weight:bold}
-.lead{font-size:18px;color:#b7c1ca;max-width:650px}
-.formbox,.card,.quizbox,.previewbox,.authorbox{background:linear-gradient(145deg,#182c3d,#122332);border:1px solid rgba(245,158,11,.18);border-radius:24px}
-.formbox{margin-top:30px;padding:28px}
-.formbox h3{font:24px Georgia,serif;margin:8px 0}
-.formbox p{font-size:13px;color:#8999a7;margin-bottom:18px}
-.inputs{display:grid;grid-template-columns:1fr 1fr;gap:10px}
-input{width:100%;padding:14px;border-radius:10px;border:1px solid #30404e;background:#0e1d2a;color:white;outline:none}
-.formbox .btn{width:100%;margin-top:12px}
-.book-wrap{display:flex;justify-content:center;position:relative}
-.book{width:290px;height:465px;border-radius:4px 20px 20px 4px;padding:35px 25px;display:flex;flex-direction:column;justify-content:space-between;background:linear-gradient(135deg,#e85a2a,#d94e1f 55%,#922b0c);box-shadow:25px 30px 55px #000b, inset 8px 0 rgba(0,0,0,.25);position:relative;overflow:hidden}
-.book:before{content:"";position:absolute;inset:0;background-image:radial-gradient(#fff 1px,transparent 1px);background-size:16px 16px;opacity:.12}
-.book>*{position:relative}
-.book small{text-align:center;color:#ffe1a6;letter-spacing:3px;text-transform:uppercase}
-.book h2{text-align:center;font:900 42px/.9 Georgia,serif;color:#fff}
-.book h2 span{color:#ffe39a}
-.book p{text-align:center;font:italic 13px Georgia,serif;color:#ffe8bc}
-.emblem{width:105px;height:105px;border:1px solid rgba(255,235,180,.5);border-radius:50%;margin:auto;display:grid;place-items:center;font-size:34px;color:#ffe3a1;box-shadow:0 0 35px rgba(255,210,100,.3)}
-.author-name{text-align:center;text-transform:uppercase;letter-spacing:2px;font-weight:bold}
-section{padding:85px 0}
-.section-head{text-align:center;max-width:700px;margin:0 auto 45px}
-.section-head span{color:var(--orange);font-size:11px;text-transform:uppercase;letter-spacing:2px;font-weight:bold}
-.section-head h2{font:38px Georgia,serif;margin:10px 0}
-.section-head p{color:#8999a7}
-.quizbox,.previewbox,.authorbox{padding:35px}
-.progress{height:8px;background:#0b1720;border-radius:20px;overflow:hidden;margin:8px 0 30px}
-.progress div{height:100%;width:33%;background:linear-gradient(90deg,var(--orange),var(--gold))}
-.question{font:25px Georgia,serif;margin-bottom:20px}
-.option{display:block;width:100%;padding:16px;margin:10px 0;text-align:left;background:#0e1d2a;border:1px solid #263746;color:#dbe2e8;border-radius:12px;cursor:pointer}
-.option:hover{border-color:var(--orange);background:#172936}
-.grid{display:grid;grid-template-columns:1fr 1fr;gap:22px}
-.card{padding:30px}
-.icon{width:48px;height:48px;border-radius:14px;display:grid;place-items:center;background:linear-gradient(135deg,var(--orange),var(--gold));color:#111;font-size:22px;margin-bottom:18px}
-.card h3{font:24px Georgia,serif;margin-bottom:10px}
-.card p,.card li{color:#aab6c0;font-size:14px}
-.card ul{padding-left:20px;margin-top:12px}
-.tabs{display:flex;justify-content:center;gap:10px;margin-bottom:25px;flex-wrap:wrap}
-.tab{background:none;color:#98a6b2;border:0;border-bottom:2px solid transparent;padding:10px 16px;cursor:pointer}
-.tab.active{color:#ffd36a;border-color:var(--orange)}
-.tab-content{background:#0e1d2a;border-radius:16px;padding:25px;border:1px solid #263746}
-.quote{border-left:3px solid var(--orange);padding-left:15px;font:italic 17px Georgia,serif;color:#dce3e8;margin:15px 0}
-.authorbox{display:grid;grid-template-columns:220px 1fr;gap:35px;align-items:center}
-.avatar{width:170px;height:170px;border-radius:50%;margin:auto;display:grid;place-items:center;background:linear-gradient(135deg,var(--orange),var(--gold));font:50px Georgia,serif;color:white;border:5px solid #152b3c}
-.testimonials{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
-.stars{color:#ffc04d;letter-spacing:3px}
-.cta{padding:70px 30px;text-align:center;border-radius:24px;background:linear-gradient(100deg,#e85a2a,#b43813);box-shadow:0 25px 50px #0005}
-.cta h2{font:42px Georgia,serif;margin-bottom:12px}
-footer{text-align:center;padding:35px;color:#63727e;border-top:1px solid #23323f;font-size:12px}
-.sticky{position:fixed;bottom:0;left:0;right:0;background:rgba(14,29,42,.96);border-top:1px solid rgba(245,158,11,.3);padding:12px 5%;display:none;justify-content:space-between;align-items:center;z-index:30}
-@media(max-width:800px){
- nav{display:none}.hero-grid,.grid,.authorbox{grid-template-columns:1fr}.hero{text-align:center}.lead{margin:auto}.book{width:260px;height:420px}.inputs{grid-template-columns:1fr}.testimonials{grid-template-columns:1fr}.section-head h2{font-size:32px}.sticky{display:flex}
-}
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Path of the Forgotten You | Official Book Landing Page</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;800;900&family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        gold: {
+                            100: '#fef3c7',
+                            300: '#fcd34d',
+                            400: '#fbbf24',
+                            500: '#f59e0b',
+                            600: '#d97706',
+                            700: '#b45309',
+                        },
+                        mystic: {
+                            900: '#0B0F19',
+                            800: '#111827',
+                            700: '#1F2937',
+                            600: '#374151',
+                            accent: '#8B5CF6'
+                        }
+                    },
+                    fontFamily: {
+                        cinzel: ['Cinzel', 'serif'],
+                        playfair: ['Playfair Display', 'serif'],
+                        sans: ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        /* Custom scrollbar and ambient styles */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #0B0F19;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #d97706;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #f59e0b;
+        }
+        
+        .gold-gradient-text {
+            background: linear-gradient(135deg, #FFF5C0 0%, #E6AC00 50%, #B8860B 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .gold-border-glow {
+            box-shadow: 0 0 25px -5px rgba(217, 119, 6, 0.3);
+        }
+
+        .glass-card {
+            background: rgba(17, 24, 39, 0.7);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(217, 119, 6, 0.2);
+        }
+
+        /* 3D Book Cover styling */
+        .book-container {
+            perspective: 1200px;
+        }
+        .book-3d {
+            width: 280px;
+            height: 420px;
+            position: relative;
+            transform-style: preserve-3d;
+            transition: transform 0.6s cubic-bezier(0.2, 0.8, 0.2, 1);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.8);
+        }
+        @media (min-width: 640px) {
+            .book-3d {
+                width: 330px;
+                height: 490px;
+            }
+        }
+        .book-cover {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            border-radius: 4px 12px 12px 4px;
+            overflow: hidden;
+            backface-visibility: hidden;
+        }
+        .book-spine {
+            position: absolute;
+            left: 0;
+            width: 40px;
+            height: 100%;
+            transform: rotateY(-90deg) translateZ(20px);
+            background: linear-gradient(to right, #000, #37280d, #000);
+            border-left: 1px solid rgba(255,255,255,0.1);
+        }
+
+        /* Waveform Animation */
+        .wave-bar {
+            animation: wave 1.2s infinite ease-in-out;
+        }
+        @keyframes wave {
+            0%, 100% { height: 8px; }
+            50% { height: 32px; }
+        }
+    </style>
 </head>
-<body>
+<body class="bg-mystic-900 text-gray-100 font-sans antialiased selection:bg-gold-500 selection:text-black overflow-x-hidden">
 
-<header>
-<div class="container nav">
-<div class="brand"><div class="logo">✦</div><div><b>The Forgotten You</b><small>by Prakash Mishra</small></div></div>
-<nav><a href="#about">Core Pillars</a><a href="#quiz">Self Assessment</a><a href="#preview">Read Preview</a><a href="#author">Author</a></nav>
-<a class="btn" href="#free">Get Free Chapter →</a>
-</div>
-</header>
+    <canvas id="particleCanvas" class="fixed inset-0 pointer-events-none z-0 opacity-40"></canvas>
 
-<main>
-<section class="hero" id="free">
-<div class="container hero-grid">
-<div>
-<span class="badge">Transformative Spiritual & Self-Mastery Guide</span>
-<h1>Return to the <span class="highlight">Authentic Self</span> You Were Born To Be.</h1>
-<p class="lead">Beneath layers of social conditioning, daily rush, fear, and quiet self-doubt lies a peaceful, unshakeable center. Discover the timeless wisdom and practical framework to unearth it.</p>
+    <!-- Toast Notification Container -->
+    <div id="toastContainer" class="fixed bottom-5 right-5 z-50 flex flex-col gap-2 pointer-events-none"></div>
 
-<div class="formbox">
-<div style="color:#ffc04d;font-size:12px;text-transform:uppercase;letter-spacing:1px">✦ Free Download Package</div>
-<h3>Get Chapter 1 + The Authentic Self Assessment Blueprint</h3>
-<p>Join readers unearthing inner clarity, purpose, and lasting peace. Delivered instantly to your inbox.</p>
-<form id="leadForm">
-<div class="inputs"><input id="name" required placeholder="Your First Name"><input id="email" type="email" required placeholder="Your Email Address"></div>
-<button class="btn" type="submit">↓ Send Me My Free Chapter & Blueprint →</button>
-</form>
-</div>
-</div>
+    <!-- Navigation Header -->
+    <header class="sticky top-0 z-40 glass-card border-b border-gold-500/20 transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            <a href="#" class="flex items-center gap-3">
+                <div class="w-10 h-10 rounded-full bg-gradient-to-tr from-gold-600 to-amber-300 flex items-center justify-center font-cinzel font-bold text-mystic-900 shadow-md">
+                    FY
+                </div>
+                <div>
+                    <span class="font-cinzel text-lg sm:text-xl font-bold tracking-wider gold-gradient-text block">THE FORGOTTEN YOU</span>
+                    <span class="text-[10px] tracking-widest uppercase text-gray-400 block font-light">Inner Alignment & Mastery</span>
+                </div>
+            </a>
 
-<div class="book-wrap">
-<div class="book">
-<small>A Transformative Guide</small>
-<div><h2>THE<br><span>FORGOTTEN</span><br>YOU</h2></div>
-<div class="emblem">✦</div>
-<p>A Journey Back to Your Authentic Self</p>
-<div class="author-name">Prakash Mishra</div>
-</div>
-</div>
-</div>
-</section>
+            <!-- Desktop Nav -->
+            <nav class="hidden md:flex items-center gap-8 font-medium text-sm text-gray-300">
+                <a href="#overview" class="hover:text-gold-400 transition-colors">Overview</a>
+                <a href="#curriculum" class="hover:text-gold-400 transition-colors">10 Chapters</a>
+                <a href="#frameworks" class="hover:text-gold-400 transition-colors">Frameworks</a>
+                <a href="#podcast" class="hover:text-gold-400 transition-colors flex items-center gap-1.5 text-gold-400 font-semibold">
+                    <span class="w-2 h-2 rounded-full bg-amber-500 animate-ping"></span> Podcast Studio
+                </a>
+                <a href="#glossary" class="hover:text-gold-400 transition-colors">Glossary</a>
+                <a href="#author" class="hover:text-gold-400 transition-colors">Author</a>
+            </nav>
 
-<section id="quiz" style="background:#09141d">
-<div class="container">
-<div class="section-head"><span>Interactive Self-Discovery</span><h2>Where Are You on Your Journey?</h2><p>Answer 3 brief questions to receive an instant reflection on what is currently veiling your authentic self.</p></div>
-<div class="quizbox">
-<div style="display:flex;justify-content:space-between;color:#c9a45b;font-size:12px"><span id="qcount">Question 1 of 3</span><span id="pct">33%</span></div>
-<div class="progress"><div id="progress"></div></div>
-<div id="quiz"></div>
-</div>
-</div>
-</section>
+            <div class="flex items-center gap-3">
+                <button onclick="openModal('sampleModal')" class="hidden sm:inline-flex px-4 py-2 text-xs font-semibold uppercase tracking-wider text-gold-400 border border-gold-500/40 hover:border-gold-400 rounded-full transition-all">
+                    Free Sample
+                </button>
+                <a href="#order" class="px-5 py-2.5 text-xs font-bold uppercase tracking-wider bg-gradient-to-r from-gold-600 to-gold-400 text-mystic-900 rounded-full shadow-lg shadow-gold-500/20 hover:brightness-110 transition-all hover:scale-105 active:scale-95">
+                    Order Now
+                </a>
+                <button id="mobileMenuBtn" class="md:hidden text-gray-300 text-2xl focus:outline-none ml-2">
+                    <i class="fa-solid fa-bars"></i>
+                </button>
+            </div>
+        </div>
 
-<section id="about">
-<div class="container">
-<div class="section-head"><span>The Core Pillars</span><h2>What You Will Uncover Inside</h2><p>"The Forgotten You" is structured as a gentle, non-dogmatic roadmap through four pivotal transformations.</p></div>
-<div class="grid">
-<div class="card"><div class="icon">⌖</div><h3>1. Uncover Inner Clarity</h3><p>Strip away noise, inherited expectations, and mental clutter. Learn to distinguish fear from the deep, steady voice of intuition.</p><ul><li>De-condition inherited societal narratives</li><li>Master mental quietude in daily routine</li></ul></div>
-<div class="card"><div class="icon">⚡</div><h3>2. Rediscover Purpose</h3><p>Purpose isn't something you chase out in the world; it is something you unlock from within.</p><ul><li>Shift from externally driven to internally inspired</li><li>Unearth innate gifts and creative drives</li></ul></div>
-<div class="card"><div class="icon">◈</div><h3>3. Build Unshakeable Confidence</h3><p>True confidence is the relaxed, quiet knowing that you are complete regardless of external validation.</p><ul><li>Overcome self-sabotage</li><li>Cultivate self-trust and resilience</li></ul></div>
-<div class="card"><div class="icon">♥</div><h3>4. Attain Lasting Peace</h3><p>Anchor yourself in serene presence and discover practical spiritual practices that safeguard inner peace.</p><ul><li>Release compulsive future-projection</li><li>Embrace deep stillness and emotional freedom</li></ul></div>
-</div>
-</div>
-</section>
+        <!-- Mobile Drawer -->
+        <div id="mobileMenu" class="hidden md:hidden bg-mystic-900/95 border-b border-gold-500/20 px-6 py-6 space-y-4">
+            <a href="#overview" class="block text-gray-300 hover:text-gold-400 py-1" onclick="toggleMobileMenu()">Overview</a>
+            <a href="#curriculum" class="block text-gray-300 hover:text-gold-400 py-1" onclick="toggleMobileMenu()">10 Chapters Guide</a>
+            <a href="#frameworks" class="block text-gray-300 hover:text-gold-400 py-1" onclick="toggleMobileMenu()">Frameworks</a>
+            <a href="#podcast" class="block text-gold-400 font-semibold py-1" onclick="toggleMobileMenu()">Audio & Podcast Studio</a>
+            <a href="#glossary" class="block text-gray-300 hover:text-gold-400 py-1" onclick="toggleMobileMenu()">Subject Index & Glossary</a>
+            <a href="#author" class="block text-gray-300 hover:text-gold-400 py-1" onclick="toggleMobileMenu()">About Author</a>
+            <button onclick="openModal('sampleModal'); toggleMobileMenu();" class="w-full text-center py-2.5 text-xs font-semibold uppercase tracking-wider text-gold-400 border border-gold-500/40 rounded-full">
+                Read Sample Chapter
+            </button>
+        </div>
+    </header>
 
-<section id="preview" style="background:#09141d">
-<div class="container">
-<div class="section-head"><span>Interactive Book Preview</span><h2>Peek Inside the Pages</h2><p>Explore key excerpts and core teachings before you download your free copy.</p></div>
-<div class="previewbox">
-<div class="tabs">
-<button class="tab active" onclick="showTab('chapter',this)">Chapter 1 Excerpt</button>
-<button class="tab" onclick="showTab('quotes',this)">Key Wisdom Quotes</button>
-<button class="tab" onclick="showTab('toc',this)">Table of Contents</button>
-</div>
-<div class="tab-content" id="tabContent"></div>
-</div>
-</div>
-</section>
+    <!-- Hero Section -->
+    <section class="relative z-10 pt-10 pb-20 lg:pt-16 lg:pb-32 overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
+                
+                <!-- Hero Left Column -->
 
-<section id="author">
-<div class="container">
-<div class="authorbox">
-<div><div class="avatar">PM</div><h3 style="text-align:center;font:24px Georgia,serif;margin-top:12px">Prakash Mishra</h3><p style="text-align:center;color:#e85a2a;font-size:11px;text-transform:uppercase">Author & Spiritual Guide</p></div>
-<div><span style="color:#ffc04d;font-size:11px;text-transform:uppercase;letter-spacing:2px">About the Author</span><h2 style="font:32px Georgia,serif;margin:8px 0 15px">A Note From Prakash</h2><p class="quote">"My mission with 'The Forgotten You' isn't to give you new theories to memorize, but to guide you in unlearning everything that conceals your innate brilliance."</p><p style="color:#9daab5">Prakash Mishra has spent over two decades researching ancient self-mastery traditions, modern behavioral psychology, and practical mindfulness.</p></div>
-</div>
-</div>
-</section>
+                    <h1 class="font-cinzel text-4xl sm:text-5xl lg:text-6xl font-extrabold text-white leading-tight tracking-tight">
+                        The Path of the <br>
+                        <span class="gold-gradient-text">Forgotten You</span>
+                    </h1>
 
-<section style="background:#09141d">
-<div class="container">
-<div class="section-head"><span>Early Praise</span><h2>What Readers Are Saying</h2></div>
-<div class="testimonials">
-<div class="card"><div class="stars">★★★★★</div><p class="quote">"Reading Chapter 1 felt like a deep exhale I had been holding for ten years."</p><b>Dr. Ananya Sharma</b><small style="display:block;color:#63727e">Holistic Wellness Physician</small></div>
-<div class="card"><div class="stars">★★★★★</div><p class="quote">"This isn't just another self-help book. It's an experiential mirror."</p><b>David K. Miller</b><small style="display:block;color:#63727e">Creative Director</small></div>
-<div class="card"><div class="stars">★★★★★</div><p class="quote">"Timeless wisdom wrapped in modern, accessible language."</p><b>Meera Roy</b><small style="display:block;color:#63727e">Mindfulness Educator</small></div>
-</div>
-</div>
-</section>
+                    <p class="font-playfair text-xl sm:text-2xl text-amber-100/90 italic max-w-2xl mx-auto lg:mx-0 font-normal">
+                        Inner Alignment and Mastery: A navigational anchor from modern chaos to eternal presence.
+                    </p>
 
-<section>
-<div class="container"><div class="cta"><h2>Begin Your Journey Back to Yourself</h2><p style="margin-bottom:25px;color:#ffe4d4">Claim your free chapter and assessment blueprint right now.</p><a class="btn" href="#free" style="background:#09141d;color:#ffc04d">Claim Your Free Chapter & Blueprint</a></div></div>
-</section>
-</main>
+                    <p class="text-gray-300 text-base sm:text-lg leading-relaxed max-w-2xl mx-auto lg:mx-0">
+                        Shift from the rigid external <strong class="text-white">Physical Law</strong> of burnout, time, and gravity to the infinite potential of the <strong class="text-gold-400">Eternal Law</strong>. Synthesizing ancient Vedic wisdom with modern cognitive neuroscience.
+                    </p>
 
-<footer>© 2026 Prakash Mishra. All Rights Reserved.<br>"The Forgotten You: A Journey Back to Your Authentic Self" is a trademark publication.</footer>
+                    <!-- Star Ratings & Proof -->
+                    <div class="flex flex-wrap items-center justify-center lg:justify-start gap-4 pt-2">
+                        <div class="flex text-amber-400 text-sm">
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                        </div>
+                        <span class="text-sm font-semibold text-gray-200">4.9 / 5.0 Rating</span>
+                        <span class="text-gray-500">•</span>
+                        <span class="text-sm text-gray-400">Over <strong class="text-white">50,000+</strong> Lives Transformed</span>
+                    </div>
 
-<div class="sticky"><span><b>The Forgotten You — Free Preview</b><br><small>Download Chapter 1 + Assessment</small></span><a class="btn" href="#free">Get Free Download</a></div>
+                    <!-- Call To Actions -->
+                    <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 pt-4">
+                        <a href="#order" class="w-full sm:w-auto px-8 py-4 bg-gradient-to-r from-gold-600 via-amber-500 to-gold-400 text-mystic-900 font-extrabold text-sm uppercase tracking-wider rounded-xl shadow-xl shadow-gold-500/25 hover:brightness-110 transform hover:-translate-y-0.5 transition-all text-center">
+                            <i class="fa-solid fa-book-open mr-2"></i> Claim Your Copy
+                        </a>
+                        <button onclick="openModal('sampleModal')" class="w-full sm:w-auto px-8 py-4 glass-card hover:bg-gold-500/10 text-gold-300 font-semibold text-sm uppercase tracking-wider rounded-xl border border-gold-500/30 transition-all text-center flex items-center justify-center gap-2">
+                            <i class="fa-solid fa-eye"></i> Read Free Preview
+                        </button>
+                    </div>
 
-<script>
-const questions=[
-{q:"When facing major life decisions, what do you usually rely on?",o:["Expectations of family & society","Logic & fear of taking risks","My inner quiet intuition & values"]},
-{q:"How often do you feel a persistent inner whisper that 'there is more to who I am'?",o:["Almost every day, but I ignore it","Occasionally during quiet moments","Rarely, I stay absorbed in daily busywork"]},
-{q:"What is your biggest barrier to feeling deeply peaceful and grounded?",o:["Self-doubt and comparing myself to others","Constant overthinking and busy lifestyle","Lack of a clear overarching purpose"]}
-];
-let step=0;
-function renderQuiz(){
-if(step>=3){
-document.getElementById("quiz").innerHTML='<h3 class="question">The Awakening Seeker</h3><p style="color:#b8c3cc">You possess a powerful intuitive spark, but daily noise, subtle conditioning, and perfectionism have obscured your true internal compass.</p><br><p style="color:#ffc04d">Personalized Insight</p><p style="color:#b8c3cc">Chapter 3 of "The Forgotten You" specifically addresses dismantling these layers of mental noise.</p><br><button class="btn" onclick="step=0;renderQuiz()">Retake Mini Assessment</button>';
-document.getElementById("qcount").textContent="Assessment Complete";document.getElementById("pct").textContent="100%";document.getElementById("progress").style.width="100%";return}
-document.getElementById("qcount").textContent=`Question ${step+1} of 3`;document.getElementById("pct").textContent=`${Math.round(((step+1)/3)*100)}%`;document.getElementById("progress").style.width=`${((step+1)/3)*100}%`;
-document.getElementById("quiz").innerHTML='<h3 class="question">'+questions[step].q+'</h3>'+questions[step].o.map((x,i)=>`<button class="option" onclick="step++;renderQuiz()">${x} <span style="float:right">›</span></button>`).join("");
-}
-renderQuiz();
+                    <!-- Micro Features -->
+                    <div class="grid grid-cols-3 gap-4 pt-6 border-t border-gray-800 text-center lg:text-left">
+                        <div>
+                            <span class="block font-cinzel text-xl font-bold text-gold-400">10</span>
+                            <span class="text-xs text-gray-400">Guided Chapters</span>
+                        </div>
+                        <div>
+                            <span class="block font-cinzel text-xl font-bold text-gold-400">5 Sheaths</span>
+                            <span class="text-xs text-gray-400">Pancha Koshas</span>
+                        </div>
+                        <div>
+                            <span class="block font-cinzel text-xl font-bold text-gold-400">5 Elements</span>
+                            <span class="text-xs text-gray-400">Elemental Healing</span>
+                        </div>
+                    </div>
+                </div>
 
-function showTab(tab,el){
-document.querySelectorAll(".tab").forEach(x=>x.classList.remove("active"));el.classList.add("active");
-let content={
-chapter:`<b style="color:#ffc04d">Opening Excerpt — Chapter 1: The Mask We Forget We Wear</b><p class="quote">"Most human beings do not live their own lives. They live the accumulated echoes of what their parents wished for, what their teachers approved of, and what society deemed safe..."</p><p style="color:#aab6c0">You were born with a raw, radiant presence—a pure spark of effortless knowing. But as years accrued, you subtly learned that to be loved and secure, you had to perform.</p>`,
-quotes:`<p class="quote">"Self-doubt is not a flaw in your nature; it is merely an illusion created by taking external judgments more seriously than your own quiet truth."</p><p class="quote">"Peace is not the absence of life's storm, but the unshakeable awareness that you are the sky, not the passing clouds."</p>`,
-toc:`<p>Part I: The Awakening — Chapters 1–4</p><p>Part II: Dismantling the Shadow of Fear — Chapters 5–8</p><p>Part III: The Core Alignment & Purpose — Chapters 9–12</p><p>Part IV: Living in Unshakeable Presence — Chapters 13–16</p>`
-};document.getElementById("tabContent").innerHTML=content[tab];
-}
-showTab("chapter",document.querySelector(".tab"));
+                <!-- Hero Right Column: 3D Book Cover Card Reveal -->
+                <div class="lg:col-span-5 flex flex-col items-center justify-center">
+                    <div class="book-container group cursor-pointer" id="bookCardContainer">
+                        <div class="book-3d" id="book3d">
+                            <div class="book-spine"></div>
+                            <div class="book-cover bg-gradient-to-br from-gray-900 via-mystic-800 to-black border-2 border-gold-500/40 p-6 flex flex-col justify-between relative overflow-hidden">
+                                
+                                <!-- Decorative SVG Sacred Geometry in background -->
+                                <svg class="absolute -right-12 -top-12 w-64 h-64 opacity-20 text-gold-400" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+                                </svg>
+                                
+                                <div class="relative z-10 text-center pt-4">
+                                    <span class="text-[10px] tracking-[0.3em] font-cinzel uppercase text-gold-400 block mb-2">The Timeless Blueprint</span>
+                                    <h2 class="font-cinzel text-2xl sm:text-3xl font-black text-white leading-tight">THE PATH OF THE</h2>
+                                    <h2 class="font-cinzel text-3xl sm:text-4xl font-black gold-gradient-text tracking-wider mt-1">FORGOTTEN YOU</h2>
+                                    <p class="text-[11px] font-playfair italic text-gray-300 mt-2">Inner Alignment & Mastery</p>
+                                </div>
 
-document.getElementById("leadForm").addEventListener("submit",function(e){
-e.preventDefault();const name=document.getElementById("name").value||"Friend";
-document.querySelector(".formbox").innerHTML=`<h3>Check Your Inbox!</h3><p>Thank you <b style="color:#ffc04d">${name}</b>! Your free chapter and blueprint request has been received.</p><a class="btn" href="#quiz">Take the Self-Discovery Quiz →</a>`;
-});
-</script>
+                                <div class="relative z-10 my-auto py-6 flex justify-center">
+                                    <!-- Center Symbol -->
+                                    <div class="w-24 h-24 rounded-full border border-gold-500/50 flex items-center justify-center bg-mystic-900/80 shadow-inner gold-border-glow">
+                                        <i class="fa-solid fa-yin-yang text-4xl text-amber-400 animate-spin-slow"></i>
+                                    </div>
+                                </div>
+
+                                <div class="relative z-10 text-center pb-2">
+                                    <div class="w-12 h-0.5 bg-gradient-to-r from-transparent via-gold-400 to-transparent mx-auto mb-3"></div>
+                                    <p class="text-xs font-semibold tracking-widest text-gray-300 uppercase">A Guide to Soul Awakening</p>
+                                    <p class="text-[10px] text-gold-400/80 tracking-wider mt-1 font-mono">HARDCOVER & AUDIOBOOK</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <p class="text-xs text-gray-400 mt-6 flex items-center gap-2">
+                        <i class="fa-solid fa-hand-pointer text-gold-400"></i> Hover / Drag to rotate cover in 3D
+                    </p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Social Proof Stats Banner -->
+    <section class="border-y border-gold-500/20 bg-mystic-800/50 py-10 relative z-10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+                <div class="space-y-1">
+                    <p class="font-cinzel text-3xl sm:text-4xl font-extrabold gold-gradient-text">50,000+</p>
+                    <p class="text-xs sm:text-sm text-gray-400 uppercase tracking-wider">Copies Distributed</p>
+                </div>
+                <div class="space-y-1">
+                    <p class="font-cinzel text-3xl sm:text-4xl font-extrabold gold-gradient-text">100%</p>
+                    <p class="text-xs sm:text-sm text-gray-400 uppercase tracking-wider">Practical Blueprint</p>
+                </div>
+                <div class="space-y-1">
+                    <p class="font-cinzel text-3xl sm:text-4xl font-extrabold gold-gradient-text">10</p>
+                    <p class="text-xs sm:text-sm text-gray-400 uppercase tracking-wider">Transformative Chapters</p>
+                </div>
+                <div class="space-y-1">
+                    <p class="font-cinzel text-3xl sm:text-4xl font-extrabold gold-gradient-text">4.9 / 5</p>
+                    <p class="text-xs sm:text-sm text-gray-400 uppercase tracking-wider">Global Reader Score</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Book Overview Section -->
+    <section id="overview" class="py-20 relative z-10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <span class="text-xs font-bold uppercase tracking-widest text-gold-400 block mb-2">The Navigational Map</span>
+                <h2 class="font-cinzel text-3xl sm:text-4xl font-bold text-white">Transition From Physical Law to Eternal Presence</h2>
+                <div class="w-20 h-1 bg-gradient-to-r from-gold-600 to-amber-300 mx-auto mt-4 rounded-full"></div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="glass-card p-8 rounded-2xl hover:border-gold-500/50 transition-all group">
+                    <div class="w-14 h-14 rounded-xl bg-gold-500/10 border border-gold-500/30 flex items-center justify-center text-gold-400 text-2xl mb-6 group-hover:scale-110 transition-transform">
+                        <i class="fa-solid fa-compass"></i>
+                    </div>
+                    <h3 class="font-cinzel text-xl font-bold text-white mb-3">1. Map of the Soul</h3>
+                    <p class="text-gray-400 text-sm leading-relaxed">
+                        Curated structural blueprint for students facing academic pressure and professionals navigating corporate burnout to rediscover inner sovereignty.
+                    </p>
+                </div>
+
+                <div class="glass-card p-8 rounded-2xl hover:border-gold-500/50 transition-all group">
+                    <div class="w-14 h-14 rounded-xl bg-gold-500/10 border border-gold-500/30 flex items-center justify-center text-gold-400 text-2xl mb-6 group-hover:scale-110 transition-transform">
+                        <i class="fa-solid fa-[#10]"></i>
+                        <i class="fa-solid fa-brain"></i>
+                    </div>
+                    <h3 class="font-cinzel text-xl font-bold text-white mb-3">2. Vedic Neuroscience</h3>
+                    <p class="text-gray-400 text-sm leading-relaxed">
+                        Reconciles 86 billion neurons with the ancient Antahkarana framework (Manas, Buddhi, Ahamkara, Chitta) to shift from trigger to response.
+                    </p>
+                </div>
+
+                <div class="glass-card p-8 rounded-2xl hover:border-gold-500/50 transition-all group">
+                    <div class="w-14 h-14 rounded-xl bg-gold-500/10 border border-gold-500/30 flex items-center justify-center text-gold-400 text-2xl mb-6 group-hover:scale-110 transition-transform">
+                        <i class="fa-solid fa-feather-pointed"></i>
+                    </div>
+                    <h3 class="font-cinzel text-xl font-bold text-white mb-3">3. Effortless Action</h3>
+                    <p class="text-gray-400 text-sm leading-relaxed">
+                        Learn Karma Yoga—the science of selfless action. Transition from stressful striving to elegant, aligned flow in work, finance, and human connection.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Interactive 10-Chapter Guide Accordion -->
+    <section id="curriculum" class="py-20 bg-mystic-800/30 border-y border-gold-500/10 relative z-10">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-12">
+                <span class="text-xs font-bold uppercase tracking-widest text-gold-400 block mb-2">Part 1: The Curated Guide</span>
+                <h2 class="font-cinzel text-3xl sm:text-4xl font-bold text-white">Explore The 10 Chapters</h2>
+                <p class="text-gray-400 text-sm mt-3">Click on any chapter to inspect its Learner's Intent and key transformational subtopics.</p>
+            </div>
+
+            <div class="space-y-4" id="chaptersContainer">
+                <!-- Chapters injected via JavaScript -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Interactive Frameworks Section (Five Elements & Five Sheaths) -->
+    <section id="frameworks" class="py-20 relative z-10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-12">
+                <span class="text-xs font-bold uppercase tracking-widest text-gold-400 block mb-2">Foundational Synthesis</span>
+                <h2 class="font-cinzel text-3xl sm:text-4xl font-bold text-white">Master Frameworks</h2>
+                <p class="text-gray-400 text-sm mt-2">Harmonize the Pancha Bhoota (Elements) & Pancha Koshas (Five Bodies)</p>
+            </div>
+
+            <!-- Tab Buttons -->
+            <div class="flex justify-center mb-10">
+                <div class="inline-flex p-1.5 rounded-xl glass-card border border-gold-500/30">
+                    <button id="btnBhoota" onclick="switchFramework('bhoota')" class="px-6 py-2.5 rounded-lg font-semibold text-xs uppercase tracking-wider transition-all bg-gradient-to-r from-gold-600 to-amber-500 text-mystic-900 shadow">
+                        Pancha Bhoota (5 Elements)
+                    </button>
+                    <button id="btnKoshas" onclick="switchFramework('koshas')" class="px-6 py-2.5 rounded-lg font-semibold text-xs uppercase tracking-wider transition-all text-gray-300 hover:text-white">
+                        Pancha Koshas (5 Bodies)
+                    </button>
+                </div>
+            </div>
+
+            <!-- Framework Content View -->
+            <div id="frameworkContent" class="grid grid-cols-1 md:grid-cols-5 gap-4">
+                <!-- Content injected dynamically via JavaScript -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Podcast & Audio Recorder Studio Section -->
+    <section id="podcast" class="py-20 bg-mystic-800/40 border-y border-gold-500/20 relative z-10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-14">
+                <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-gold-500/10 border border-gold-500/30 text-gold-400 text-xs font-bold uppercase tracking-wider mb-3">
+                    <i class="fa-solid fa-microphone-lines"></i> Interactive Sound Experience
+                </div>
+                <h2 class="font-cinzel text-3xl sm:text-4xl font-bold text-white">The Forgotten You Podcast & Meditations</h2>
+                <p class="text-gray-400 text-sm mt-2">Listen to author commentary, or record and upload your own episode preview directly below!</p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+                
+                <!-- Left: Interactive Audio Recorder / Uploader -->
+                <div class="lg:col-span-5 glass-card p-6 sm:p-8 rounded-2xl border-gold-500/30">
+                    <h3 class="font-cinzel text-xl font-bold text-white mb-2 flex items-center gap-2">
+                        <i class="fa-solid fa-[#10] text-gold-400"></i> Studio Recording Console
+                    </h3>
+                    <p class="text-xs text-gray-400 mb-6">Record your thoughts or upload audio file to preview podcast integration.</p>
+
+                    <div class="space-y-6">
+                        <!-- Recorder controls -->
+                        <div class="bg-mystic-900/90 border border-gray-800 rounded-xl p-6 text-center space-y-4">
+                            <div id="recorderStatus" class="text-xs font-mono uppercase tracking-widest text-gold-400">
+                                Ready to record
+                            </div>
+
+                            <!-- Animated Audio Waveform Mock -->
+                            <div class="h-10 flex items-center justify-center gap-1" id="waveformDisplay">
+                                <div class="w-1.5 bg-gold-500/30 rounded-full h-3"></div>
+                                <div class="w-1.5 bg-gold-500/50 rounded-full h-5"></div>
+                                <div class="w-1.5 bg-gold-400 rounded-full h-8"></div>
+                                <div class="w-1.5 bg-amber-300 rounded-full h-4"></div>
+                                <div class="w-1.5 bg-gold-500/30 rounded-full h-3"></div>
+                            </div>
+
+                            <div class="flex items-center justify-center gap-4">
+                                <button id="recordBtn" onclick="toggleRecord()" class="w-14 h-14 rounded-full bg-red-600 hover:bg-red-500 text-white flex items-center justify-center text-xl shadow-lg transition-transform hover:scale-105 active:scale-95">
+                                    <i class="fa-solid fa-microphone" id="recordIcon"></i>
+                                </button>
+                                <button id="stopBtn" onclick="stopRecording()" disabled class="w-12 h-12 rounded-full bg-gray-700 opacity-50 text-white flex items-center justify-center text-lg transition-all cursor-not-allowed">
+                                    <i class="fa-solid fa-square"></i>
+                                </button>
+                            </div>
+                            <span class="text-[11px] text-gray-500 block">Click microphone to record voice via browser</span>
+                        </div>
+
+                        <!-- Local Upload Alternative -->
+                        <div class="border-t border-gray-800 pt-4">
+                            <label class="block text-xs font-semibold uppercase text-gray-400 mb-2">Or Upload Local Audio File (.mp3, .wav)</label>
+                            <input type="file" id="audioFileInput" accept="audio/*" class="block w-full text-xs text-gray-400 file:mr-4 file:py-2 file:px-4 file:rounded-lg file:border-0 file:text-xs file:font-semibold file:bg-gold-500/20 file:text-gold-300 hover:file:bg-gold-500/30 cursor-pointer">
+                        </div>
+
+                        <!-- Audio Player Preview for Created/Uploaded Track -->
+                        <div id="userAudioPreview" class="hidden bg-mystic-900 border border-gold-500/40 p-4 rounded-xl space-y-2">
+                            <p class="text-xs font-bold text-gold-400 flex items-center justify-between">
+                                <span><i class="fa-solid fa-circle-check"></i> Custom Track Loaded</span>
+                                <span id="customTrackName" class="text-gray-400 font-normal truncate max-w-[150px]">My Episode</span>
+                            </p>
+                            <audio id="audioPlayer" controls class="w-full h-8 rounded mt-2"></audio>
+                            <button onclick="addCustomToPlaylist()" class="w-full py-2 bg-gold-500/20 hover:bg-gold-500/30 border border-gold-500/40 text-gold-300 text-xs font-bold rounded-lg transition-all">
+                                <i class="fa-solid fa-plus mr-1"></i> Add To Podcast Episode List
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right: Playlist View -->
+                <div class="lg:col-span-7 glass-card p-6 sm:p-8 rounded-2xl border-gold-500/30">
+                    <h3 class="font-cinzel text-xl font-bold text-white mb-4 flex items-center justify-between">
+                        <span><i class="fa-solid fa-list-ul text-gold-400 mr-2"></i> Featured Podcast Episodes</span>
+                        <span class="text-xs text-gray-400 font-sans font-normal">Season 1</span>
+                    </h3>
+
+                    <div class="space-y-3" id="podcastPlaylist">
+                        <!-- Default Episodes injected via JS -->
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Part 2: Interactive Keyword & Subject Index Glossary -->
+    <section id="glossary" class="py-20 relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center max-w-3xl mx-auto mb-10">
+            <span class="text-xs font-bold uppercase tracking-widest text-gold-400 block mb-2">Part 2: Illuminating Index</span>
+            <h2 class="font-cinzel text-3xl sm:text-4xl font-bold text-white">Subject & Keyword Glossary</h2>
+            <p class="text-gray-400 text-sm mt-2">Search Sanskrit terms, psychological principles, and scientific cross-references from the book.</p>
+        </div>
+
+        <!-- Search Bar -->
+        <div class="max-w-xl mx-auto mb-8 relative">
+            <i class="fa-solid fa-magnifying-glass absolute left-4 top-1/2 -translate-y-1/2 text-gray-400"></i>
+            <input type="text" id="glossarySearch" onkeyup="filterGlossary()" placeholder="Search terms (e.g. Advaita, Ego, Antahkarana, Cortisol)..." class="w-full bg-mystic-800/90 border border-gold-500/30 rounded-xl pl-11 pr-4 py-3 text-sm text-white placeholder-gray-500 focus:outline-none focus:border-gold-400 focus:ring-1 focus:ring-gold-400 transition-all">
+        </div>
+
+        <!-- Glossary Table -->
+        <div class="glass-card rounded-2xl overflow-hidden border-gold-500/20">
+            <div class="max-h-[450px] overflow-y-auto">
+                <table class="w-full text-left text-sm text-gray-300">
+                    <thead class="bg-mystic-800 text-xs uppercase tracking-wider text-gold-400 sticky top-0 z-10 border-b border-gold-500/20">
+                        <tr>
+                            <th class="py-3.5 px-6">Term & Category</th>
+                            <th class="py-3.5 px-6">Core Meaning & Context</th>
+                            <th class="py-3.5 px-6">Chapter Reference</th>
+                        </tr>
+                    </thead>
+                    <tbody id="glossaryTableBody" class="divide-y divide-gray-800/60">
+                        <!-- Injected via JS -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <!-- Author Section -->
+    <section id="author" class="py-20 bg-mystic-800/30 border-t border-gold-500/10 relative z-10">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="glass-card p-8 sm:p-12 rounded-3xl border border-gold-500/30 grid grid-cols-1 md:grid-cols-12 gap-8 items-center">
+                
+                <div class="md:col-span-4 flex flex-col items-center">
+                    <div class="w-48 h-48 sm:w-56 sm:h-56 rounded-full overflow-hidden border-2 border-gold-400 p-1.5 shadow-xl gold-border-glow bg-mystic-900">
+                        <img src="https://placehold.co/400x400/1f2937/fbbf24?text=Author+Image" alt="Author Image" class="w-full h-full object-cover rounded-full">
+                    </div>
+                    <span class="text-xs text-gold-400 uppercase tracking-widest mt-4 font-bold">Spiritual Teacher & Author</span>
+                </div>
+
+                <div class="md:col-span-8 space-y-4 text-center md:text-left">
+                    <span class="text-xs font-bold uppercase tracking-widest text-gold-400">Meet The Visionary</span>
+                    <h2 class="font-cinzel text-3xl font-bold text-white">Guide on the Path to Self-Mastery</h2>
+                    <p class="text-gray-300 text-sm leading-relaxed">
+                        Dedicated to bridging the gap between ancient Eastern scriptural wisdom and contemporary cognitive neuroscience, the author guides modern seekers out of stress and burnout into aligned, effortless living.
+                    </p>
+                    <blockquote class="font-playfair italic text-amber-200 border-l-2 border-gold-400 pl-4 py-1 text-sm bg-gold-500/5 rounded-r">
+                        "Success is not a destination or social status; it is the quiet, unbreakable alignment between your inner presence and your outer action."
+                    </blockquote>
+                    <div class="pt-2 flex flex-wrap justify-center md:justify-start gap-3">
+                        <span class="px-3 py-1 rounded-full bg-gold-500/10 border border-gold-500/20 text-xs text-gold-300">Vedic Psychology</span>
+                        <span class="px-3 py-1 rounded-full bg-gold-500/10 border border-gold-500/20 text-xs text-gold-300">Pranayama Protocol</span>
+                        <span class="px-3 py-1 rounded-full bg-gold-500/10 border border-gold-500/20 text-xs text-gold-300">Mindfulness Speaker</span>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Order / Call to Action Section -->
+    <section id="order" class="py-20 relative z-10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-14">
+                <span class="text-xs font-bold uppercase tracking-widest text-gold-400 block mb-2">Claim Your Copy Today</span>
+                <h2 class="font-cinzel text-3xl sm:text-4xl font-bold text-white">Begin Your Journey Home to the Forgotten You</h2>
+                <p class="text-gray-400 text-sm mt-2">Choose your preferred format below. Instant digital download included with print orders.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 items-stretch">
+                
+                <!-- Format 1: eBook -->
+                <div class="glass-card p-8 rounded-2xl border-gray-800 hover:border-gold-500/50 transition-all flex flex-col justify-between">
+                    <div>
+                        <div class="text-gold-400 text-xl font-bold mb-2">Digital Edition</div>
+                        <h3 class="font-cinzel text-2xl font-bold text-white mb-2">Kindle / PDF</h3>
+                        <p class="text-gray-400 text-xs mb-6">Instant access to all chapters and digital glossary on any device.</p>
+                        <div class="font-cinzel text-4xl font-extrabold text-white mb-6">$9.99</div>
+                        <ul class="space-y-3 text-xs text-gray-300 mb-8">
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-gold-400"></i> Full 10 Chapter eBook</li>
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-gold-400"></i> Printable Framework Cheatsheets</li>
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-gold-400"></i> Digital Audio Meditations</li>
+                        </ul>
+                    </div>
+                    <button onclick="triggerToast('Digital eBook added to cart!')" class="w-full py-3 rounded-xl border border-gold-500/40 hover:bg-gold-500/10 text-gold-300 font-bold text-xs uppercase tracking-wider transition-all">
+                        Buy Digital
+                    </button>
+                </div>
+
+                <!-- Format 2: Deluxe Hardcover (Featured) -->
+                <div class="glass-card p-8 rounded-2xl border-2 border-gold-400 relative shadow-2xl gold-border-glow flex flex-col justify-between transform md:-translate-y-2">
+                    <div class="absolute -top-3.5 left-1/2 -translate-x-1/2 bg-gradient-to-r from-gold-600 to-amber-400 text-mystic-900 font-extrabold text-[10px] uppercase tracking-widest py-1 px-4 rounded-full">
+                        Most Popular
+                    </div>
+                    <div>
+                        <div class="text-gold-400 text-xl font-bold mb-2">Collector's Hardcover</div>
+                        <h3 class="font-cinzel text-2xl font-bold text-white mb-2">Deluxe Printed Book</h3>
+                        <p class="text-gray-400 text-xs mb-6">Gold foil cloth spine, premium paper, plus companion audiobook access.</p>
+                        <div class="font-cinzel text-4xl font-extrabold text-gold-400 mb-6">$27.99</div>
+                        <ul class="space-y-3 text-xs text-gray-200 mb-8">
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-gold-400"></i> Hardcover Book with Foil Detailing</li>
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-gold-400"></i> Free eBook & Audiobook Bundle</li>
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-gold-400"></i> Guided Meditation Companion Tracks</li>
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-gold-400"></i> Author Signed Bookplate (Limited)</li>
+                        </ul>
+                    </div>
+                    <button onclick="triggerToast('Deluxe Hardcover added to cart!')" class="w-full py-3 rounded-xl bg-gradient-to-r from-gold-600 via-amber-500 to-gold-400 text-mystic-900 font-extrabold text-xs uppercase tracking-wider shadow-lg hover:brightness-110 transition-all">
+                        Order Deluxe Edition
+                    </button>
+                </div>
+
+                <!-- Format 3: Audiobook -->
+                <div class="glass-card p-8 rounded-2xl border-gray-800 hover:border-gold-500/50 transition-all flex flex-col justify-between">
+                    <div>
+                        <div class="text-gold-400 text-xl font-bold mb-2">Audio Experience</div>
+                        <h3 class="font-cinzel text-2xl font-bold text-white mb-2">Audiobook Edition</h3>
+                        <p class="text-gray-400 text-xs mb-6">Narrated by author with immersive binaural ambient soundscapes.</p>
+                        <div class="font-cinzel text-4xl font-extrabold text-white mb-6">$19.99</div>
+                        <ul class="space-y-3 text-xs text-gray-300 mb-8">
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-gold-400"></i> 12 Hours Unabridged Audio</li>
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-gold-400"></i> Ambient OM Chants & Binaural Beats</li>
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-gold-400"></i> Downloadable PDF Worksheets</li>
+                        </ul>
+                    </div>
+                    <button onclick="triggerToast('Audiobook Edition added to cart!')" class="w-full py-3 rounded-xl border border-gold-500/40 hover:bg-gold-500/10 text-gold-300 font-bold text-xs uppercase tracking-wider transition-all">
+                        Get Audiobook
+                    </button>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="border-t border-gold-500/20 bg-mystic-900 py-12 relative z-10 text-xs text-gray-400">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center justify-between gap-6">
+            <div class="text-center md:text-left">
+                <span class="font-cinzel text-base font-bold gold-gradient-text block">THE PATH OF THE FORGOTTEN YOU</span>
+                <p class="mt-1">© 2026 All Rights Reserved. Inner Alignment & Mastery Publishing.</p>
+            </div>
+            <div class="flex items-center gap-6">
+                <a href="#overview" class="hover:text-gold-400 transition-colors">Overview</a>
+                <a href="#curriculum" class="hover:text-gold-400 transition-colors">Chapters</a>
+                <a href="#podcast" class="hover:text-gold-400 transition-colors">Podcast</a>
+                <a href="#glossary" class="hover:text-gold-400 transition-colors">Glossary</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Free Sample Preview Modal -->
+    <div id="sampleModal" class="fixed inset-0 z-50 hidden bg-black/80 backdrop-blur-md flex items-center justify-center p-4">
+        <div class="glass-card max-w-2xl w-full max-h-[85vh] rounded-2xl border border-gold-500/40 flex flex-col overflow-hidden">
+            <div class="p-6 border-b border-gold-500/20 flex items-center justify-between">
+                <div>
+                    <span class="text-[10px] uppercase tracking-widest text-gold-400 font-bold">Free Sample Preview</span>
+                    <h3 class="font-cinzel text-xl font-bold text-white">Introduction – The Call to Infinity</h3>
+                </div>
+                <button onclick="closeModal('sampleModal')" class="text-gray-400 hover:text-white text-xl">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+            </div>
+            <div class="p-6 overflow-y-auto space-y-4 font-playfair text-gray-300 text-sm leading-relaxed">
+                <p class="first-letter:text-4xl first-letter:font-cinzel first-letter:text-gold-400 first-letter:mr-2 first-letter:float-left">
+                    This book is curated as a structural blueprint for the learner's transition from conceptual knowledge to embodied mastery. It serves as a navigational anchor for the modern seeker—whether a student facing academic pressure or a professional navigating corporate burnout—to rediscover the "Forgotten You."
+                </p>
+                <p>
+                    The curriculum is designed to facilitate a fundamental shift from the "Physical Law" of the external world, governed by gravity, time, and limitation, to the "Eternal Law" of the internal world, characterized by infinity and presence.
+                </p>
+                <p>
+                    True freedom is realized not as an escape from responsibility, but as an internal alignment where the outer life becomes a seamless, effortless expression of inner truth.
+                </p>
+            </div>
+            <div class="p-4 border-t border-gold-500/20 bg-mystic-900/80 flex items-center justify-between">
+                <span class="text-xs text-gray-400">Page 1 of 3 (Sample)</span>
+                <a href="#order" onclick="closeModal('sampleModal')" class="px-5 py-2 bg-gradient-to-r from-gold-600 to-amber-400 text-mystic-900 font-bold text-xs uppercase rounded-lg">
+                    Order Full Book
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        /* Book Chapters Data */
+        const chaptersData = [
+            {
+                num: "Chapter 1",
+                title: "The Journey Within",
+                intent: "Discriminate between societal conditioning and true self-knowledge to activate the 'silent witness' within.",
+                topics: [
+                    "The Monastery vs. Society: Cultivating mindfulness amidst modern chaos",
+                    "Knowledge of Self: The 'Know Thyself' mandate as the infrastructure of bliss",
+                    "The Illusion of Belief: Navigating the dual forces of Divine and Evil",
+                    "The Power of Forgiveness: Decoupling the soul from heavy chains"
+                ]
+            },
+            {
+                num: "Chapter 2",
+                title: "Healing Through the Five Elements",
+                intent: "Reconstruct cosmic building blocks within physical vessel to remediate elemental imbalances.",
+                topics: [
+                    "Cosmic Connection: Earth, Water, Fire, Air, and Space (Ether)",
+                    "Elemental Pollutants: Identifying Fear of the Unknown, Ego, and Overthinking",
+                    "Purifying Meditations: Technical protocols for Grounding & Fluidity",
+                    "The Surya Protocol: Spiritual renewal through dawn/dusk sun-gazing"
+                ]
+            },
+            {
+                num: "Chapter 3",
+                title: "Mastering the Mind",
+                intent: "Synthesize cognitive neuroscience with Vedic psychology to transition from reactive to conscious states.",
+                topics: [
+                    "86 Billion Neurons vs. Scriptural Antahkarana Framework",
+                    "Antahkarana: Manas (Sensory), Buddhi (Intellect), Ahamkara (Ego), Chitta (Memory)",
+                    "Emotional Reactivity: Protocols for shifting from Trigger to Response"
+                ]
+            },
+            {
+                num: "Chapter 4",
+                title: "Living in Alignment",
+                intent: "Formulate a life-design based on core soul values rather than inherited societal programming.",
+                topics: [
+                    "Core Values: Distinguishing authentic desires from 'Leela' (divine play)",
+                    "Integrity: Walking one's truth without self-betrayal",
+                    "Inner Compass: Utilizing somatic sensations for high-stakes decisions",
+                    "The 'Power of No': Boundaries as prerequisite for self-respect"
+                ]
+            },
+            {
+                num: "Chapter 5",
+                title: "Energetic Sovereignty",
+                intent: "Manage the 'vibrational skin' to prevent depletion and reclaim power from draining environments.",
+                topics: [
+                    "Sensing Energy: Recognizing emotional triggers & vibrational shifts",
+                    "Leaks & Attachments: Identifying 'what-ifs' draining power",
+                    "Sovereignty Practices: Cord Cutting, Aura Cleansing, & Shielding"
+                ]
+            },
+            {
+                num: "Chapter 6",
+                title: "Spiritual Practices for Daily Living",
+                intent: "Execute daily rituals that bridge the gap between the material and spiritual.",
+                topics: [
+                    "Creating Sacred Space: External environment for internal stillness",
+                    "Breathwork: Pranayama (Anulom-Vilom, Bhastrika, Sitali) protocols",
+                    "Sound & Vibration: Mantras, OM chanting, and Music of Creation",
+                    "Anchoring Morning and Evening Routines"
+                ]
+            },
+            {
+                num: "Chapter 7",
+                title: "Mastering the Five Bodies",
+                intent: "Differentiate between the five sheaths of existence (Pancha Koshas) to access deep bliss.",
+                topics: [
+                    "Pancha Koshas: From Annamaya (Physical) to Anandamaya (Bliss)",
+                    "Shiva/Shakti Dualities: Harmonizing Stillness (Masculine) and Movement (Feminine)",
+                    "Polarity Management: Integrating Logic (Shiva) and Intuition (Shakti)"
+                ]
+            },
+            {
+                num: "Chapter 8",
+                title: "Integrated Living",
+                intent: "Implement spiritual principles within structures of work, finance, and human connection.",
+                topics: [
+                    "Conscious Communication: Presence over productivity in relationships",
+                    "Money as a Tool: Shifting from scarcity to abundance-based worth",
+                    "Karma Yoga: The science of selfless action and Bhagavad Gita wisdom"
+                ]
+            },
+            {
+                num: "Chapter 9",
+                title: "The Inner Temple",
+                intent: "Cultivate internal sanctuary for consistent communion with intuitive guidance.",
+                topics: [
+                    "Quieting the Outer World: Accessing 'Mauna' (silence) of the soul",
+                    "Mirror Work: Reflection as a tool for radical self-acceptance",
+                    "Sacred Journaling: Communicating with subconscious narratives"
+                ]
+            },
+            {
+                num: "Chapter 10",
+                title: "Living the Life",
+                intent: "Model the role of a Master by evolving through flow rather than hustle pressure.",
+                topics: [
+                    "Evolving Without Striving: Transition from effort to elegance",
+                    "Community (Sangha): Collective awareness & shared growth",
+                    "Becoming a Lighthouse: Leading through presence resonance"
+                ]
+            }
+        ];
+
+        /* Glossary Data */
+        const glossaryData = [
+            { term: "Abhyanga", cat: "Practice", desc: "Sacred oil anointment ritual to channel life energy & water element", ref: "Ch. 2, Ch. 6" },
+            { term: "Advaita", cat: "Philosophical", desc: "Non-duality; realizing no separation between self and universe", ref: "Ch. 7, Ch. 10" },
+            { term: "Ahamkara", cat: "Psychological", desc: "The Ego-construct; false sense of 'I' creating separation illusion", ref: "Ch. 3, Ch. 7" },
+            { term: "Anandamaya", cat: "Anatomy", desc: "The Bliss Body; innermost sheath accessed through surrender", ref: "Ch. 7" },
+            { term: "Antahkarana", cat: "Framework", desc: "Inner Instrument comprising mind, intellect, ego, subconscious memory", ref: "Ch. 3" },
+            { term: "Anulom-Vilom", cat: "Breathwork", desc: "Alternate nostril breathing balancing Shiva/Shakti energies", ref: "Ch. 6, Ch. 7" },
+            { term: "Buddhi", cat: "Psychological", desc: "Higher intellect; faculty of discrimination & soul-guided wisdom", ref: "Ch. 3" },
+            { term: "Cortisol", cat: "Scientific", desc: "Stress hormone released when system is out of alignment", ref: "Ch. 3, Ch. 5" },
+            { term: "Karma Yoga", cat: "Practice", desc: "Path of selfless service; working as an offering without attachment", ref: "Ch. 1, Ch. 8" },
+            { term: "Observer Effect", cat: "Scientific", desc: "Awareness influencing subatomic particle behavior (Shiva/Shakti)", ref: "Ch. 7" },
+            { term: "Sakshi Bhava", cat: "Practice", desc: "Witness Consciousness; observing thoughts without attachment", ref: "Ch. 1, Ch. 3" },
+            { term: "Trataka", cat: "Practice", desc: "Fire-gazing meditation developing focus & purifying fire element", ref: "Ch. 2" }
+        ];
+
+        /* Frameworks Data */
+        const bhootaData = [
+            { name: "Earth (Prithvi)", quality: "Stability, Grounding", method: "Barefoot grounding, Body scans", icon: "fa-mountain" },
+            { name: "Water (Jala)", quality: "Adaptability, Flow", method: "Copper vessel charging, Abhyanga", icon: "fa-droplet" },
+            { name: "Fire (Agni)", quality: "Transformation, Courage", method: "Trataka gazing, Sun-gazing", icon: "fa-fire" },
+            { name: "Air (Vayu)", quality: "Movement, Intellect", method: "Pranayama, Forest bathing", icon: "fa-wind" },
+            { name: "Space (Akasha)", quality: "Consciousness, Vastness", method: "Mauna silence, Digital detox", icon: "fa-expand" }
+        ];
+
+        const koshasData = [
+            { name: "Annamaya", quality: "Physical Body / Matter", method: "Mindful eating, Yoga asanas", icon: "fa-child-reaching" },
+            { name: "Pranamaya", quality: "Energy / Life Force", method: "Pranayama breathwork, Reiki", icon: "fa-bolt" },
+            { name: "Manomaya", quality: "Mental / Thoughts", method: "Sakshi Bhava (witnessing), Journaling", icon: "fa-brain" },
+            { name: "Vijnanamaya", quality: "Wisdom / Intuition", method: "Self-inquiry, Solitude, Inner listening", icon: "fa-eye" },
+            { name: "Anandamaya", quality: "Bliss / Unity Sheath", method: "Surrender, Bhakti devotion, Deep Dhyana", icon: "fa-sun" }
+        ];
+
+        /* Default Podcast Playlist */
+        let podcastTracks = [
+            { id: 1, title: "Ep 01: Awakening the Silent Witness", duration: "18:45", desc: "Introduction to shifting from physical stress to eternal law." },
+            { id: 2, title: "Ep 02: De-coding the Antahkarana", duration: "24:10", desc: "How neurons interact with Manas, Buddhi, and Ahamkara." },
+            { id: 3, title: "Ep 03: 10-Min Guided Surya Sun Meditation", duration: "10:00", desc: "Spiritual renewal through elemental dawn alignment." }
+        ];
+
+        window.addEventListener('DOMContentLoaded', () => {
+            renderChapters();
+            renderFramework('bhoota');
+            renderGlossary(glossaryData);
+            renderPlaylist();
+            init3DRotation();
+            initParticles();
+        });
+
+        /* Render Chapters Accordion */
+        function renderChapters() {
+            const container = document.getElementById('chaptersContainer');
+            container.innerHTML = chaptersData.map((ch, idx) => `
+                <div class="glass-card rounded-xl overflow-hidden border-gold-500/20 transition-all">
+                    <button onclick="toggleAccordion(${idx})" class="w-full text-left p-5 flex items-center justify-between font-cinzel text-base sm:text-lg font-bold text-white hover:text-gold-400 transition-colors">
+                        <span class="flex items-center gap-3">
+                            <span class="text-xs px-2.5 py-1 rounded bg-gold-500/10 border border-gold-500/30 text-gold-300 font-mono">${ch.num}</span>
+                            ${ch.title}
+                        </span>
+                        <i id="accordionIcon-${idx}" class="fa-solid fa-chevron-down text-sm text-gold-400 transition-transform"></i>
+                    </button>
+                    <div id="accordionContent-${idx}" class="hidden p-5 pt-0 border-t border-gray-800 text-sm space-y-3">
+                        <p class="text-amber-200/90 italic font-playfair bg-gold-500/5 p-3 rounded-lg border-l-2 border-gold-400">
+                            <strong>Learner's Intent:</strong> ${ch.intent}
+                        </p>
+                        <div class="space-y-1">
+                            <span class="text-xs font-bold uppercase tracking-wider text-gray-400">Key Subtopics:</span>
+                            <ul class="list-disc list-inside text-gray-300 space-y-1 pl-1">
+                                ${ch.topics.map(t => `<li>${t}</li>`).join('')}
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        function toggleAccordion(idx) {
+            const content = document.getElementById(`accordionContent-${idx}`);
+            const icon = document.getElementById(`accordionIcon-${idx}`);
+            if(content.classList.contains('hidden')) {
+                content.classList.remove('hidden');
+                icon.style.transform = 'rotate(180deg)';
+            } else {
+                content.classList.add('hidden');
+                icon.style.transform = 'rotate(0deg)';
+            }
+        }
+
+        /* Render Framework Tabs */
+        function switchFramework(type) {
+            const btnB = document.getElementById('btnBhoota');
+            const btnK = document.getElementById('btnKoshas');
+            if(type === 'bhoota') {
+                btnB.className = "px-6 py-2.5 rounded-lg font-semibold text-xs uppercase tracking-wider transition-all bg-gradient-to-r from-gold-600 to-amber-500 text-mystic-900 shadow";
+                btnK.className = "px-6 py-2.5 rounded-lg font-semibold text-xs uppercase tracking-wider transition-all text-gray-300 hover:text-white";
+                renderFramework('bhoota');
+            } else {
+                btnK.className = "px-6 py-2.5 rounded-lg font-semibold text-xs uppercase tracking-wider transition-all bg-gradient-to-r from-gold-600 to-amber-500 text-mystic-900 shadow";
+                btnB.className = "px-6 py-2.5 rounded-lg font-semibold text-xs uppercase tracking-wider transition-all text-gray-300 hover:text-white";
+                renderFramework('koshas');
+            }
+        }
+
+        function renderFramework(type) {
+            const container = document.getElementById('frameworkContent');
+            const data = type === 'bhoota' ? bhootaData : koshasData;
+            container.innerHTML = data.map(item => `
+                <div class="glass-card p-5 rounded-xl text-center flex flex-col items-center justify-between border-gold-500/20 hover:border-gold-400 transition-all hover:-translate-y-1">
+                    <div class="w-12 h-12 rounded-full bg-gold-500/10 border border-gold-500/30 flex items-center justify-center text-gold-400 text-xl mb-3">
+                        <i class="fa-solid ${item.icon}"></i>
+                    </div>
+                    <h4 class="font-cinzel text-base font-bold text-white mb-1">${item.name}</h4>
+                    <p class="text-xs text-gold-300 mb-2 font-medium">${item.quality}</p>
+                    <p class="text-[11px] text-gray-400 border-t border-gray-800 pt-2 w-full">${item.method}</p>
+                </div>
+            `).join('');
+        }
+
+        /* Glossary Filter */
+        function renderGlossary(data) {
+            const body = document.getElementById('glossaryTableBody');
+            body.innerHTML = data.map(item => `
+                <tr class="hover:bg-gold-500/5 transition-colors">
+                    <td class="py-3 px-6 font-semibold text-gold-300">
+                        ${item.term} <span class="text-[10px] text-gray-400 block font-normal">(${item.cat})</span>
+                    </td>
+                    <td class="py-3 px-6 text-gray-300">${item.desc}</td>
+                    <td class="py-3 px-6 text-xs text-gold-400 font-mono">${item.ref}</td>
+                </tr>
+            `).join('');
+        }
+
+        function filterGlossary() {
+            const q = document.getElementById('glossarySearch').value.toLowerCase();
+            const filtered = glossaryData.filter(g => 
+                g.term.toLowerCase().includes(q) || 
+                g.desc.toLowerCase().includes(q) || 
+                g.cat.toLowerCase().includes(q)
+            );
+            renderGlossary(filtered);
+        }
+
+        /* Podcast Audio Recording & Uploader Logic */
+        let mediaRecorder;
+        let audioChunks = [];
+        let isRecording = false;
+
+        async function toggleRecord() {
+            if(!isRecording) {
+                try {
+                    const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
+                    mediaRecorder = new MediaRecorder(stream);
+                    audioChunks = [];
+                    mediaRecorder.ondataavailable = e => audioChunks.push(e.data);
+                    mediaRecorder.onstop = () => {
+                        const audioBlob = new Blob(audioChunks, { type: 'audio/mp3' });
+                        const audioUrl = URL.createObjectURL(audioBlob);
+                        document.getElementById('audioPlayer').src = audioUrl;
+                        document.getElementById('userAudioPreview').classList.remove('hidden');
+                        document.getElementById('customTrackName').innerText = "Recorded Voice Episode";
+                        triggerToast("Recording completed! Preview ready.");
+                    };
+                    mediaRecorder.start();
+                    isRecording = true;
+                    document.getElementById('recorderStatus').innerText = "● Recording Live Audio...";
+                    document.getElementById('recordIcon').className = "fa-solid fa-pause";
+                    document.getElementById('stopBtn').disabled = false;
+                    document.getElementById('stopBtn').classList.remove('opacity-50', 'cursor-not-allowed');
+                } catch(err) {
+                    alert("Microphone permission required to record audio directly.");
+                }
+            }
+        }
+
+        function stopRecording() {
+            if(mediaRecorder && isRecording) {
+                mediaRecorder.stop();
+                isRecording = false;
+                document.getElementById('recorderStatus').innerText = "Recording Saved!";
+                document.getElementById('recordIcon').className = "fa-solid fa-microphone";
+                document.getElementById('stopBtn').disabled = true;
+                document.getElementById('stopBtn').classList.add('opacity-50', 'cursor-not-allowed');
+            }
+        }
+
+        // File Uploader Event
+        document.getElementById('audioFileInput').addEventListener('change', function(e) {
+            const file = e.target.files[0];
+            if(file) {
+                const url = URL.createObjectURL(file);
+                document.getElementById('audioPlayer').src = url;
+                document.getElementById('userAudioPreview').classList.remove('hidden');
+                document.getElementById('customTrackName').innerText = file.name;
+                triggerToast("Uploaded custom audio file!");
+            }
+        });
+
+        function renderPlaylist() {
+            const list = document.getElementById('podcastPlaylist');
+            list.innerHTML = podcastTracks.map(track => `
+                <div class="p-4 rounded-xl glass-card border-gold-500/20 flex items-center justify-between hover:border-gold-400 transition-all">
+                    <div class="flex items-center gap-3">
+                        <button onclick="playTrack('${track.title}')" class="w-10 h-10 rounded-full bg-gold-500/20 text-gold-400 flex items-center justify-center hover:bg-gold-500 hover:text-mystic-900 transition-all">
+                            <i class="fa-solid fa-play text-xs"></i>
+                        </button>
+                        <div>
+                            <h4 class="text-sm font-bold text-white">${track.title}</h4>
+                            <p class="text-xs text-gray-400">${track.desc}</p>
+                        </div>
+                    </div>
+                    <span class="text-xs font-mono text-gold-400">${track.duration}</span>
+                </div>
+            `).join('');
+        }
+
+        function addCustomToPlaylist() {
+            const title = document.getElementById('customTrackName').innerText;
+            podcastTracks.unshift({
+                id: Date.now(),
+                title: title,
+                duration: "Custom",
+                desc: "User uploaded / recorded podcast audio sample."
+            });
+            renderPlaylist();
+            triggerToast("Added track to public podcast list!");
+        }
+
+        function playTrack(title) {
+            triggerToast(`Playing podcast preview: ${title}`);
+        }
+
+        /* 3D Interactive Book Hover Effect */
+        function init3DRotation() {
+            const container = document.getElementById('bookCardContainer');
+            const book = document.getElementById('book3d');
+
+            container.addEventListener('mousemove', (e) => {
+                const rect = container.getBoundingClientRect();
+                const x = e.clientX - rect.left - rect.width / 2;
+                const y = e.clientY - rect.top - rect.height / 2;
+                book.style.transform = `rotateY(${x * 0.12}deg) rotateX(${-y * 0.12}deg) translateZ(20px)`;
+            });
+
+            container.addEventListener('mouseleave', () => {
+                book.style.transform = `rotateY(0deg) rotateX(0deg) translateZ(0px)`;
+            });
+        }
+
+        /* Particle Canvas Background */
+        function initParticles() {
+            const canvas = document.getElementById('particleCanvas');
+            const ctx = canvas.getContext('2d');
+            let particles = [];
+
+            function resize() {
+                canvas.width = window.innerWidth;
+                canvas.height = window.innerHeight;
+            }
+            window.addEventListener('resize', resize);
+            resize();
+
+            for(let i=0; i<45; i++) {
+                particles.push({
+                    x: Math.random() * canvas.width,
+                    y: Math.random() * canvas.height,
+                    r: Math.random() * 2 + 1,
+                    d: Math.random() * 0.5 + 0.2,
+                    alpha: Math.random() * 0.5 + 0.2
+                });
+            }
+
+            function draw() {
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+                ctx.fillStyle = '#f59e0b';
+                particles.forEach(p => {
+                    ctx.globalAlpha = p.alpha;
+                    ctx.beginPath();
+                    ctx.arc(p.x, p.y, p.r, 0, Math.PI*2);
+                    ctx.fill();
+                    p.y -= p.d;
+                    if(p.y < 0) p.y = canvas.height;
+                });
+                requestAnimationFrame(draw);
+            }
+            draw();
+        }
+
+        /* UI Utilities: Toast & Modals */
+        function triggerToast(msg) {
+            const container = document.getElementById('toastContainer');
+            const toast = document.createElement('div');
+            toast.className = "glass-card border border-gold-400 text-white px-5 py-3 rounded-xl shadow-2xl flex items-center gap-3 text-xs font-semibold animate-bounce pointer-events-auto";
+            toast.innerHTML = `<i class="fa-solid fa-circle-check text-gold-400"></i> ${msg}`;
+            container.appendChild(toast);
+            setTimeout(() => toast.remove(), 3000);
+        }
+
+        function openModal(id) {
+            document.getElementById(id).classList.remove('hidden');
+        }
+        function closeModal(id) {
+            document.getElementById(id).classList.add('hidden');
+        }
+
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobileMenu');
+            menu.classList.toggle('hidden');
+        }
+    </script>
 </body>
 </html>
