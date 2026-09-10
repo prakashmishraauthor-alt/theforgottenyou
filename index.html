@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Path of the Forgotten You | Official Book Landing Page</title>
+    <title>Prakash Mishra | The Forgotten You — Author & Personal Transformation Coach</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -17,19 +17,19 @@
                 extend: {
                     colors: {
                         gold: {
-                            100: '#fef3c7',
-                            300: '#fcd34d',
-                            400: '#fbbf24',
-                            500: '#f59e0b',
-                            600: '#d97706',
-                            700: '#b45309',
+                            100: '#FFFBEA',
+                            300: '#FFE66D',
+                            400: '#FFD43B',
+                            500: '#F5C400',
+                            600: '#D9A900',
+                            700: '#A47D00',
                         },
                         mystic: {
-                            900: '#0B0F19',
-                            800: '#111827',
-                            700: '#1F2937',
-                            600: '#374151',
-                            accent: '#8B5CF6'
+                            900: '#06152E',
+                            800: '#0A1F3D',
+                            700: '#12305A',
+                            600: '#1B3F70',
+                            accent: '#FFD43B'
                         }
                     },
                     fontFamily: {
@@ -48,14 +48,14 @@
             width: 8px;
         }
         ::-webkit-scrollbar-track {
-            background: #0B0F19;
+            background: #06152E;
         }
         ::-webkit-scrollbar-thumb {
-            background: #d97706;
+            background: #D9A900;
             border-radius: 4px;
         }
         ::-webkit-scrollbar-thumb:hover {
-            background: #f59e0b;
+            background: #F5C400;
         }
         
         .gold-gradient-text {
@@ -73,33 +73,31 @@
             backdrop-filter: blur(12px);
             border: 1px solid rgba(217, 119, 6, 0.2);
         }
-
         /* 3D Book Cover styling */
-        .book-container {
-            perspective: 1200px;
-        }
+        .book-container { perspective: 1400px; }
         .book-3d {
-            width: 280px;
-            height: 420px;
+            width: 300px;
+            height: 500px;
             position: relative;
             transform-style: preserve-3d;
-            transition: transform 0.6s cubic-bezier(0.2, 0.8, 0.2, 1);
-            box-shadow: 0 20px 40px rgba(0,0,0,0.8);
+            transition: transform 0.5s cubic-bezier(0.2, 0.8, 0.2, 1);
+            box-shadow: 0 30px 70px rgba(0,0,0,0.65);
+            border-radius: 5px 12px 12px 5px;
         }
         @media (min-width: 640px) {
-            .book-3d {
-                width: 330px;
-                height: 490px;
-            }
+            .book-3d { width: 350px; height: 570px; }
         }
         .book-cover {
             position: absolute;
             width: 100%;
             height: 100%;
-            border-radius: 4px 12px 12px 4px;
+            border-radius: 5px 12px 12px 5px;
             overflow: hidden;
             backface-visibility: hidden;
+            object-fit: cover;
+            display: block;
         }
+        .actual-book-cover { border: 2px solid rgba(245,196,0,0.65); }
         .book-spine {
             position: absolute;
             left: 0;
@@ -118,6 +116,18 @@
             0%, 100% { height: 8px; }
             50% { height: 32px; }
         }
+        /* Navy + Yellow + White visual identity */
+        body { background: #06152E !important; color: #FFFFFF; }
+        .text-gray-100, .text-gray-200, .text-gray-300, .text-gray-400, .text-gray-500 { color: #F4F7FB !important; }
+        .text-white { color: #FFFFFF !important; }
+        .text-gold-300, .text-gold-400, .text-gold-500, .text-gold-600 { color: #FFD43B !important; }
+        .gold-gradient-text { background: linear-gradient(135deg,#FFFBEA 0%,#FFD43B 52%,#F5C400 100%); }
+        .glass-card { background: rgba(7,27,55,0.82); border-color: rgba(255,212,59,0.25); }
+        .border-gray-800 { border-color: rgba(255,255,255,0.12) !important; }
+        .bg-mystic-800 { background-color: #0A1F3D !important; }
+        .bg-mystic-900 { background-color: #06152E !important; }
+        input, textarea, select { color: #FFFFFF !important; }
+        ::placeholder { color: rgba(244,247,251,0.65) !important; }
     </style>
 </head>
 <body class="bg-mystic-900 text-gray-100 font-sans antialiased selection:bg-gold-500 selection:text-black overflow-x-hidden">
@@ -185,8 +195,8 @@
             <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
                 
                 <!-- Hero Left Column -->
-
-                    <h1 class="font-cinzel text-4xl sm:text-5xl lg:text-6xl font-extrabold text-white leading-tight tracking-tight">
+                <div class="lg:col-span-7 space-y-6 text-center lg:text-left">
+<h1 class="font-cinzel text-4xl sm:text-5xl lg:text-6xl font-extrabold text-white leading-tight tracking-tight">
                         The Path of the <br>
                         <span class="gold-gradient-text">Forgotten You</span>
                     </h1>
@@ -240,43 +250,15 @@
                     </div>
                 </div>
 
-                <!-- Hero Right Column: 3D Book Cover Card Reveal -->
+                <!-- Hero Right Column: Actual Book Cover -->
                 <div class="lg:col-span-5 flex flex-col items-center justify-center">
-                    <div class="book-container group cursor-pointer" id="bookCardContainer">
+                    <div class="book-container group cursor-pointer" id="bookCardContainer" aria-label="The Forgotten You book cover">
                         <div class="book-3d" id="book3d">
-                            <div class="book-spine"></div>
-                            <div class="book-cover bg-gradient-to-br from-gray-900 via-mystic-800 to-black border-2 border-gold-500/40 p-6 flex flex-col justify-between relative overflow-hidden">
-                                
-                                <!-- Decorative SVG Sacred Geometry in background -->
-                                <svg class="absolute -right-12 -top-12 w-64 h-64 opacity-20 text-gold-400" fill="currentColor" viewBox="0 0 24 24">
-                                    <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
-                                </svg>
-                                
-                                <div class="relative z-10 text-center pt-4">
-                                    <span class="text-[10px] tracking-[0.3em] font-cinzel uppercase text-gold-400 block mb-2">The Timeless Blueprint</span>
-                                    <h2 class="font-cinzel text-2xl sm:text-3xl font-black text-white leading-tight">THE PATH OF THE</h2>
-                                    <h2 class="font-cinzel text-3xl sm:text-4xl font-black gold-gradient-text tracking-wider mt-1">FORGOTTEN YOU</h2>
-                                    <p class="text-[11px] font-playfair italic text-gray-300 mt-2">Inner Alignment & Mastery</p>
-                                </div>
-
-                                <div class="relative z-10 my-auto py-6 flex justify-center">
-                                    <!-- Center Symbol -->
-                                    <div class="w-24 h-24 rounded-full border border-gold-500/50 flex items-center justify-center bg-mystic-900/80 shadow-inner gold-border-glow">
-                                        <i class="fa-solid fa-yin-yang text-4xl text-amber-400 animate-spin-slow"></i>
-                                    </div>
-                                </div>
-
-                                <div class="relative z-10 text-center pb-2">
-                                    <div class="w-12 h-0.5 bg-gradient-to-r from-transparent via-gold-400 to-transparent mx-auto mb-3"></div>
-                                    <p class="text-xs font-semibold tracking-widest text-gray-300 uppercase">A Guide to Soul Awakening</p>
-                                    <p class="text-[10px] text-gold-400/80 tracking-wider mt-1 font-mono">HARDCOVER & AUDIOBOOK</p>
-                                </div>
-                            </div>
+                            <img src="book-cover.png" alt="The Forgotten You by Prakash Mishra - book cover" class="book-cover actual-book-cover">
                         </div>
                     </div>
-                    
                     <p class="text-xs text-gray-400 mt-6 flex items-center gap-2">
-                        <i class="fa-solid fa-hand-pointer text-gold-400"></i> Hover / Drag to rotate cover in 3D
+                        <i class="fa-solid fa-hand-pointer text-gold-400"></i> Hover to view the cover in 3D
                     </p>
                 </div>
 
@@ -330,7 +312,7 @@
 
                 <div class="glass-card p-8 rounded-2xl hover:border-gold-500/50 transition-all group">
                     <div class="w-14 h-14 rounded-xl bg-gold-500/10 border border-gold-500/30 flex items-center justify-center text-gold-400 text-2xl mb-6 group-hover:scale-110 transition-transform">
-                        <i class="fa-solid fa-[#10]"></i>
+                        <i class="fa-solid fa-brain"></i>
                         <i class="fa-solid fa-brain"></i>
                     </div>
                     <h3 class="font-cinzel text-xl font-bold text-white mb-3">2. Vedic Neuroscience</h3>
@@ -395,85 +377,61 @@
         </div>
     </section>
 
-    <!-- Podcast & Audio Recorder Studio Section -->
+    <!-- Podcast Studio Section -->
     <section id="podcast" class="py-20 bg-mystic-800/40 border-y border-gold-500/20 relative z-10">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center max-w-3xl mx-auto mb-14">
                 <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-gold-500/10 border border-gold-500/30 text-gold-400 text-xs font-bold uppercase tracking-wider mb-3">
-                    <i class="fa-solid fa-microphone-lines"></i> Interactive Sound Experience
+                    <i class="fa-solid fa-microphone-lines"></i> Podcast Studio
                 </div>
-                <h2 class="font-cinzel text-3xl sm:text-4xl font-bold text-white">The Forgotten You Podcast & Meditations</h2>
-                <p class="text-gray-400 text-sm mt-2">Listen to author commentary, or record and upload your own episode preview directly below!</p>
+                <h2 class="font-cinzel text-3xl sm:text-4xl font-bold text-white">The Forgotten You Podcast</h2>
+                <p class="text-gray-400 text-sm mt-2">Listen to episodes or add your own podcast audio directly from this page.</p>
             </div>
 
             <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
-                
-                <!-- Left: Interactive Audio Recorder / Uploader -->
                 <div class="lg:col-span-5 glass-card p-6 sm:p-8 rounded-2xl border-gold-500/30">
                     <h3 class="font-cinzel text-xl font-bold text-white mb-2 flex items-center gap-2">
-                        <i class="fa-solid fa-[#10] text-gold-400"></i> Studio Recording Console
+                        <i class="fa-solid fa-cloud-arrow-up text-gold-400"></i> Upload Your Podcast
                     </h3>
-                    <p class="text-xs text-gray-400 mb-6">Record your thoughts or upload audio file to preview podcast integration.</p>
+                    <p class="text-xs text-gray-400 mb-6">Choose an audio file, give it a title, preview it, and add it to the episode list.</p>
 
-                    <div class="space-y-6">
-                        <!-- Recorder controls -->
-                        <div class="bg-mystic-900/90 border border-gray-800 rounded-xl p-6 text-center space-y-4">
-                            <div id="recorderStatus" class="text-xs font-mono uppercase tracking-widest text-gold-400">
-                                Ready to record
-                            </div>
-
-                            <!-- Animated Audio Waveform Mock -->
-                            <div class="h-10 flex items-center justify-center gap-1" id="waveformDisplay">
-                                <div class="w-1.5 bg-gold-500/30 rounded-full h-3"></div>
-                                <div class="w-1.5 bg-gold-500/50 rounded-full h-5"></div>
-                                <div class="w-1.5 bg-gold-400 rounded-full h-8"></div>
-                                <div class="w-1.5 bg-amber-300 rounded-full h-4"></div>
-                                <div class="w-1.5 bg-gold-500/30 rounded-full h-3"></div>
-                            </div>
-
-                            <div class="flex items-center justify-center gap-4">
-                                <button id="recordBtn" onclick="toggleRecord()" class="w-14 h-14 rounded-full bg-red-600 hover:bg-red-500 text-white flex items-center justify-center text-xl shadow-lg transition-transform hover:scale-105 active:scale-95">
-                                    <i class="fa-solid fa-microphone" id="recordIcon"></i>
-                                </button>
-                                <button id="stopBtn" onclick="stopRecording()" disabled class="w-12 h-12 rounded-full bg-gray-700 opacity-50 text-white flex items-center justify-center text-lg transition-all cursor-not-allowed">
-                                    <i class="fa-solid fa-square"></i>
-                                </button>
-                            </div>
-                            <span class="text-[11px] text-gray-500 block">Click microphone to record voice via browser</span>
+                    <div class="space-y-4">
+                        <div>
+                            <label for="podcastTitle" class="block text-xs font-semibold uppercase text-gray-400 mb-2">Episode Title</label>
+                            <input id="podcastTitle" type="text" placeholder="e.g. Remembering Who You Really Are" class="w-full bg-mystic-900/90 border border-gold-500/30 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-gold-400">
                         </div>
-
-                        <!-- Local Upload Alternative -->
-                        <div class="border-t border-gray-800 pt-4">
-                            <label class="block text-xs font-semibold uppercase text-gray-400 mb-2">Or Upload Local Audio File (.mp3, .wav)</label>
+                        <div>
+                            <label for="audioFileInput" class="block text-xs font-semibold uppercase text-gray-400 mb-2">Podcast Audio</label>
                             <input type="file" id="audioFileInput" accept="audio/*" class="block w-full text-xs text-gray-400 file:mr-4 file:py-2 file:px-4 file:rounded-lg file:border-0 file:text-xs file:font-semibold file:bg-gold-500/20 file:text-gold-300 hover:file:bg-gold-500/30 cursor-pointer">
                         </div>
 
-                        <!-- Audio Player Preview for Created/Uploaded Track -->
-                        <div id="userAudioPreview" class="hidden bg-mystic-900 border border-gold-500/40 p-4 rounded-xl space-y-2">
-                            <p class="text-xs font-bold text-gold-400 flex items-center justify-between">
-                                <span><i class="fa-solid fa-circle-check"></i> Custom Track Loaded</span>
-                                <span id="customTrackName" class="text-gray-400 font-normal truncate max-w-[150px]">My Episode</span>
-                            </p>
-                            <audio id="audioPlayer" controls class="w-full h-8 rounded mt-2"></audio>
-                            <button onclick="addCustomToPlaylist()" class="w-full py-2 bg-gold-500/20 hover:bg-gold-500/30 border border-gold-500/40 text-gold-300 text-xs font-bold rounded-lg transition-all">
-                                <i class="fa-solid fa-plus mr-1"></i> Add To Podcast Episode List
+                        <div id="userAudioPreview" class="hidden bg-mystic-900 border border-gold-500/40 p-4 rounded-xl space-y-3">
+                            <div class="flex items-center justify-between gap-3">
+                                <p class="text-xs font-bold text-gold-400"><i class="fa-solid fa-circle-check"></i> Audio Ready</p>
+                                <span id="customTrackName" class="text-xs text-gray-400 truncate max-w-[180px]">My Episode</span>
+                            </div>
+                            <audio id="audioPlayer" controls class="w-full"></audio>
+                            <button onclick="addCustomToPlaylist()" class="w-full py-3 bg-gradient-to-r from-gold-600 to-gold-400 hover:brightness-110 text-mystic-900 text-xs font-extrabold uppercase tracking-wider rounded-lg transition-all">
+                                <i class="fa-solid fa-plus mr-1"></i> Add Episode To List
                             </button>
+                        </div>
+
+                        <div class="border-t border-gray-800 pt-5">
+                            <p class="text-[11px] text-gray-400 leading-relaxed">
+                                <i class="fa-solid fa-circle-info text-gold-400 mr-1"></i>
+                                This static HTML version previews audio in the browser. To make uploads permanently public for visitors, connect this form to a storage/backend service on your hosting platform.
+                            </p>
                         </div>
                     </div>
                 </div>
 
-                <!-- Right: Playlist View -->
                 <div class="lg:col-span-7 glass-card p-6 sm:p-8 rounded-2xl border-gold-500/30">
                     <h3 class="font-cinzel text-xl font-bold text-white mb-4 flex items-center justify-between">
-                        <span><i class="fa-solid fa-list-ul text-gold-400 mr-2"></i> Featured Podcast Episodes</span>
+                        <span><i class="fa-solid fa-list-ul text-gold-400 mr-2"></i> Podcast Episodes</span>
                         <span class="text-xs text-gray-400 font-sans font-normal">Season 1</span>
                     </h3>
-
-                    <div class="space-y-3" id="podcastPlaylist">
-                        <!-- Default Episodes injected via JS -->
-                    </div>
+                    <div class="space-y-3" id="podcastPlaylist"></div>
                 </div>
-
             </div>
         </div>
     </section>
@@ -518,7 +476,7 @@
                 
                 <div class="md:col-span-4 flex flex-col items-center">
                     <div class="w-48 h-48 sm:w-56 sm:h-56 rounded-full overflow-hidden border-2 border-gold-400 p-1.5 shadow-xl gold-border-glow bg-mystic-900">
-                        <img src="https://placehold.co/400x400/1f2937/fbbf24?text=Author+Image" alt="Author Image" class="w-full h-full object-cover rounded-full">
+                        <img src="prakash.jpg" alt="Author Image" class="w-full h-full object-cover rounded-full">
                     </div>
                     <span class="text-xs text-gold-400 uppercase tracking-widest mt-4 font-bold">Spiritual Teacher & Author</span>
                 </div>
@@ -915,93 +873,79 @@
             renderGlossary(filtered);
         }
 
-        /* Podcast Audio Recording & Uploader Logic */
-        let mediaRecorder;
-        let audioChunks = [];
-        let isRecording = false;
+        /* Podcast uploader logic */
+        let podcastObjectUrls = [];
+        let customPodcast = null;
 
-        async function toggleRecord() {
-            if(!isRecording) {
-                try {
-                    const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
-                    mediaRecorder = new MediaRecorder(stream);
-                    audioChunks = [];
-                    mediaRecorder.ondataavailable = e => audioChunks.push(e.data);
-                    mediaRecorder.onstop = () => {
-                        const audioBlob = new Blob(audioChunks, { type: 'audio/mp3' });
-                        const audioUrl = URL.createObjectURL(audioBlob);
-                        document.getElementById('audioPlayer').src = audioUrl;
-                        document.getElementById('userAudioPreview').classList.remove('hidden');
-                        document.getElementById('customTrackName').innerText = "Recorded Voice Episode";
-                        triggerToast("Recording completed! Preview ready.");
-                    };
-                    mediaRecorder.start();
-                    isRecording = true;
-                    document.getElementById('recorderStatus').innerText = "● Recording Live Audio...";
-                    document.getElementById('recordIcon').className = "fa-solid fa-pause";
-                    document.getElementById('stopBtn').disabled = false;
-                    document.getElementById('stopBtn').classList.remove('opacity-50', 'cursor-not-allowed');
-                } catch(err) {
-                    alert("Microphone permission required to record audio directly.");
-                }
-            }
-        }
-
-        function stopRecording() {
-            if(mediaRecorder && isRecording) {
-                mediaRecorder.stop();
-                isRecording = false;
-                document.getElementById('recorderStatus').innerText = "Recording Saved!";
-                document.getElementById('recordIcon').className = "fa-solid fa-microphone";
-                document.getElementById('stopBtn').disabled = true;
-                document.getElementById('stopBtn').classList.add('opacity-50', 'cursor-not-allowed');
-            }
-        }
-
-        // File Uploader Event
         document.getElementById('audioFileInput').addEventListener('change', function(e) {
             const file = e.target.files[0];
-            if(file) {
-                const url = URL.createObjectURL(file);
-                document.getElementById('audioPlayer').src = url;
-                document.getElementById('userAudioPreview').classList.remove('hidden');
-                document.getElementById('customTrackName').innerText = file.name;
-                triggerToast("Uploaded custom audio file!");
+            if (!file) return;
+            if (!file.type.startsWith('audio/')) {
+                triggerToast('Please choose an audio file.');
+                return;
             }
+            const url = URL.createObjectURL(file);
+            podcastObjectUrls.push(url);
+            customPodcast = {
+                title: document.getElementById('podcastTitle').value.trim() || file.name.replace(/\.[^/.]+$/, ''),
+                url,
+                name: file.name
+            };
+            document.getElementById('audioPlayer').src = url;
+            document.getElementById('userAudioPreview').classList.remove('hidden');
+            document.getElementById('customTrackName').innerText = file.name;
+            triggerToast('Podcast audio loaded and ready to preview.');
         });
+
+        function addCustomToPlaylist() {
+            if (!customPodcast) {
+                triggerToast('Choose an audio file first.');
+                return;
+            }
+            podcastTracks.unshift({
+                id: Date.now(),
+                title: customPodcast.title,
+                duration: 'Custom',
+                desc: 'Custom podcast episode uploaded from this page.',
+                url: customPodcast.url,
+                custom: true
+            });
+            renderPlaylist();
+            triggerToast('Your podcast was added to the episode list.');
+        }
 
         function renderPlaylist() {
             const list = document.getElementById('podcastPlaylist');
-            list.innerHTML = podcastTracks.map(track => `
-                <div class="p-4 rounded-xl glass-card border-gold-500/20 flex items-center justify-between hover:border-gold-400 transition-all">
-                    <div class="flex items-center gap-3">
-                        <button onclick="playTrack('${track.title}')" class="w-10 h-10 rounded-full bg-gold-500/20 text-gold-400 flex items-center justify-center hover:bg-gold-500 hover:text-mystic-900 transition-all">
-                            <i class="fa-solid fa-play text-xs"></i>
-                        </button>
-                        <div>
-                            <h4 class="text-sm font-bold text-white">${track.title}</h4>
-                            <p class="text-xs text-gray-400">${track.desc}</p>
+            list.innerHTML = podcastTracks.map((track, index) => `
+                <div class="p-4 rounded-xl glass-card border-gold-500/20 hover:border-gold-400 transition-all">
+                    <div class="flex items-center justify-between gap-3">
+                        <div class="flex items-center gap-3 min-w-0">
+                            <button onclick="playTrack(${index})" class="w-10 h-10 shrink-0 rounded-full bg-gold-500/20 text-gold-400 flex items-center justify-center hover:bg-gold-500 hover:text-mystic-900 transition-all">
+                                <i class="fa-solid fa-play text-xs"></i>
+                            </button>
+                            <div class="min-w-0">
+                                <h4 class="text-sm font-bold text-white truncate">${track.title}</h4>
+                                <p class="text-xs text-gray-400">${track.desc}</p>
+                            </div>
                         </div>
+                        <span class="text-xs font-mono text-gold-400 shrink-0">${track.duration}</span>
                     </div>
-                    <span class="text-xs font-mono text-gold-400">${track.duration}</span>
+                    ${track.url ? `<audio id="trackAudio-${track.id}" src="${track.url}" controls class="w-full mt-3 h-8"></audio>` : ''}
                 </div>
             `).join('');
         }
 
-        function addCustomToPlaylist() {
-            const title = document.getElementById('customTrackName').innerText;
-            podcastTracks.unshift({
-                id: Date.now(),
-                title: title,
-                duration: "Custom",
-                desc: "User uploaded / recorded podcast audio sample."
-            });
-            renderPlaylist();
-            triggerToast("Added track to public podcast list!");
-        }
-
-        function playTrack(title) {
-            triggerToast(`Playing podcast preview: ${title}`);
+        function playTrack(index) {
+            const track = podcastTracks[index];
+            if (track.url) {
+                const player = document.getElementById(`trackAudio-${track.id}`);
+                if (player) {
+                    document.querySelectorAll('#podcastPlaylist audio').forEach(a => { if (a !== player) a.pause(); });
+                    player.play();
+                }
+            } else {
+                triggerToast(`Preview ready for: ${track.title}`);
+            }
         }
 
         /* 3D Interactive Book Hover Effect */
@@ -1013,7 +957,7 @@
                 const rect = container.getBoundingClientRect();
                 const x = e.clientX - rect.left - rect.width / 2;
                 const y = e.clientY - rect.top - rect.height / 2;
-                book.style.transform = `rotateY(${x * 0.12}deg) rotateX(${-y * 0.12}deg) translateZ(20px)`;
+                book.style.transform = `rotateY(${x * 0.10}deg) rotateX(${-y * 0.08}deg) translateZ(20px)`;
             });
 
             container.addEventListener('mouseleave', () => {
@@ -1046,7 +990,7 @@
 
             function draw() {
                 ctx.clearRect(0, 0, canvas.width, canvas.height);
-                ctx.fillStyle = '#f59e0b';
+                ctx.fillStyle = '#F5C400';
                 particles.forEach(p => {
                     ctx.globalAlpha = p.alpha;
                     ctx.beginPath();
